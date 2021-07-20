@@ -30,6 +30,7 @@
 		E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5A05ABC26A6B7C900B1B7FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5A05AC326A6B7DD00B1B7FC /* PurchaseX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PurchaseX.xcodeproj; path = ../PurchaseX/PurchaseX.xcodeproj; sourceTree = "<group>"; };
+		E5A05ACA26A6C90900B1B7FC /* Production.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Production.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		E5A05AB426A6B7C800B1B7FC /* PurchaseXTest */ = {
 			isa = PBXGroup;
 			children = (
+				E5A05AC926A6C8E100B1B7FC /* Configuration */,
 				E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */,
 				E5A05AB726A6B7C800B1B7FC /* ContentView.swift */,
 				E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */,
@@ -85,6 +87,14 @@
 				E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E5A05AC926A6C8E100B1B7FC /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E5A05ACA26A6C90900B1B7FC /* Production.storekit */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
