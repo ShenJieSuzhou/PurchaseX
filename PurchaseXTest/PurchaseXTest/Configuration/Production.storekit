@@ -2,18 +2,18 @@
   "identifier" : "845A6A50",
   "nonRenewingSubscriptions" : [
     {
-      "displayPrice" : "0.99",
+      "displayPrice" : "1.99",
       "familyShareable" : false,
       "internalID" : "C2C1129F",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
+          "description" : "花费12元，获得此月卡。",
+          "displayName" : "月卡",
+          "locale" : "zh_CN"
         }
       ],
-      "productID" : "com.temporary.id",
-      "referenceName" : null,
+      "productID" : "com.purchase.monthcard",
+      "referenceName" : "月卡",
       "type" : "NonRenewingSubscription"
     }
   ],
@@ -24,28 +24,43 @@
       "internalID" : "64582EC8",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
+          "description" : "花费 6 元，获得 60 金币。",
+          "displayName" : "60 金币",
+          "locale" : "zh_CN"
         }
       ],
-      "productID" : "com.temporary.id",
-      "referenceName" : null,
+      "productID" : "com.purchasex.60",
+      "referenceName" : "60 金币",
       "type" : "Consumable"
     },
     {
-      "displayPrice" : "0.99",
+      "displayPrice" : "1.99",
       "familyShareable" : false,
       "internalID" : "9FDD0B05",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
+          "description" : "花费 12 元，获得 120 金币。",
+          "displayName" : "120 金币",
+          "locale" : "zh_CN"
         }
       ],
-      "productID" : "com.temporary.id",
-      "referenceName" : null,
+      "productID" : "com.purchasex.120",
+      "referenceName" : "120 金币",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "5E335AEB",
+      "localizations" : [
+        {
+          "description" : "花费 6 元，获得此滤镜。",
+          "displayName" : "风格滤镜",
+          "locale" : "zh_CN"
+        }
+      ],
+      "productID" : "com.purchasex.stylefilter",
+      "referenceName" : "风格滤镜 ",
       "type" : "NonConsumable"
     }
   ],
@@ -64,21 +79,43 @@
           "adHocOffers" : [
 
           ],
-          "displayPrice" : "0.99",
+          "displayPrice" : "2.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "7133328F",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "",
-              "displayName" : "",
-              "locale" : "en_US"
+              "description" : "花费 15 元，获得1周会员资格。",
+              "displayName" : "vip1",
+              "locale" : "zh_CN"
             }
           ],
-          "productID" : "com.temporary.id",
+          "productID" : "com.purchasex.vip1",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "VIP1",
+          "subscriptionGroupID" : "0E3ACB59",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "1.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "F475FE89",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "花费 30 元，获得 1 个月会员资格。",
+              "displayName" : "VIP2",
+              "locale" : "zh_CN"
+            }
+          ],
+          "productID" : "com.purchasex.vip2",
           "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : null,
+          "referenceName" : "VIP2",
           "subscriptionGroupID" : "0E3ACB59",
           "type" : "RecurringSubscription"
         }
