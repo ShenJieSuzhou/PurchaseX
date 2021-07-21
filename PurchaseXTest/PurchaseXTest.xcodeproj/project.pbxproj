@@ -11,6 +11,7 @@
 		E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB726A6B7C800B1B7FC /* ContentView.swift */; };
 		E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */; };
 		E5A05ABD26A6B7C900B1B7FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05ABC26A6B7C900B1B7FC /* Preview Assets.xcassets */; };
+		E5A05ACF26A80BA600B1B7FC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05ACE26A80BA600B1B7FC /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		E5A05ABC26A6B7C900B1B7FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5A05AC326A6B7DD00B1B7FC /* PurchaseX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PurchaseX.xcodeproj; path = ../PurchaseX/PurchaseX.xcodeproj; sourceTree = "<group>"; };
 		E5A05ACA26A6C90900B1B7FC /* Production.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Production.storekit; sourceTree = "<group>"; };
+		E5A05ACE26A80BA600B1B7FC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A05ACF26A80BA600B1B7FC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 				E5A05AC326A6B7DD00B1B7FC /* PurchaseX.xcodeproj */,
 				E5A05AB426A6B7C800B1B7FC /* PurchaseXTest */,
 				E5A05AB326A6B7C800B1B7FC /* Products */,
+				E5A05ACD26A80BA600B1B7FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +99,14 @@
 				E5A05ACA26A6C90900B1B7FC /* Production.storekit */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		E5A05ACD26A80BA600B1B7FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5A05ACE26A80BA600B1B7FC /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,9 +324,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseXTest/Preview Content\"";
+				DEVELOPMENT_TEAM = WSSN499SLU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -328,8 +342,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.SnailAgreement.PurchaseXTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.TestForIAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TestForIAP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -341,9 +356,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PurchaseXTest/Preview Content\"";
+				DEVELOPMENT_TEAM = WSSN499SLU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -357,8 +374,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.SnailAgreement.PurchaseXTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.TestForIAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = TestForIAP;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
