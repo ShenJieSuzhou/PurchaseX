@@ -15,6 +15,7 @@
 		E5A05AD226A816C500B1B7FC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD126A816C500B1B7FC /* Product.swift */; };
 		E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD426A8174800B1B7FC /* ProductView.swift */; };
 		E5A05AD826A91F9D00B1B7FC /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */; };
+		E5A05AE126A94B5C00B1B7FC /* PurchaseErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		E5A05AD126A816C500B1B7FC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		E5A05AD426A8174800B1B7FC /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
+		E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				E5A05AB726A6B7C800B1B7FC /* ContentView.swift */,
 				E5A05AD426A8174800B1B7FC /* ProductView.swift */,
 				E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */,
+				E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A05AE126A94B5C00B1B7FC /* PurchaseErrorView.swift in Sources */,
 				E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */,
 				E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */,
 				E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */,

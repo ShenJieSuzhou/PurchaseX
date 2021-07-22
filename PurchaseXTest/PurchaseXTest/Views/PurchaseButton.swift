@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct PurchaseButton: View {
+    
+    var price: String
+    var product: Product?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if product == nil {
+            PurchaseErrorView()
+        } else {
+            HStack {
+                
+            }
+        }
     }
 }
 
 struct PurchaseButton_Previews: PreviewProvider {
     static var previews: some View {
-        PurchaseButton()
+        PurchaseButton(price: "0.99", product: Product(pid: "", displayName: "", thumb: "", price: "", type: .Non_Consumable))
     }
 }
