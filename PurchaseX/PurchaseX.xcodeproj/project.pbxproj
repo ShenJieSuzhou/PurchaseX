@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */; };
 		E5A05AA326A6B78900B1B7FC /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A05AA026A6B78900B1B7FC /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5A05ADC26A93E8500B1B7FC /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADB26A93E8500B1B7FC /* ConfigManager.swift */; };
+		E5A05ADF26A93EDC00B1B7FC /* PurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADE26A93EDC00B1B7FC /* PurchaseHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E5A05A9D26A6B78900B1B7FC /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AA026A6B78900B1B7FC /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
 		E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PurchaseX.docc; sourceTree = "<group>"; };
+		E5A05ADB26A93E8500B1B7FC /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		E5A05ADE26A93EDC00B1B7FC /* PurchaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,10 +51,28 @@
 		E5A05A9F26A6B78900B1B7FC /* PurchaseX */ = {
 			isa = PBXGroup;
 			children = (
+				E5A05ADD26A93EA100B1B7FC /* PurchaseHelper */,
+				E5A05ADA26A93E5B00B1B7FC /* Util */,
 				E5A05AA026A6B78900B1B7FC /* PurchaseX.h */,
 				E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */,
 			);
 			path = PurchaseX;
+			sourceTree = "<group>";
+		};
+		E5A05ADA26A93E5B00B1B7FC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E5A05ADB26A93E8500B1B7FC /* ConfigManager.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E5A05ADD26A93EA100B1B7FC /* PurchaseHelper */ = {
+			isa = PBXGroup;
+			children = (
+				E5A05ADE26A93EDC00B1B7FC /* PurchaseHelper.swift */,
+			);
+			path = PurchaseHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +155,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */,
+				E5A05ADC26A93E8500B1B7FC /* ConfigManager.swift in Sources */,
+				E5A05ADF26A93EDC00B1B7FC /* PurchaseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

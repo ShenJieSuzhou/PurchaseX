@@ -17,23 +17,26 @@ enum ProductType {
 
 
 protocol ProductProtocol {
-    var type: ProductType { get }
+    var type: ProductType { get set }
 }
 
 
-struct Product{
-    
-    private var productID: String
-    private var productName: String
-    private var price: String
-    private var image: Image
+struct Product: ProductProtocol{
+    var type: ProductType
     
     
-    init(pid: String, displayName pName: String, thumb pImage: String, price pPrice: String) {
+    public var productID: String
+    public var productName: String
+    public var price: String
+    public var image: String
+    
+    
+    init(pid: String, displayName pName: String, thumb pImage: String, price pPrice: String, type pType: ProductType) {
         self.productID = pid
         self.productName = pName
         self.price = pPrice
-        self.image = Image(pImage)
+        self.image = pImage
+        self.type = pType
     }
     
 }
