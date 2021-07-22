@@ -17,7 +17,18 @@ struct PurchaseButton: View {
             PurchaseErrorView()
         } else {
             HStack {
-                
+                Spacer()
+                Button(action: {
+                    
+                }) {
+                    Text(price)
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(height: 40)
+                        .background(Color.blue)
+                        .cornerRadius(25)
+                }
             }
         }
     }
@@ -25,6 +36,19 @@ struct PurchaseButton: View {
 
 struct PurchaseButton_Previews: PreviewProvider {
     static var previews: some View {
-        PurchaseButton(price: "0.99", product: Product(pid: "", displayName: "", thumb: "", price: "", type: .Non_Consumable))
+        HStack {
+            ProgressView()
+            Spacer()
+            Button(action: {}) {
+                Text("£1.99")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(height: 40)
+                    .background(Color.blue)
+                    .cornerRadius(25)
+            }
+        }
+        .padding()
     }
 }

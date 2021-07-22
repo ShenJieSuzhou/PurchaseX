@@ -31,7 +31,9 @@ struct ProductView: View {
                 .lineLimit(2)
                 .minimumScaleFactor(0.5)
             
+            Spacer()
             
+            PurchaseButton(price: product.price, product: product)
         }
     }
 }
