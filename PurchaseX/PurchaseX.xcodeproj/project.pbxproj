@@ -12,6 +12,9 @@
 		E5A05ADC26A93E8500B1B7FC /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADB26A93E8500B1B7FC /* ConfigManager.swift */; };
 		E5A05ADF26A93EDC00B1B7FC /* PurchaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADE26A93EDC00B1B7FC /* PurchaseHelper.swift */; };
 		E5A05AE326AA5A0E00B1B7FC /* PurchaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */; };
+		E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE526AA956200B1B7FC /* PXLog.swift */; };
+		E5A05AE826AA96DE00B1B7FC /* PurchaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */; };
+		E5A05AEA26AA96FA00B1B7FC /* PurchaseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		E5A05ADB26A93E8500B1B7FC /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		E5A05ADE26A93EDC00B1B7FC /* PurchaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHelper.swift; sourceTree = "<group>"; };
 		E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseState.swift; sourceTree = "<group>"; };
+		E5A05AE526AA956200B1B7FC /* PXLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXLog.swift; sourceTree = "<group>"; };
+		E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNotification.swift; sourceTree = "<group>"; };
+		E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseException.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A05ADB26A93E8500B1B7FC /* ConfigManager.swift */,
+				E5A05AE526AA956200B1B7FC /* PXLog.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -74,6 +81,8 @@
 			children = (
 				E5A05ADE26A93EDC00B1B7FC /* PurchaseHelper.swift */,
 				E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */,
+				E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */,
+				E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */,
 			);
 			path = PurchaseHelper;
 			sourceTree = "<group>";
@@ -157,6 +166,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */,
+				E5A05AEA26AA96FA00B1B7FC /* PurchaseException.swift in Sources */,
+				E5A05AE826AA96DE00B1B7FC /* PurchaseNotification.swift in Sources */,
 				E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */,
 				E5A05ADC26A93E8500B1B7FC /* ConfigManager.swift in Sources */,
 				E5A05AE326AA5A0E00B1B7FC /* PurchaseState.swift in Sources */,
