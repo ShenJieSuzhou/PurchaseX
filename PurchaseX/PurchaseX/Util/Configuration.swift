@@ -9,14 +9,14 @@ import Foundation
 import PurchaseXTest
 
 
-public struct ConfigManager {
+public struct Configuration {
     
     public static let ConfigFile = "Products"
     
     /// read plist file to get products info
     public static func readConfigFile() -> Set<String> {
         
-        guard let result = ConfigManager.readPropertyFile(filename: ConfigFile) else {
+        guard let result = Configuration.readPropertyFile(filename: ConfigFile) else {
             PXLog.event(.configurationNotFound)
             PXLog.event(.configurationFailure)
             return nil
