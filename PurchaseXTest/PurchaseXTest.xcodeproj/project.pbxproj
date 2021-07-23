@@ -16,6 +16,7 @@
 		E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD426A8174800B1B7FC /* ProductView.swift */; };
 		E5A05AD826A91F9D00B1B7FC /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */; };
 		E5A05AE126A94B5C00B1B7FC /* PurchaseErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */; };
+		E5A05AEC26AAAC1700B1B7FC /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AEB26AAAC1700B1B7FC /* Products.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		E5A05AD426A8174800B1B7FC /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
 		E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseErrorView.swift; sourceTree = "<group>"; };
+		E5A05AEB26AAAC1700B1B7FC /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A05ACA26A6C90900B1B7FC /* Production.storekit */,
+				E5A05AEB26AAAC1700B1B7FC /* Products.plist */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				E5A05ABD26A6B7C900B1B7FC /* Preview Assets.xcassets in Resources */,
 				E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */,
+				E5A05AEC26AAAC1700B1B7FC /* Products.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
