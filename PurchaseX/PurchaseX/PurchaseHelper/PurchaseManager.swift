@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-public class PurchaseManager: ObservableObject {
+public class PurchaseManager: NSObject {
     
     // MARK: Purchasing completion handler
     // Completion handler when requesting products from appstore.
@@ -26,7 +26,7 @@ public class PurchaseManager: ObservableObject {
     
     // MARK: Property
     /// Array of products retrieved from AppleStore
-    private var products: [SKProduct]?
+    internal var products: [SKProduct]?
     
     /// Array of productID
     private var purchasedProducts = [String]()
@@ -56,8 +56,7 @@ public class PurchaseManager: ObservableObject {
     
         
     // MARK: - Initialization
-    init() {
-        
+    public override init() {
 //        SKPaymentQueue.default().add
         
         // Read productID from config plist file
@@ -81,7 +80,7 @@ extension PurchaseManager {
         // save request products info
         requestProductsCompletion = completion
         
-        guard configuredProductIdentifiers == nil || configuredProductIdentifiers?.count <= 0 {
+        guard configuredProductIdentifiers != nil || configuredProductIdentifiers!.count > 0 else {
             PXLog.event(.configurationEmpty)
             DispatchQueue.main.async {
                 completion(.configurationEmpty)
@@ -96,7 +95,7 @@ extension PurchaseManager {
         // 1. Cancel pending requests
         productsRequest?.cancel()
         // 2. Init SKProductsRequest
-        productsRequest = SKProductsRequest(productIdentifiers: configuredProductIdentifiers)
+        productsRequest = SKProductsRequest(productIdentifiers: configuredProductIdentifiers!)
         // 3. Set Delegate to receive the notification
         productsRequest!.delegate = self
         // 4. Start request

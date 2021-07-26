@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E571922126AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922026AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift */; };
 		E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */; };
 		E5A05AA326A6B78900B1B7FC /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A05AA026A6B78900B1B7FC /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADB26A93E8500B1B7FC /* Configuration.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E571922026AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purchase+SKProductsRequestDelegate.swift"; sourceTree = "<group>"; };
 		E5A05A9D26A6B78900B1B7FC /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AA026A6B78900B1B7FC /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
 		E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PurchaseX.docc; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */,
 				E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */,
 				E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */,
+				E571922026AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift */,
 			);
 			path = PurchaseHelper;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */,
 				E5A05AE326AA5A0E00B1B7FC /* PurchaseState.swift in Sources */,
 				E5A05ADF26A93EDC00B1B7FC /* PurchaseManager.swift in Sources */,
+				E571922126AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
