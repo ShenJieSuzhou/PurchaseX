@@ -6,15 +6,13 @@
 //
 
 import Foundation
-import PurchaseXTest
-
 
 public struct Configuration {
     
     public static let ConfigFile = "Products"
     
     /// read plist file to get products info
-    public static func readConfigFile() -> Set<String> {
+    public static func readConfigFile() -> Set<String>? {
         
         guard let result = Configuration.readPropertyFile(filename: ConfigFile) else {
             PXLog.event(.configurationNotFound)

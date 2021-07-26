@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import PurchaseX
 
+/// The main app View
 struct ContentView: View {
+    
+    @EnvironmentObject var purchaseManager: PurchaseManager
     
     // Mock data
     let products:[Product] = [
@@ -63,11 +67,27 @@ struct ContentView: View {
                                                                
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        if #available(iOS 15.0, *) {
-            ContentView()
-                .previewInterfaceOrientation(.portraitUpsideDown)
-        } else {
-            // Fallback on earlier versions
-        }
+//        @StateObject var purchaseManager = PurchaseManager()
+        return NavigationView {
+            List {
+                Section(header: Text("Producst")) {
+                    
+                }
+
+                Section(header: Text("VIP Services")) {
+                    
+                }
+
+                Section(header: Text("NonRenewingSubscriptions")) {
+                    
+                }
+                
+                Section(header: Text("AutoRenewableSubscriptions")) {
+                    
+                }
+            }.listStyle(.grouped)
+            .navigationTitle("PurchaseX")
+        }.navigationViewStyle(StackNavigationViewStyle())
+//            .environmentObject(purchaseManager)
     }
 }

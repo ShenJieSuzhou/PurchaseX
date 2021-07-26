@@ -8,66 +8,74 @@
 import Foundation
 import StoreKit
 
-public class PurchaseManager {
+public class PurchaseManager: ObservableObject {
     
+    // MARK: Purchasing completion handler
+    // Completion handler when requesting products from appstore.
+    var requestProductsCompletion: ((PurchaseNotification) -> Void)? = nil
+    
+    // Completion handler when requesting a receipt refresh from appstore
+    var requestReceiptCompletion: ((PurchaseNotification) -> Void)? = nil
+
+    // Completion handler when purchasing a product from appstore
+    var purchasingProductCompletion: ((PurchaseNotification) -> Void)? = nil
+
+    // Completion handler when requesting appstore to restore purchases
+    var restorePurchasesCompletion: ((PurchaseNotification) -> Void)? = nil
+    
+    
+    // MARK: Property
     /// Array of products retrieved from AppleStore
-    private var products: [Product]?
+    private var products: [SKProduct]?
     
     /// Array of productID
     private var purchasedProducts = [String]()
     
     /// the state of purchase
-    public var purchaseState: PurchaseState = .notStarted
+    var purchaseState: PurchaseState = .notStarted
     
+    /// List of productIds read from the storekit configuration file.
+    public var configuredProductIdentifiers: Set<String>?
     
+    ///
+    public var purchasedProductIdentifiers = Set<String>()
     
-    /// Return consumableProducts in the products array
-    public var consumableProducts: [Product]? {
-        guard products != nil else {
-            return nil
+    /// True if appstore products have been retrived via function
+    public var isAppstoreProductInfoAvailable: Bool {
+        guard products == nil else {
+            return false
         }
-        
-        return products?.filter({ product in
-            product.type = .consumable
-        })
+        guard products!.count > 0 else {
+            return false
+        }
+        return true
     }
     
-    // Return nonComsumableProducts in the products array
-    public var nonConsumableProducts: [Product]? {
-        guard products != nil else {
-            return nil
-        }
-        
-        return products?.filter({ product in
-            product.type = .nonConsumable
-        })
-    }
+    /// Used to request product info from Appstore
+    private var productsRequest: SKProductsRequest?
     
-    // Return auto-renewing subscription products in products array
-    public var subscriptionProducts: [Product]? {
-        guard products != nil else {
-            return nil
-        }
         
-        return products?.filter({ product in
-            product.type = .autoRenewable
-        })
-    }
-    
     // MARK: - Initialization
     init() {
+        
+//        SKPaymentQueue.default().add
+        
         // Read productID from config plist file
         if let productIds = Configuration.readConfigFile() {
             PXLog.event(.requestProductsStarted)
+            configuredProductIdentifiers = productIds
             
             
         }
     }
     
-    /// Request products from Appstore by productID
-    public func requestProductsFromAppstore(productIds: Set<String>) async -> [Product]? {
-        
-        return await Product.products(for: productIds)
+    deinit {
+//        SKPaymentQueue.default().remove(self)
     }
-    
+}
+
+extension PurchaseManager {
+    public func requestProductsFromAppstore() {
+        
+    }
 }

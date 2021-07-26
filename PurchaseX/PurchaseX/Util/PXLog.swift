@@ -11,7 +11,7 @@ import os.log
 /// we use Apple's unified logging system to log errors, notifications and general messages.
 
 public struct PXLog {
-    private static let iapLog = OSLog(subsystem: Bundle.main.bundleIdentifier, category: "StoreKit")
+    private static let iapLog = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "StoreKit")
     
     public static func event(_ event: PurchaseNotification) {
         #if DEBUG
@@ -23,13 +23,13 @@ public struct PXLog {
     
     public static func event(_ event: PurchaseNotification, productId: String) {
         #if DEBUG
-        print("\(event.shortDescription()) for product \(productID)")
+        print("\(event.shortDescription()) for product \(productId)")
         #else
         os_log("%{public}s for product %{public}s", log: iapLog, type: .default, event.shortDescription(), productId)
         #endif
     }
     
-    public static func event(_ event: PurchaseNotification, productId: ProductId, webOrderLineItemId: String?) {
+    public static func event(_ event: PurchaseNotification, productId: String, webOrderLineItemId: String?) {
         #if DEBUG
         print("\(event.shortDescription()) for product \(productId) with webOrderLineItemId \(webOrderLineItemId ?? "none")")
         #else
@@ -44,7 +44,7 @@ public struct PXLog {
     
     public static var transactionLog: Set<TransactionLog> = []
     
-    public static func transaction(_ event: PurchaseNotification, productId: ProductId) {
+    public static func transaction(_ event: PurchaseNotification, productId: String) {
         
         let t = TransactionLog(notification: event, productId: productId)
         if transactionLog.contains(t) { return }
