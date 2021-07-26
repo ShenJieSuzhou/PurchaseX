@@ -75,7 +75,32 @@ public class PurchaseManager: ObservableObject {
 }
 
 extension PurchaseManager {
-    public func requestProductsFromAppstore() {
+    /// - Request products form appstore
+    /// - Parameter completion: a closure that will be called when the results returned from the appstore
+    public func requestProductsFromAppstore(completion: @escaping (_ notification: PurchaseNotification?) -> Void) {
+        // save request products info
+        requestProductsCompletion = completion
         
+        guard configuredProductIdentifiers == nil || configuredProductIdentifiers?.count <= 0 {
+            PXLog.event(.configurationEmpty)
+            DispatchQueue.main.async {
+                completion(.configurationEmpty)
+            }
+            return
+        }
+        
+        if products != nil {
+            products?.removeAll()
+        }
+        
+        // 1. Cancel pending requests
+        productsRequest?.cancel()
+        // 2. Init SKProductsRequest
+        productsRequest = SKProductsRequest(productIdentifiers: configuredProductIdentifiers)
+        // 3. Set Delegate to receive the notification
+        productsRequest!.delegate = self
+        // 4. Start request
+        productsRequest!.start()
+        PXLog.event(.requestProductsStarted)
     }
 }
