@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E571922126AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922026AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift */; };
+		E571922126AEAF9A000097A9 /* PurchaseXDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922026AEAF9A000097A9 /* PurchaseXDelegate.swift */; };
 		E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */; };
 		E5A05AA326A6B78900B1B7FC /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A05AA026A6B78900B1B7FC /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADB26A93E8500B1B7FC /* Configuration.swift */; };
-		E5A05ADF26A93EDC00B1B7FC /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADE26A93EDC00B1B7FC /* PurchaseManager.swift */; };
-		E5A05AE326AA5A0E00B1B7FC /* PurchaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */; };
+		E5A05ADF26A93EDC00B1B7FC /* PurchaseXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADE26A93EDC00B1B7FC /* PurchaseXManager.swift */; };
+		E5A05AE326AA5A0E00B1B7FC /* PurchaseXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE226AA5A0E00B1B7FC /* PurchaseXState.swift */; };
 		E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE526AA956200B1B7FC /* PXLog.swift */; };
-		E5A05AE826AA96DE00B1B7FC /* PurchaseNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */; };
-		E5A05AEA26AA96FA00B1B7FC /* PurchaseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */; };
+		E5A05AE826AA96DE00B1B7FC /* PurchaseXNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */; };
+		E5A05AEA26AA96FA00B1B7FC /* PurchaseXException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE926AA96FA00B1B7FC /* PurchaseXException.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E571922026AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Purchase+SKProductsRequestDelegate.swift"; sourceTree = "<group>"; };
+		E571922026AEAF9A000097A9 /* PurchaseXDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXDelegate.swift; sourceTree = "<group>"; };
 		E5A05A9D26A6B78900B1B7FC /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AA026A6B78900B1B7FC /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
 		E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PurchaseX.docc; sourceTree = "<group>"; };
 		E5A05ADB26A93E8500B1B7FC /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		E5A05ADE26A93EDC00B1B7FC /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
-		E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseState.swift; sourceTree = "<group>"; };
+		E5A05ADE26A93EDC00B1B7FC /* PurchaseXManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXManager.swift; sourceTree = "<group>"; };
+		E5A05AE226AA5A0E00B1B7FC /* PurchaseXState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXState.swift; sourceTree = "<group>"; };
 		E5A05AE526AA956200B1B7FC /* PXLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXLog.swift; sourceTree = "<group>"; };
-		E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNotification.swift; sourceTree = "<group>"; };
-		E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseException.swift; sourceTree = "<group>"; };
+		E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXNotification.swift; sourceTree = "<group>"; };
+		E5A05AE926AA96FA00B1B7FC /* PurchaseXException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXException.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 		E5A05A9F26A6B78900B1B7FC /* PurchaseX */ = {
 			isa = PBXGroup;
 			children = (
-				E5A05ADD26A93EA100B1B7FC /* PurchaseHelper */,
+				E5A05ADD26A93EA100B1B7FC /* PurchaseXHelper */,
 				E5A05ADA26A93E5B00B1B7FC /* Util */,
 				E5A05AA026A6B78900B1B7FC /* PurchaseX.h */,
 				E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */,
@@ -78,16 +78,16 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		E5A05ADD26A93EA100B1B7FC /* PurchaseHelper */ = {
+		E5A05ADD26A93EA100B1B7FC /* PurchaseXHelper */ = {
 			isa = PBXGroup;
 			children = (
-				E5A05ADE26A93EDC00B1B7FC /* PurchaseManager.swift */,
-				E5A05AE226AA5A0E00B1B7FC /* PurchaseState.swift */,
-				E5A05AE726AA96DE00B1B7FC /* PurchaseNotification.swift */,
-				E5A05AE926AA96FA00B1B7FC /* PurchaseException.swift */,
-				E571922026AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift */,
+				E5A05ADE26A93EDC00B1B7FC /* PurchaseXManager.swift */,
+				E5A05AE226AA5A0E00B1B7FC /* PurchaseXState.swift */,
+				E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */,
+				E5A05AE926AA96FA00B1B7FC /* PurchaseXException.swift */,
+				E571922026AEAF9A000097A9 /* PurchaseXDelegate.swift */,
 			);
-			path = PurchaseHelper;
+			path = PurchaseXHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,13 +170,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */,
-				E5A05AEA26AA96FA00B1B7FC /* PurchaseException.swift in Sources */,
-				E5A05AE826AA96DE00B1B7FC /* PurchaseNotification.swift in Sources */,
+				E5A05AEA26AA96FA00B1B7FC /* PurchaseXException.swift in Sources */,
+				E5A05AE826AA96DE00B1B7FC /* PurchaseXNotification.swift in Sources */,
 				E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */,
 				E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */,
-				E5A05AE326AA5A0E00B1B7FC /* PurchaseState.swift in Sources */,
-				E5A05ADF26A93EDC00B1B7FC /* PurchaseManager.swift in Sources */,
-				E571922126AEAF9A000097A9 /* Purchase+SKProductsRequestDelegate.swift in Sources */,
+				E5A05AE326AA5A0E00B1B7FC /* PurchaseXState.swift in Sources */,
+				E5A05ADF26A93EDC00B1B7FC /* PurchaseXManager.swift in Sources */,
+				E571922126AEAF9A000097A9 /* PurchaseXDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

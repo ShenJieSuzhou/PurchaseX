@@ -13,7 +13,7 @@ import os.log
 public struct PXLog {
     private static let iapLog = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "StoreKit")
     
-    public static func event(_ event: PurchaseNotification) {
+    public static func event(_ event: PurchaseXNotification) {
         #if DEBUG
         print(event.shortDescription())
         #else
@@ -21,7 +21,7 @@ public struct PXLog {
         #endif
     }
     
-    public static func event(_ event: PurchaseNotification, productId: String) {
+    public static func event(_ event: PurchaseXNotification, productId: String) {
         #if DEBUG
         print("\(event.shortDescription()) for product \(productId)")
         #else
@@ -29,7 +29,7 @@ public struct PXLog {
         #endif
     }
     
-    public static func event(_ event: PurchaseNotification, productId: String, webOrderLineItemId: String?) {
+    public static func event(_ event: PurchaseXNotification, productId: String, webOrderLineItemId: String?) {
         #if DEBUG
         print("\(event.shortDescription()) for product \(productId) with webOrderLineItemId \(webOrderLineItemId ?? "none")")
         #else
@@ -44,7 +44,7 @@ public struct PXLog {
     
     public static var transactionLog: Set<TransactionLog> = []
     
-    public static func transaction(_ event: PurchaseNotification, productId: String) {
+    public static func transaction(_ event: PurchaseXNotification, productId: String) {
         
         let t = TransactionLog(notification: event, productId: productId)
         if transactionLog.contains(t) { return }
@@ -57,7 +57,7 @@ public struct PXLog {
         #endif
     }
     
-    public static func exception(_ exception: StoreException, productId: String) {
+    public static func exception(_ exception: PurchaseXException, productId: String) {
         #if DEBUG
         print("\(exception.shortDescription()). For product \(productId)")
         #else
@@ -77,7 +77,7 @@ public struct PXLog {
 
 public struct TransactionLog: Hashable {
     
-    let notification: PurchaseNotification
+    let notification: PurchaseXNotification
     let productId: String
     
     public static func == (lhs: TransactionLog, rhs: TransactionLog) -> Bool {

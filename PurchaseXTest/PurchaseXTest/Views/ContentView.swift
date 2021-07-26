@@ -11,7 +11,7 @@ import PurchaseX
 /// The main app View
 struct ContentView: View {
     
-    @EnvironmentObject var purchaseManager: PurchaseManager
+    //@EnvironmentObject var purchaseManager: PurchaseManager
     
     // Mock data
     let products:[Product] = [

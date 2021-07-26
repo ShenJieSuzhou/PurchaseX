@@ -8,20 +8,20 @@
 import Foundation
 import StoreKit
 
-public class PurchaseManager: NSObject {
+public class PurchaseXManager: NSObject {
     
     // MARK: Purchasing completion handler
     // Completion handler when requesting products from appstore.
-    var requestProductsCompletion: ((PurchaseNotification) -> Void)? = nil
+    var requestProductsCompletion: ((PurchaseXNotification) -> Void)? = nil
     
     // Completion handler when requesting a receipt refresh from appstore
-    var requestReceiptCompletion: ((PurchaseNotification) -> Void)? = nil
+    var requestReceiptCompletion: ((PurchaseXNotification) -> Void)? = nil
 
     // Completion handler when purchasing a product from appstore
-    var purchasingProductCompletion: ((PurchaseNotification) -> Void)? = nil
+    var purchasingProductCompletion: ((PurchaseXNotification) -> Void)? = nil
 
     // Completion handler when requesting appstore to restore purchases
-    var restorePurchasesCompletion: ((PurchaseNotification) -> Void)? = nil
+    var restorePurchasesCompletion: ((PurchaseXNotification) -> Void)? = nil
     
     
     // MARK: Property
@@ -32,7 +32,7 @@ public class PurchaseManager: NSObject {
     private var purchasedProducts = [String]()
     
     /// the state of purchase
-    var purchaseState: PurchaseState = .notStarted
+    var purchaseState: PurchaseXState = .notStarted
     
     /// List of productIds read from the storekit configuration file.
     public var configuredProductIdentifiers: Set<String>?
@@ -73,10 +73,10 @@ public class PurchaseManager: NSObject {
     }
 }
 
-extension PurchaseManager {
+extension PurchaseXManager {
     /// - Request products form appstore
     /// - Parameter completion: a closure that will be called when the results returned from the appstore
-    public func requestProductsFromAppstore(completion: @escaping (_ notification: PurchaseNotification?) -> Void) {
+    public func requestProductsFromAppstore(completion: @escaping (_ notification: PurchaseXNotification?) -> Void) {
         // save request products info
         requestProductsCompletion = completion
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum StoreException: Error, Equatable {
+public enum PurchaseXException: Error, Equatable {
     case purchaseException
     case purchaseInProgressException
     case transactionVerificationFailed

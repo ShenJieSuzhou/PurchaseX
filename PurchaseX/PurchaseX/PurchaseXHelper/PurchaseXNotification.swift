@@ -9,7 +9,7 @@ import Foundation
 
 /// From StoreNotification, if you are interesting about it , search StoreNotification on github。
 
-public enum PurchaseNotification: Error, Equatable {
+public enum PurchaseXNotification: Error, Equatable {
     
     case configurationNotFound
     case configurationEmpty

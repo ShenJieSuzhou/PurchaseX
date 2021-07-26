@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-extension PurchaseManager: SKProductsRequestDelegate {
+extension PurchaseXManager: SKProductsRequestDelegate {
     
     /// Receive products from Appstore
     /// - Parameters:
@@ -20,6 +20,7 @@ extension PurchaseManager: SKProductsRequestDelegate {
             DispatchQueue.main.async {
                 self.requestProductsCompletion?(.requestProductsNoProduct)
             }
+            return
         }
         
         guard response.invalidProductIdentifiers.isEmpty else {
@@ -27,6 +28,7 @@ extension PurchaseManager: SKProductsRequestDelegate {
             DispatchQueue.main.async {
                 self.requestProductsCompletion?(.requestProductsInvalidProducts)
             }
+            return
         }
         
         // save the products returned from Appstore
@@ -36,4 +38,24 @@ extension PurchaseManager: SKProductsRequestDelegate {
             self.requestProductsCompletion?(.requestProductsSuccess)
         }
     }
+}
+
+extension PurchaseXManager: SKRequestDelegate {
+    
+    public func requestDidFinish(_ request: SKRequest) {
+        
+    }
+    
+    public func request(_ request: SKRequest, didFailWithError error: Error) {
+        
+    }
+}
+
+extension PurchaseXManager: SKPaymentTransactionObserver {
+    
+    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+    }
+    
+    
 }
