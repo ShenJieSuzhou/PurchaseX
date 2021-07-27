@@ -90,19 +90,82 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     ///   - transaction: transtraction object
     ///   - restore: restore purchase
     private func purchaseCompleted(transaction: SKPaymentTransaction, restore: Bool = false) {
+        defer {
+            SKPaymentQueue.default().finishTransaction(transaction)
+        }
         
+        isPurchaseing = false
+        
+        // restore or not
+        guard let identifier = restore ? transaction.original?.payment.productIdentifier :
+                transaction.payment.productIdentifier else {
+                    
+                    let pId = "Unknown ProductID"
+                    PXLog.event(restore ? .purchaseRestoreFailure(productId: pId) : .purchaseFailure(productId: pId))
+                    
+                    if restore {
+                        self.restorePurchasesCompletion?(.purchaseRestoreFailure(productId: pId))
+                    } else {
+                        DispatchQueue.main.async {
+                            self.purchasingProductCompletion?(.purchaseFailure(productId: pId))
+                        }
+                    }
+                    return
+                }
+        
+        // Persist purchased productID
+        
+        // save purchased productID to our back list
+     
+        PXLog.event(restore ? .purchaseRestoreSuccess(productId: identifier) : .purchaseSuccess(productId: identifier))
+        if restore {
+            DispatchQueue.main.async {
+                self.restorePurchasesCompletion?(.purchaseRestoreSuccess(productId: identifier))
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.purchasingProductCompletion?(.purchaseSuccess(productId: identifier))
+            }
+        }
     }
     
     ///  Purchase failed
     /// - Parameter transaction: transaction object
     private func purchaseFailed(transaction: SKPaymentTransaction) {
+        defer {
+            SKPaymentQueue.default().finishTransaction(transaction)
+        }
         
+        isPurchaseing = false
+        let identifier = transaction.payment.productIdentifier
+        if let e = transaction.error as NSError? {
+            if e.code == SKError.paymentCancelled.rawValue {
+                PXLog.event(.purchaseCancelled(productId: identifier))
+                DispatchQueue.main.async {
+                    self.purchasingProductCompletion?(.purchaseCancelled(productId: identifier))
+                }
+            } else {
+                PXLog.event(.purchaseFailure(productId: identifier))
+                DispatchQueue.main.async {
+                    self.purchasingProductCompletion?(.purchaseFailure(productId: identifier))
+                }
+            }
+        } else {
+            PXLog.event(.purchaseFailure(productId: identifier))
+            DispatchQueue.main.async {
+                self.purchasingProductCompletion?(.purchaseFailure(productId: identifier))
+            }
+        }
     }
     
     /// Purchasse is pending
     /// - Parameter transaction: transaction object
     private func purchaseDeferred(transaction: SKPaymentTransaction) {
-        
+        isPurchaseing = false
+        PXLog.event(.purchasePending(productId: transaction.payment.productIdentifier))
+        DispatchQueue.main.async {
+            self.purchasingProductCompletion?(.purchasePending(productId: transaction.payment.productIdentifier))
+        }
     }
     
 }

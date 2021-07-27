@@ -37,6 +37,9 @@ public class PurchaseXManager: NSObject {
     /// List of productIds read from the storekit configuration file.
     public var configuredProductIdentifiers: Set<String>?
     
+    /// True if purchase is in Process
+    public var isPurchaseing = false
+    
     ///
     public var purchasedProductIdentifiers = Set<String>()
     
