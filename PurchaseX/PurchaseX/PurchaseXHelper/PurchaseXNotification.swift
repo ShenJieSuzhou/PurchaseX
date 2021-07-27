@@ -22,12 +22,13 @@ public enum PurchaseXNotification: Error, Equatable {
     case requestProductsNoProduct
     case requestProductsInvalidProducts
 
-    case purchaseAlreadyInProgress
-    case purchaseInProgress
-    case purchaseCancelled
-    case purchasePending
-    case purchaseSuccess
-    case purchaseFailure
+    case purchaseInProgress(productId: String)
+    case purchaseCancelled(productId: String)
+    case purchasePending(productId: String)
+    case purchaseSuccess(productId: String)
+    case purchaseFailure(productId: String)
+    case purchaseRestoreSuccess(productId: String)
+    case purchaseRestoreFailure(productId: String)
 
     case transactionReceived
     case transactionValidationSuccess
@@ -54,12 +55,13 @@ public enum PurchaseXNotification: Error, Equatable {
             case .requestProductsNoProduct:        return "Request products from the App Store No Product"
             case .requestProductsInvalidProducts:  return "Request products from the App Store Invalid Products"
                 
-            case .purchaseAlreadyInProgress:       return "Purchase already in progress"
             case .purchaseInProgress:              return "Purchase in progress"
             case .purchasePending:                 return "Purchase in progress. Awaiting authorization"
             case .purchaseCancelled:               return "Purchase cancelled"
             case .purchaseSuccess:                 return "Purchase success"
             case .purchaseFailure:                 return "Purchase failure"
+            case .purchaseRestoreSuccess:          return "Purchase restore success"
+            case .purchaseRestoreFailure:          return "Purchase restore failure"
                 
             case .transactionReceived:             return "Transaction received"
             case .transactionValidationSuccess:    return "Transaction validation success"

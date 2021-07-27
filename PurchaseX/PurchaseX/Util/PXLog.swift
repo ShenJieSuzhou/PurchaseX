@@ -79,8 +79,16 @@ public struct TransactionLog: Hashable {
     
     let notification: PurchaseXNotification
     let productId: String
-    
+
     public static func == (lhs: TransactionLog, rhs: TransactionLog) -> Bool {
         return (lhs.productId == rhs.productId) && (lhs.notification == rhs.notification)
     }
+    
+    public func hash(into hasher: inout Hasher) {
+//            hasher.combine(label)
+//            hasher.combine(command)
+    }
+
 }
+
+

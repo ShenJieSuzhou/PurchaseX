@@ -52,10 +52,57 @@ extension PurchaseXManager: SKRequestDelegate {
 }
 
 extension PurchaseXManager: SKPaymentTransactionObserver {
-    
+    /// Listen transaction state
+    /// - Parameters:
+    ///   - queue: The payment queue object
+    ///   - transactions: Transaction state
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchasing:
+                purchaseInProcess(transaction: transaction)
+            case .purchased:
+                purchaseCompleted(transaction: transaction)
+            case .failed:
+                purchaseFailed(transaction: transaction)
+            case .restored:
+                purchaseCompleted(transaction: transaction, restore: true)
+            case .deferred:
+                purchaseDeferred(transaction: transaction)
+            @unknown default:
+                return
+            }
+        }
+    }
+    
+    
+    ///  Purchase is in process
+    /// - Parameter transaction: transaction object
+    private func purchaseInProcess(transaction: SKPaymentTransaction){
+        PXLog.event(.purchaseInProgress(productId: transaction.payment.productIdentifier))
+        DispatchQueue.main.async {
+            self.purchasingProductCompletion?(.purchaseInProgress(productId: transaction.payment.productIdentifier))
+        }
+    }
+    
+    /// Purchase is completed
+    /// - Parameters:
+    ///   - transaction: transtraction object
+    ///   - restore: restore purchase
+    private func purchaseCompleted(transaction: SKPaymentTransaction, restore: Bool = false) {
         
     }
     
+    ///  Purchase failed
+    /// - Parameter transaction: transaction object
+    private func purchaseFailed(transaction: SKPaymentTransaction) {
+        
+    }
+    
+    /// Purchasse is pending
+    /// - Parameter transaction: transaction object
+    private func purchaseDeferred(transaction: SKPaymentTransaction) {
+        
+    }
     
 }
