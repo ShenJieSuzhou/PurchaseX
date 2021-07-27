@@ -19,6 +19,7 @@ public enum PurchaseXNotification: Error, Equatable {
     case requestProductsStarted
     case requestProductsSuccess
     case requestProductsFailure
+    case requestProductsDidFinish
     case requestProductsNoProduct
     case requestProductsInvalidProducts
 
@@ -54,6 +55,7 @@ public enum PurchaseXNotification: Error, Equatable {
             case .requestProductsFailure:          return "Request products from the App Store failure"
             case .requestProductsNoProduct:        return "Request products from the App Store No Product"
             case .requestProductsInvalidProducts:  return "Request products from the App Store Invalid Products"
+            case .requestProductsDidFinish:        return "Request products from the App Store finished"
                 
             case .purchaseInProgress:              return "Purchase in progress"
             case .purchasePending:                 return "Purchase in progress. Awaiting authorization"

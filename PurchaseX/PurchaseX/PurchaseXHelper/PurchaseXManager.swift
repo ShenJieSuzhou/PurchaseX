@@ -55,7 +55,7 @@ public class PurchaseXManager: NSObject {
     }
     
     /// Used to request product info from Appstore
-    private var productsRequest: SKProductsRequest?
+    var productsRequest: SKProductsRequest?
     
         
     // MARK: - Initialization
