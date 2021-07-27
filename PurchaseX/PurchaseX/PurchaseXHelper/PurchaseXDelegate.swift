@@ -52,8 +52,6 @@ extension PurchaseXManager: SKRequestDelegate {
             }
             return
         }
-        
-        
     }
     
     public func request(_ request: SKRequest, didFailWithError error: Error) {
