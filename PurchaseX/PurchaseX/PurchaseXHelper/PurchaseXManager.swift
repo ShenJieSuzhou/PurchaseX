@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-public class PurchaseXManager: NSObject {
+public class PurchaseXManager: NSObject,ObservableObject {
     
     // MARK: Purchasing completion handler
     // Completion handler when requesting products from appstore.
@@ -26,7 +26,7 @@ public class PurchaseXManager: NSObject {
     
     // MARK: Property
     /// Array of products retrieved from AppleStore
-    internal var products: [SKProduct]?
+    @Published public var products: [SKProduct]?
     
     /// Array of productID
     private var purchasedProducts = [String]()
@@ -44,14 +44,12 @@ public class PurchaseXManager: NSObject {
     public var purchasedProductIdentifiers = Set<String>()
     
     /// True if appstore products have been retrived via function
-    public var isAppstoreProductInfoAvailable: Bool {
-        guard products == nil else {
+    public var hasProducts: Bool {
+        guard products != nil else {
             return false
         }
-        guard products!.count > 0 else {
-            return false
-        }
-        return true
+
+        return products!.count > 0 ? true : false
     }
     
     /// Used to request product info from Appstore
@@ -68,7 +66,12 @@ public class PurchaseXManager: NSObject {
             PXLog.event(.requestProductsStarted)
             configuredProductIdentifiers = productIds
             
-            
+            // request products from Appstore
+            self.requestProductsFromAppstore { notification in
+                if notification == .requestProductsSuccess {
+                    
+                }
+            }
         }
     }
     
@@ -105,5 +108,16 @@ extension PurchaseXManager {
         // 4. Start request
         productsRequest!.start()
         PXLog.event(.requestProductsStarted)
+    }
+    
+    /// Get a localized price for product
+    /// - Parameter product: SKProduct object
+    /// - Returns: Localized price
+    public func getLocalizedPriceFor(product: SKProduct) -> String? {
+        let priceFormatter = NumberFormatter()
+        priceFormatter.formatterBehavior = .behavior10_4
+        priceFormatter.numberStyle = .currency
+        priceFormatter.locale = product.priceLocale
+        return priceFormatter.string(from: product.price)
     }
 }

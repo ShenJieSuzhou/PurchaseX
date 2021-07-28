@@ -10,10 +10,10 @@ import SwiftUI
 struct PurchaseButton: View {
     
     var price: String
-    var product: Product?
+    var productId: String?
     
     var body: some View {
-        if product == nil {
+        if productId == nil {
             PurchaseErrorView()
         } else {
             HStack {

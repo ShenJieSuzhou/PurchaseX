@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E571921D26AE88EE000097A9 /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; };
+		E571922426B127DB000097A9 /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; };
+		E571922526B127DB000097A9 /* PurchaseX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */; };
 		E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB726A6B7C800B1B7FC /* ContentView.swift */; };
 		E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */; };
@@ -30,6 +31,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E571922626B127DB000097A9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E571922526B127DB000097A9 /* PurchaseX.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E5A05AB226A6B7C800B1B7FC /* PurchaseXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchaseXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXTestApp.swift; sourceTree = "<group>"; };
@@ -51,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E571921D26AE88EE000097A9 /* PurchaseX.framework in Frameworks */,
+				E571922426B127DB000097A9 /* PurchaseX.framework in Frameworks */,
 				E5A05ACF26A80BA600B1B7FC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +167,7 @@
 				E5A05AAE26A6B7C800B1B7FC /* Sources */,
 				E5A05AAF26A6B7C800B1B7FC /* Frameworks */,
 				E5A05AB026A6B7C800B1B7FC /* Resources */,
+				E571922626B127DB000097A9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
