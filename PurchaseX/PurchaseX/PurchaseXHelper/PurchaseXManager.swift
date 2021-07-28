@@ -60,7 +60,8 @@ public class PurchaseXManager: NSObject {
         
     // MARK: - Initialization
     public override init() {
-//        SKPaymentQueue.default().add
+        super.init()
+        SKPaymentQueue.default().add(self)
         
         // Read productID from config plist file
         if let productIds = Configuration.readConfigFile() {
@@ -72,7 +73,7 @@ public class PurchaseXManager: NSObject {
     }
     
     deinit {
-//        SKPaymentQueue.default().remove(self)
+        SKPaymentQueue.default().remove(self)
     }
 }
 
