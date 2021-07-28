@@ -107,7 +107,6 @@ extension PurchaseXManager {
         productsRequest!.delegate = self
         // 4. Start request
         productsRequest!.start()
-        PXLog.event(.requestProductsStarted)
     }
     
     /// Get a localized price for product

@@ -31,7 +31,7 @@ public struct Configuration {
             PXLog.event(.configurationFailure)
             return nil
         }
-        
+        PXLog.event(.configurationSuccess)
         return Set<String>(values.compactMap { $0 } )
     }
     
