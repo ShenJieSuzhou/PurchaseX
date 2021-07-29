@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Products.plist
-   PurchaseXTest
-
-   Created by shenjie on 2021/7/23.
-   Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
--->
 <plist version="1.0">
 <dict>
-    <key>Products</key>
-    <array>
-        <string>com.rarcher.nonconsumable.flowers-large</string>
-        <string>com.rarcher.nonconsumable.flowers-small</string>
-        <string>com.rarcher.nonconsumable.roses-large</string>
-        <string>com.rarcher.nonconsumable.chocolates-small</string>
-        <string>com.rarcher.consumable.plant-installation</string>
-        <string>com.rarcher.subscription.gold</string>
-        <string>com.rarcher.subscription.silver</string>
-        <string>com.rarcher.subscription.bronze</string>
-    </array>
+	<key>Products</key>
+	<array>
+		<string>com.purchasex.60</string>
+		<string>com.purchasex.120</string>
+		<string>com.purchasex.stylefilter</string>
+		<string>com.purchase.monthcard</string>
+		<string>com.purchasex.vip1</string>
+		<string>com.purchasex.vip2</string>
+	</array>
 </dict>
 </plist>
