@@ -22,19 +22,80 @@ struct ContentView: View {
         Product(pid: "com.purchasex.vip2", displayName: "VIP2", thumb: "com.purchasex.vip2", price: "6.99", type: .Auto_Renewable_Subscriptions)
     ]
     
+    var nonConsumableProducts = [Product]()
+    var consumableProducts = [Product]()
+    var noRenewSubscriptionProducts = [Product]()
+    var autoSubscriptionProducts = [Product]()
+    
+    ///  Display product info, due to SKProduct object cannot get subscription product title, so I get the title via the local config product array.
+    init(){
+//        if purchaseXManager.hasProducts {
+//            let products = purchaseXManager.products
+//            for product in products! {
+//                if product.productIdentifier == "com.purchasex.60" || product.productIdentifier == "com.purchasex.120" {
+//                    let result = configProducts.filter { p in
+//                        return p.productID == product.productIdentifier
+//                    }
+//                    consumableProducts.append(result.first!)
+//                } else if product.productIdentifier == "com.purchasex.stylefilter" {
+//                    let result = configProducts.filter { p in
+//                        return p.productID == product.productIdentifier
+//                    }
+//                    nonConsumableProducts.append(result.first!)
+//                } else if product.productIdentifier == "com.purchase.monthcard" {
+//                    let result = configProducts.filter { p in
+//                        return p.productID == product.productIdentifier
+//                    }
+//                    noRenewSubscriptionProducts.append(result.first!)
+//                } else if product.productIdentifier == "com.purchasex.vip1" || product.productIdentifier == "com.purchasex.vip2"{
+//                    let result = configProducts.filter { p in
+//                        return p.productID == product.productIdentifier
+//                    }
+//                    autoSubscriptionProducts.append(result.first!)
+//                }
+//            }
+//
+//        }
+    }
+    
     var body: some View {
         NavigationView {
             if purchaseXManager.hasProducts {
                 List {
-                    if let products = purchaseXManager.products! {
-                        Section(header: Text("Product")) {
-                            ///  Display product info, due to SKProduct object cannot get subscription product title, so I get the title via the local config product array.
-                            ForEach(0..<products.count) {
-                                let product = products[$0]
-                                let result = configProducts.filter { p in
-                                    return p.productID == product.productIdentifier
-                                }
-                                ProductView(productId: result[0].productID, displayName: result[0].productName, price: result[0].price)
+                    
+                    
+                    if let consumables = consumableProducts {
+                        Section(header: Text("ConsumableProducts")) {
+                            ForEach(0..<consumables.count) {
+                                let product = consumables[$0]
+                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                            }
+                        }
+                    }
+                    
+                    if let nonConsumables = nonConsumableProducts {
+                        Section(header: Text("NonConsumableProducts")) {
+                            ForEach(0..<nonConsumables.count) {
+                                let product = nonConsumables[$0]
+                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                            }
+                        }
+                    }
+                    
+                    if let noRenewSubscriptions = noRenewSubscriptionProducts {
+                        Section(header: Text("NoRenewSubscriptionProducts")) {
+                            ForEach(0..<noRenewSubscriptions.count) {
+                                let product = noRenewSubscriptions[$0]
+                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                            }
+                        }
+                    }
+                    
+                    if let subscriptions = autoSubscriptionProducts {
+                        Section(header: Text("Subscriptions")) {
+                            ForEach(0..<subscriptions.count) {
+                                let product = subscriptions[$0]
+                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
                             }
                         }
                     }

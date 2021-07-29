@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import PurchaseX
 
 struct PurchaseButton: View {
+    @ObservedObject var purchaseXManager = PurchaseXManager()
+    
+    var purchasing: Bool = false
+    var cancelled: Bool = false
+    var pending: Bool = false
+    var failed: Bool = false
+    var purchased: Bool = false
     
     var price: String
-    var productId: String?
+    var productId: String
     
     var body: some View {
-        if productId == nil {
+        let product = purchaseXManager.product(from: productId)
+        if product == nil {
             PurchaseErrorView()
         } else {
             HStack {

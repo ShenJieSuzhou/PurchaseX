@@ -52,6 +52,23 @@ public class PurchaseXManager: NSObject,ObservableObject {
         return products!.count > 0 ? true : false
     }
     
+    /// Product associated with productId
+    public func product(from productId: String) -> SKProduct? {
+        guard hasProducts else {
+            return nil
+        }
+        
+        let matchProduct = products!.filter { product in
+            product.productIdentifier == productId
+        }
+        
+        guard matchProduct.count == 1 else {
+            return nil
+        }
+        
+        return matchProduct.first
+    }
+    
     /// Used to request product info from Appstore
     var productsRequest: SKProductsRequest?
     
