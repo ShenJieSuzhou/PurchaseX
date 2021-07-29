@@ -32,10 +32,10 @@ extension PurchaseXManager: SKProductsRequestDelegate {
         }
         
         // save the products returned from Appstore
-        self.products = response.products
-        PXLog.event(.requestProductsSuccess)
         DispatchQueue.main.async {
-            self.requestProductsCompletion?(.requestProductsSuccess)
+            self.products = response.products
+            PXLog.event(.requestProductsSuccess)
+            //self.requestProductsCompletion?(.requestProductsSuccess)
         }
     }
 }

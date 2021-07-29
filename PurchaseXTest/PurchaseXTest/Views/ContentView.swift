@@ -13,19 +13,28 @@ struct ContentView: View {
     
     @ObservedObject var purchaseXManager = PurchaseXManager()
         
+    let configProducts:[Product] = [
+        Product(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
+        Product(pid: "com.purchasex.120", displayName: "120 金币", thumb: "com.purchasex.120", price: "1.99", type: .Consumable),
+        Product(pid: "com.purchasex.stylefilter", displayName: "风格滤镜", thumb: "com.purchasex.stylefilter", price: "0.99", type: .Non_Consumable),
+        Product(pid: "com.purchase.monthcard", displayName: "月卡", thumb: "com.purchase.monthcard", price: "2.99", type: .Non_Renewing_Subscriptions),
+        Product(pid: "com.purchasex.vip1", displayName: "VIP1", thumb: "com.purchasex.vip1", price: "2.99", type: .Auto_Renewable_Subscriptions),
+        Product(pid: "com.purchasex.vip2", displayName: "VIP2", thumb: "com.purchasex.vip2", price: "6.99", type: .Auto_Renewable_Subscriptions)
+    ]
+    
     var body: some View {
         NavigationView {
             if purchaseXManager.hasProducts {
                 List {
                     if let products = purchaseXManager.products! {
                         Section(header: Text("Product")) {
+                            ///  Display product info, due to SKProduct object cannot get subscription product title, so I get the title via the local config product array.
                             ForEach(0..<products.count) {
-                                let price =  purchaseXManager.getLocalizedPriceFor(product: products[$0])
-                                if price == nil {
-                                    ProductView(productId: products[$0].productIdentifier, displayName: products[$0].localizedDescription, price: "Price unknown")
-                                } else {
-                                    ProductView(productId: products[$0].productIdentifier, displayName: products[$0].localizedDescription, price: price!)
+                                let product = products[$0]
+                                let result = configProducts.filter { p in
+                                    return p.productID == product.productIdentifier
                                 }
+                                ProductView(productId: result[0].productID, displayName: result[0].productName, price: result[0].price)
                             }
                         }
                     }
