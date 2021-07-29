@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E571922426B127DB000097A9 /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; };
 		E571922526B127DB000097A9 /* PurchaseX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E571922A26B28804000097A9 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = E571922926B28804000097A9 /* StoreKitTestCertificate.cer */; };
 		E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */; };
 		E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB726A6B7C800B1B7FC /* ContentView.swift */; };
 		E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E571922926B28804000097A9 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../../../../../Desktop/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		E5A05AB226A6B7C800B1B7FC /* PurchaseXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchaseXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXTestApp.swift; sourceTree = "<group>"; };
 		E5A05AB726A6B7C800B1B7FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				E5A05ACA26A6C90900B1B7FC /* Production.storekit */,
+				E571922926B28804000097A9 /* StoreKitTestCertificate.cer */,
 				E5A05AEB26AAAC1700B1B7FC /* Products.plist */,
 			);
 			path = Configuration;
@@ -235,6 +238,7 @@
 				E5A05ABD26A6B7C900B1B7FC /* Preview Assets.xcassets in Resources */,
 				E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */,
 				E5A05AEC26AAAC1700B1B7FC /* Products.plist in Resources */,
+				E571922A26B28804000097A9 /* StoreKitTestCertificate.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
