@@ -23,10 +23,22 @@ struct PriceViewModel {
     func purchase(product: Product) {
         
         purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
-            if notification == .purchaseRestoreSuccess(productId: product.productID) {
+            if notification == .purchaseRestoreSuccess {
                 updatePurchaseState(state: .complete)
-            } else {
+            } else if notification == .purchaseRestoreFailure {
                 
+            } else if notification == .purchaseSuccess{
+                updatePurchaseState(state: .complete)
+            } else if notification == .purchaseCancelled {
+                updatePurchaseState(state: .cancelled)
+            } else if notification == .purchaseFailure {
+                updatePurchaseState(state: .failed)
+            } else if notification == .purchaseAbort {
+                updatePurchaseState(state: .failed)
+            } else if notification == .purchasePending {
+                updatePurchaseState(state: .pending)
+            } else if notification == .purchaseInProgress {
+                updatePurchaseState(state: .inProgress)
             }
         }
     }

@@ -22,7 +22,6 @@
 		E5A05AD226A816C500B1B7FC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD126A816C500B1B7FC /* Product.swift */; };
 		E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD426A8174800B1B7FC /* ProductView.swift */; };
 		E5A05AD826A91F9D00B1B7FC /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */; };
-		E5A05AE126A94B5C00B1B7FC /* PurchaseErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */; };
 		E5A05AEC26AAAC1700B1B7FC /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AEB26AAAC1700B1B7FC /* Products.plist */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		E5A05AD126A816C500B1B7FC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		E5A05AD426A8174800B1B7FC /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
-		E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseErrorView.swift; sourceTree = "<group>"; };
 		E5A05AEB26AAAC1700B1B7FC /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,7 +170,6 @@
 				E5A05AB726A6B7C800B1B7FC /* ContentView.swift */,
 				E5A05AD426A8174800B1B7FC /* ProductView.swift */,
 				E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */,
-				E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */,
 				E571922D26B39DEC000097A9 /* ConsumableView.swift */,
 				E571923026B3AC5E000097A9 /* PriceView.swift */,
 				E571923526B3E28B000097A9 /* BadgeView.swift */,
@@ -270,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E571923126B3AC5E000097A9 /* PriceView.swift in Sources */,
-				E5A05AE126A94B5C00B1B7FC /* PurchaseErrorView.swift in Sources */,
 				E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */,
 				E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */,
 				E571923426B3C78C000097A9 /* PriceViewModel.swift in Sources */,

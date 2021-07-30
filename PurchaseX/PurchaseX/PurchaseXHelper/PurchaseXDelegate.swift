@@ -95,9 +95,8 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     /// - Parameter transaction: transaction object
     private func purchaseInProcess(transaction: SKPaymentTransaction){
         purchaseState = .inProgress
-        PXLog.event(.purchaseInProgress(productId: transaction.payment.productIdentifier))
         DispatchQueue.main.async {
-            self.purchasingProductCompletion?(.purchaseInProgress(productId: transaction.payment.productIdentifier))
+            self.purchasingProductCompletion?(.purchaseInProgress)
         }
     }
     
@@ -117,31 +116,29 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         guard let identifier = restore ? transaction.original?.payment.productIdentifier :
                 transaction.payment.productIdentifier else {
                     
-                    let pId = "Unknown ProductID"
-                    PXLog.event(restore ? .purchaseRestoreFailure(productId: pId) : .purchaseFailure(productId: pId))
+                    PXLog.event(restore ? .purchaseRestoreFailure : .purchaseFailure)
                     
                     if restore {
-                        self.restorePurchasesCompletion?(.purchaseRestoreFailure(productId: pId))
+                        self.restorePurchasesCompletion?(.purchaseRestoreFailure)
                     } else {
                         DispatchQueue.main.async {
-                            self.purchasingProductCompletion?(.purchaseFailure(productId: pId))
+                            self.purchasingProductCompletion?(.purchaseFailure)
                         }
                     }
                     return
                 }
-        
         // Persist purchased productID
         
         // save purchased productID to our back list
      
-        PXLog.event(restore ? .purchaseRestoreSuccess(productId: identifier) : .purchaseSuccess(productId: identifier))
+        PXLog.event(restore ? .purchaseRestoreSuccess : .purchaseSuccess)
         if restore {
             DispatchQueue.main.async {
-                self.restorePurchasesCompletion?(.purchaseRestoreSuccess(productId: identifier))
+                self.restorePurchasesCompletion?(.purchaseRestoreSuccess)
             }
         } else {
             DispatchQueue.main.async {
-                self.purchasingProductCompletion?(.purchaseSuccess(productId: identifier))
+                self.purchasingProductCompletion?(.purchaseSuccess)
             }
         }
     }
@@ -158,20 +155,20 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         let identifier = transaction.payment.productIdentifier
         if let e = transaction.error as NSError? {
             if e.code == SKError.paymentCancelled.rawValue {
-                PXLog.event(.purchaseCancelled(productId: identifier))
+                PXLog.event(.purchaseCancelled)
                 DispatchQueue.main.async {
-                    self.purchasingProductCompletion?(.purchaseCancelled(productId: identifier))
+                    self.purchasingProductCompletion?(.purchaseCancelled)
                 }
             } else {
-                PXLog.event(.purchaseFailure(productId: identifier))
+                PXLog.event(.purchaseFailure)
                 DispatchQueue.main.async {
-                    self.purchasingProductCompletion?(.purchaseFailure(productId: identifier))
+                    self.purchasingProductCompletion?(.purchaseFailure)
                 }
             }
         } else {
-            PXLog.event(.purchaseFailure(productId: identifier))
+            PXLog.event(.purchaseFailure)
             DispatchQueue.main.async {
-                self.purchasingProductCompletion?(.purchaseFailure(productId: identifier))
+                self.purchasingProductCompletion?(.purchaseFailure)
             }
         }
     }
@@ -181,9 +178,9 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     private func purchaseDeferred(transaction: SKPaymentTransaction) {
         isPurchaseing = false
         purchaseState = .pending
-        PXLog.event(.purchasePending(productId: transaction.payment.productIdentifier))
+        PXLog.event(.purchasePending)
         DispatchQueue.main.async {
-            self.purchasingProductCompletion?(.purchasePending(productId: transaction.payment.productIdentifier))
+            self.purchasingProductCompletion?(.purchasePending)
         }
     }
     

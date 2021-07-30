@@ -132,9 +132,12 @@ extension PurchaseXManager {
     /// Start the process to purchase a product.
     /// - Parameter product: SKProduct object
     public func purchase(product: SKProduct, completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+        // purchase handler
+        purchasingProductCompletion = completion
+        
         guard !isPurchaseing else {
-            PXLog.event(.purchaseAbortPurchaseInProgress)
-            completion(.purchaseAbortPurchaseInProgress)
+            PXLog.event(.purchaseAbort)
+            completion(.purchaseAbort)
             return
         }
         
@@ -143,7 +146,7 @@ extension PurchaseXManager {
         // Start a purchase transaction
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
-        PXLog.event(.purchaseInProgress(productId: product.productIdentifier))
+        PXLog.event(.purchaseInProgress)
     }
     
     /// Ask Appstore to restore purchase

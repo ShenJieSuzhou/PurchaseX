@@ -23,13 +23,14 @@ struct PurchaseButton: View {
         HStack {
             if purchased, product.type != .Consumable {
                 // complete state
+                BadgeView(purchaseState: .complete)
             } else {
                 if cancelled {
-                    
+                    BadgeView(purchaseState: .cancelled)
                 }
                 
                 if pending {
-                    
+                    BadgeView(purchaseState: .pending)
                 }
                 
                 PriceView(purchasing: $purchasing,
