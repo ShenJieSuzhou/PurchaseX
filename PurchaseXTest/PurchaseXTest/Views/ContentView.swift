@@ -22,48 +22,67 @@ struct ContentView: View {
         Product(pid: "com.purchasex.vip2", displayName: "VIP2", thumb: "com.purchasex.vip2", price: "6.99", type: .Auto_Renewable_Subscriptions)
     ]
     
-    var nonConsumableProducts = [Product]()
-    var consumableProducts = [Product]()
-    var noRenewSubscriptionProducts = [Product]()
-    var autoSubscriptionProducts = [Product]()
-    
     ///  Display product info, due to SKProduct object cannot get subscription product title, so I get the title via the local config product array.
-    init(){
-//        if purchaseXManager.hasProducts {
-//            let products = purchaseXManager.products
-//            for product in products! {
-//                if product.productIdentifier == "com.purchasex.60" || product.productIdentifier == "com.purchasex.120" {
-//                    let result = configProducts.filter { p in
-//                        return p.productID == product.productIdentifier
-//                    }
-//                    consumableProducts.append(result.first!)
-//                } else if product.productIdentifier == "com.purchasex.stylefilter" {
-//                    let result = configProducts.filter { p in
-//                        return p.productID == product.productIdentifier
-//                    }
-//                    nonConsumableProducts.append(result.first!)
-//                } else if product.productIdentifier == "com.purchase.monthcard" {
-//                    let result = configProducts.filter { p in
-//                        return p.productID == product.productIdentifier
-//                    }
-//                    noRenewSubscriptionProducts.append(result.first!)
-//                } else if product.productIdentifier == "com.purchasex.vip1" || product.productIdentifier == "com.purchasex.vip2"{
-//                    let result = configProducts.filter { p in
-//                        return p.productID == product.productIdentifier
-//                    }
-//                    autoSubscriptionProducts.append(result.first!)
-//                }
-//            }
-//
-//        }
+    var nonConsumableProducts: [Product]? {
+        let products = purchaseXManager.products
+        var targets = [Product]()
+        for product in products! {
+            if product.productIdentifier == "com.purchasex.stylefilter" {
+                let result = configProducts.filter { p in
+                    return p.productID == product.productIdentifier
+                }
+                targets.append(result.first!)
+            }
+        }
+        return targets
+    }
+    
+    var consumableProducts: [Product]? {
+        let products = purchaseXManager.products
+        var targets = [Product]()
+        for product in products! {
+            if product.productIdentifier == "com.purchasex.60" || product.productIdentifier == "com.purchasex.120" {
+                let result = configProducts.filter { p in
+                    return p.productID == product.productIdentifier
+                }
+                targets.append(result.first!)
+            }
+        }
+        return targets
+    }
+    
+    var noRenewSubscriptionProducts: [Product]? {
+        let products = purchaseXManager.products
+        var targets = [Product]()
+        for product in products! {
+            if product.productIdentifier == "com.purchase.monthcard" {
+                let result = configProducts.filter { p in
+                    return p.productID == product.productIdentifier
+                }
+                targets.append(result.first!)
+            }
+        }
+        return targets
+    }
+    
+    var autoSubscriptionProducts: [Product]? {
+        let products = purchaseXManager.products
+        var targets = [Product]()
+        for product in products! {
+            if product.productIdentifier == "com.purchasex.vip1" || product.productIdentifier == "com.purchasex.vip2" {
+                let result = configProducts.filter { p in
+                    return p.productID == product.productIdentifier
+                }
+                targets.append(result.first!)
+            }
+        }
+        return targets
     }
     
     var body: some View {
         NavigationView {
             if purchaseXManager.hasProducts {
                 List {
-                    
-                    
                     if let consumables = consumableProducts {
                         Section(header: Text("ConsumableProducts")) {
                             ForEach(0..<consumables.count) {
