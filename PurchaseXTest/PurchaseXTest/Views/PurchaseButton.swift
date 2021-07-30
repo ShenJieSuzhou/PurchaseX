@@ -31,22 +31,18 @@ struct PurchaseButton: View {
                 if pending {
                     
                 }
-                
-                
             }
+        }
+        .onAppear {
             
-            Spacer()
-            Button(action: {
-                
-            }) {
-                Text(product.price)
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(height: 40)
-                    .background(Color.blue)
-                    .cornerRadius(25)
-            }
+        }
+        .onChange(of: purchaseXManager.products) { newValue in
+            
+        }
+        .alert(isPresented: $failed) {
+            Alert(title: Text("Purchase Error"),
+                  message: Text("Sorry, your purchase of \(product.productName) failed."),
+                  dismissButton: .default(Text("OK")))
         }
     }
 }

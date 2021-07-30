@@ -22,6 +22,13 @@ struct PriceView: View {
     
     var body: some View {
         
+        let priceViewModel = PriceViewModel(purchaseXManager: purchaseXManager,
+                                            purchasing: $purchasing,
+                                            cancelled: $cancelled,
+                                            pending: $pending,
+                                            failed: $failed,
+                                            purchased: $purchased)
+        
         HStack {
             
             if purchasing {
@@ -32,11 +39,18 @@ struct PriceView: View {
             
             Button {
                 purchasing = true
-                // purchase 
+                // start a purchase
+                priceViewModel.purchase(product: product)
             } label: {
                 Text(product.price)
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(height: 40)
+                    .background(Color.blue)
+                    .cornerRadius(25)
+                
             }
-
         }
     }
 }

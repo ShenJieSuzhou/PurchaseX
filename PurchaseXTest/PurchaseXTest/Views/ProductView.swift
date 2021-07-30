@@ -33,6 +33,7 @@ struct ProductView: View {
             
             PurchaseButton(product: product)
         }
+        .padding()
     }
 }
 
