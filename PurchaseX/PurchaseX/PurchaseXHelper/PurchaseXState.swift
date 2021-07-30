@@ -13,7 +13,7 @@ public enum PurchaseXState {
     case inProgress
     case complete
     case pending
-    case cancelld
+    case cancelled
     case failed
     case failedVerification
     case unknown

@@ -33,7 +33,7 @@ struct PriceViewModel {
     
     private func updatePurchaseState(state: PurchaseXState) {
         purchasing = false
-        cancelled = state == .cancelld
+        cancelled = state == .cancelled
         pending = state == .pending
         failed = state == .failed
         purchased = state == .complete

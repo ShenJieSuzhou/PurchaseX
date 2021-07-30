@@ -13,6 +13,7 @@
 		E571922E26B39DEC000097A9 /* ConsumableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922D26B39DEC000097A9 /* ConsumableView.swift */; };
 		E571923126B3AC5E000097A9 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571923026B3AC5E000097A9 /* PriceView.swift */; };
 		E571923426B3C78C000097A9 /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571923326B3C78C000097A9 /* PriceViewModel.swift */; };
+		E571923626B3E28B000097A9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571923526B3E28B000097A9 /* BadgeView.swift */; };
 		E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */; };
 		E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB726A6B7C800B1B7FC /* ContentView.swift */; };
 		E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		E571922D26B39DEC000097A9 /* ConsumableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumableView.swift; sourceTree = "<group>"; };
 		E571923026B3AC5E000097A9 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		E571923326B3C78C000097A9 /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
+		E571923526B3E28B000097A9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		E5A05AB226A6B7C800B1B7FC /* PurchaseXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchaseXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXTestApp.swift; sourceTree = "<group>"; };
 		E5A05AB726A6B7C800B1B7FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */,
 				E571922D26B39DEC000097A9 /* ConsumableView.swift */,
 				E571923026B3AC5E000097A9 /* PriceView.swift */,
+				E571923526B3E28B000097A9 /* BadgeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */,
 				E571923426B3C78C000097A9 /* PriceViewModel.swift in Sources */,
 				E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */,
+				E571923626B3E28B000097A9 /* BadgeView.swift in Sources */,
 				E5A05AD826A91F9D00B1B7FC /* PurchaseButton.swift in Sources */,
 				E571922E26B39DEC000097A9 /* ConsumableView.swift in Sources */,
 				E5A05AD226A816C500B1B7FC /* Product.swift in Sources */,
