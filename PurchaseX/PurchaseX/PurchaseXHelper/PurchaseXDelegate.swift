@@ -94,6 +94,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     ///  Purchase is in process
     /// - Parameter transaction: transaction object
     private func purchaseInProcess(transaction: SKPaymentTransaction){
+        purchaseState = .inProgress
         PXLog.event(.purchaseInProgress(productId: transaction.payment.productIdentifier))
         DispatchQueue.main.async {
             self.purchasingProductCompletion?(.purchaseInProgress(productId: transaction.payment.productIdentifier))
@@ -110,6 +111,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         }
         
         isPurchaseing = false
+        purchaseState = .complete
         
         // restore or not
         guard let identifier = restore ? transaction.original?.payment.productIdentifier :
@@ -152,6 +154,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         }
         
         isPurchaseing = false
+        purchaseState = .failed
         let identifier = transaction.payment.productIdentifier
         if let e = transaction.error as NSError? {
             if e.code == SKError.paymentCancelled.rawValue {
@@ -177,6 +180,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     /// - Parameter transaction: transaction object
     private func purchaseDeferred(transaction: SKPaymentTransaction) {
         isPurchaseing = false
+        purchaseState = .pending
         PXLog.event(.purchasePending(productId: transaction.payment.productIdentifier))
         DispatchQueue.main.async {
             self.purchasingProductCompletion?(.purchasePending(productId: transaction.payment.productIdentifier))

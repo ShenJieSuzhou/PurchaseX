@@ -10,6 +10,9 @@
 		E571922426B127DB000097A9 /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; };
 		E571922526B127DB000097A9 /* PurchaseX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E571922A26B28804000097A9 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = E571922926B28804000097A9 /* StoreKitTestCertificate.cer */; };
+		E571922E26B39DEC000097A9 /* ConsumableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922D26B39DEC000097A9 /* ConsumableView.swift */; };
+		E571923126B3AC5E000097A9 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571923026B3AC5E000097A9 /* PriceView.swift */; };
+		E571923426B3C78C000097A9 /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571923326B3C78C000097A9 /* PriceViewModel.swift */; };
 		E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */; };
 		E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB726A6B7C800B1B7FC /* ContentView.swift */; };
 		E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		E571922926B28804000097A9 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../../../../../Desktop/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		E571922D26B39DEC000097A9 /* ConsumableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumableView.swift; sourceTree = "<group>"; };
+		E571923026B3AC5E000097A9 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		E571923326B3C78C000097A9 /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
 		E5A05AB226A6B7C800B1B7FC /* PurchaseXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchaseXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AB526A6B7C800B1B7FC /* PurchaseXTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXTestApp.swift; sourceTree = "<group>"; };
 		E5A05AB726A6B7C800B1B7FC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E571923226B3C76E000097A9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E571923326B3C78C000097A9 /* PriceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E5A05AA926A6B7C800B1B7FC = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +111,7 @@
 		E5A05AB426A6B7C800B1B7FC /* PurchaseXTest */ = {
 			isa = PBXGroup;
 			children = (
+				E571923226B3C76E000097A9 /* ViewModels */,
 				E5A05AD326A8172200B1B7FC /* Views */,
 				E5A05AD026A8169400B1B7FC /* Model */,
 				E5A05AC926A6C8E100B1B7FC /* Configuration */,
@@ -156,6 +171,8 @@
 				E5A05AD426A8174800B1B7FC /* ProductView.swift */,
 				E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */,
 				E5A05AE026A94B5C00B1B7FC /* PurchaseErrorView.swift */,
+				E571922D26B39DEC000097A9 /* ConsumableView.swift */,
+				E571923026B3AC5E000097A9 /* PriceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,11 +266,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E571923126B3AC5E000097A9 /* PriceView.swift in Sources */,
 				E5A05AE126A94B5C00B1B7FC /* PurchaseErrorView.swift in Sources */,
 				E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */,
 				E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */,
+				E571923426B3C78C000097A9 /* PriceViewModel.swift in Sources */,
 				E5A05AB626A6B7C800B1B7FC /* PurchaseXTestApp.swift in Sources */,
 				E5A05AD826A91F9D00B1B7FC /* PurchaseButton.swift in Sources */,
+				E571922E26B39DEC000097A9 /* ConsumableView.swift in Sources */,
 				E5A05AD226A816C500B1B7FC /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

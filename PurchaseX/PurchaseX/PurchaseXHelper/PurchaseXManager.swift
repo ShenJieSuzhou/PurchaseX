@@ -32,7 +32,7 @@ public class PurchaseXManager: NSObject,ObservableObject {
     private var purchasedProducts = [String]()
     
     /// the state of purchase
-    var purchaseState: PurchaseXState = .notStarted
+    public var purchaseState: PurchaseXState = .notStarted
     
     /// List of productIds read from the storekit configuration file.
     public var configuredProductIdentifiers: Set<String>?
@@ -71,6 +71,8 @@ public class PurchaseXManager: NSObject,ObservableObject {
     
     /// Used to request product info from Appstore
     var productsRequest: SKProductsRequest?
+    
+    public var count: Int = 0
     
         
     // MARK: - Initialization
@@ -125,6 +127,31 @@ extension PurchaseXManager {
         // 4. Start request
         productsRequest!.start()
     }
+    
+    
+    /// Start the process to purchase a product.
+    /// - Parameter product: SKProduct object
+    public func purchase(product: SKProduct, completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+        guard !isPurchaseing else {
+            PXLog.event(.purchaseAbortPurchaseInProgress)
+            completion(.purchaseAbortPurchaseInProgress)
+            return
+        }
+        
+        isPurchaseing = true
+        
+        // Start a purchase transaction
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(payment)
+        PXLog.event(.purchaseInProgress(productId: product.productIdentifier))
+    }
+    
+    /// Ask Appstore to restore purchase
+    public func restorePurchase() {
+        
+    }
+    
+    
     
     /// Get a localized price for product
     /// - Parameter product: SKProduct object

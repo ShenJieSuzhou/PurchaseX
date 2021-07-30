@@ -87,7 +87,7 @@ struct ContentView: View {
                         Section(header: Text("ConsumableProducts")) {
                             ForEach(0..<consumables.count) {
                                 let product = consumables[$0]
-                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                                ConsumableView(product: product)
                             }
                         }
                     }
@@ -96,7 +96,7 @@ struct ContentView: View {
                         Section(header: Text("NonConsumableProducts")) {
                             ForEach(0..<nonConsumables.count) {
                                 let product = nonConsumables[$0]
-                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                                ProductView(product: product)
                             }
                         }
                     }
@@ -105,7 +105,7 @@ struct ContentView: View {
                         Section(header: Text("NoRenewSubscriptionProducts")) {
                             ForEach(0..<noRenewSubscriptions.count) {
                                 let product = noRenewSubscriptions[$0]
-                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                                ProductView(product: product)
                             }
                         }
                     }
@@ -114,7 +114,7 @@ struct ContentView: View {
                         Section(header: Text("Subscriptions")) {
                             ForEach(0..<subscriptions.count) {
                                 let product = subscriptions[$0]
-                                ProductView(productId: product.productID, displayName: product.productName, price: product.price)
+                                ProductView(product: product)
                             }
                         }
                     }

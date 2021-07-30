@@ -8,26 +8,22 @@
 import SwiftUI
 
 struct ProductView: View {
-    
-    var productId: String
-    var displayName: String
-    var price: String
-    
+    var product: Product
     
     var body: some View {
         HStack {
-            Image(productId)
+            Image(product.productID)
                 .resizable()
                 .frame(width: 75, height: 75)
                 .aspectRatio(contentMode: .fit)
             
-            Text(displayName)
+            Text(product.productName)
                 .font(.title2)
                 .padding()
                 .lineLimit(2)
                 .minimumScaleFactor(0.5)
             
-            Text(price)
+            Text(product.price)
                 .font(.title3)
                 .padding()
                 .lineLimit(2)
@@ -35,7 +31,7 @@ struct ProductView: View {
             
             Spacer()
             
-            PurchaseButton(price: price, productId: productId)
+            PurchaseButton(product: product)
         }
     }
 }

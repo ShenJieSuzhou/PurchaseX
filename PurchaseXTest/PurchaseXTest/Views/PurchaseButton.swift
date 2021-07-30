@@ -11,33 +11,41 @@ import PurchaseX
 struct PurchaseButton: View {
     @ObservedObject var purchaseXManager = PurchaseXManager()
     
-    var purchasing: Bool = false
-    var cancelled: Bool = false
-    var pending: Bool = false
-    var failed: Bool = false
-    var purchased: Bool = false
+    @State var purchasing: Bool = false
+    @State var cancelled: Bool = false
+    @State var pending: Bool = false
+    @State var failed: Bool = false
+    @State var purchased: Bool = false
     
-    var price: String
-    var productId: String
+    var product: Product
     
     var body: some View {
-        let product = purchaseXManager.product(from: productId)
-        if product == nil {
-            PurchaseErrorView()
-        } else {
-            HStack {
-                Spacer()
-                Button(action: {
+        HStack {
+            if purchased, product.type != .Consumable {
+                
+            } else {
+                if cancelled {
                     
-                }) {
-                    Text(price)
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(height: 40)
-                        .background(Color.blue)
-                        .cornerRadius(25)
                 }
+                
+                if pending {
+                    
+                }
+                
+                
+            }
+            
+            Spacer()
+            Button(action: {
+                
+            }) {
+                Text(product.price)
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(height: 40)
+                    .background(Color.blue)
+                    .cornerRadius(25)
             }
         }
     }

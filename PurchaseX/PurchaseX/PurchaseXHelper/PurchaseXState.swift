@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum PurchaseXState {
+public enum PurchaseXState {
     case notStarted
     case inProgress
     case complete
