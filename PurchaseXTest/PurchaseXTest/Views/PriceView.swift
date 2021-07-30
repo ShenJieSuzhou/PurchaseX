@@ -9,21 +9,17 @@ import SwiftUI
 import PurchaseX
 
 struct PriceView: View {
-    
-    @ObservedObject var purchaseXManager = PurchaseXManager()
-    
-    @State var purchasing: Bool = false
-    @State var cancelled: Bool = false
-    @State var pending: Bool = false
-    @State var failed: Bool = false
-    @State var purchased: Bool = false
+    @Binding var purchasing: Bool
+    @Binding var cancelled: Bool
+    @Binding var pending: Bool
+    @Binding var failed: Bool
+    @Binding var purchased: Bool
     
     var product: Product
     
     var body: some View {
         
-        let priceViewModel = PriceViewModel(purchaseXManager: purchaseXManager,
-                                            purchasing: $purchasing,
+        let priceViewModel = PriceViewModel(purchasing: $purchasing,
                                             cancelled: $cancelled,
                                             pending: $pending,
                                             failed: $failed,
@@ -57,6 +53,19 @@ struct PriceView: View {
 
 struct PriceView_Previews: PreviewProvider {
     static var previews: some View {
-        PriceView(product: Product(pid: "", displayName: "", thumb: "", price: "", type: .Consumable))
+        HStack {
+            ProgressView()
+            Spacer()
+            Button(action: {}) {
+                Text("£1.99")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(height: 40)
+                    .background(Color.blue)
+                    .cornerRadius(25)
+            }
+        }
+        .padding()
     }
 }

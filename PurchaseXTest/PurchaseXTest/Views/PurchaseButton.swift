@@ -22,7 +22,7 @@ struct PurchaseButton: View {
     var body: some View {
         HStack {
             if purchased, product.type != .Consumable {
-                
+                // complete state
             } else {
                 if cancelled {
                     
@@ -31,6 +31,13 @@ struct PurchaseButton: View {
                 if pending {
                     
                 }
+                
+                PriceView(purchasing: $purchasing,
+                          cancelled: $cancelled,
+                          pending: $pending,
+                          failed: $failed,
+                          purchased: $purchased,
+                          product: product)
             }
         }
         .onAppear {
