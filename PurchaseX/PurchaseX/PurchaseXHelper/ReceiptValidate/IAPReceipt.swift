@@ -31,13 +31,30 @@ public class IAPReceipt {
         return true
     }
     
+    /// True if valid, if false then the app should call refreshReceipt
+    public var isValid = false
+    
     // MARK: Private property
     
-    // internal var inAppReceipts: []
+//    var inAppReceipts: []
     
     // Pointer to the receipt's PKCS7 data
-    internal var receiptData: UnsafeMutablePointer<PKCS7>?
+    var receiptData: UnsafeMutablePointer<PKCS7>?
     
+    // Required attribute type from receipt
+    var bundleIdString: String?
+    var bundleVersionString: String?
+    var bundleIdData: Data?
+    var hashData: Data?
+    var opaqueData: Data?
+    var expirationDate: Date?
+    var receiptCreationDate: Date?
+    var originalAppVersion: String?
+    
+    
+    
+    /// Get device identifier
+    /// - Returns: Device identifier
     internal func getDeviceIdentifier() -> Data {
         let device = UIDevice.current
         var uuid = device.identifierForVendor!.uuid
@@ -49,25 +66,22 @@ public class IAPReceipt {
     }
     
     
-//    internal func computeHash() -> Data {
-//        let identifierData = getDeviceIdentifier()
-//        var ctx = SHA_CTX()
-//        SHA1_Init(&ctx)
-//        
-//        let identifierBytes: [UInt8] = .init(identifierData)
-//        SHA1_Update(&ctx, identifierBytes, identifierData.count)
-//        
-//        let opaqueBytes: [UInt8] = .init(opaqueData!)
-//        SHA1_Update(&ctx, opaqueBytes, opaqueData!.count)
-//        
-//        let bundleBytes: [UInt8] = .init(bundleIdData!)
-//        SHA1_Update(&ctx, bundleBytes, bundleIdData!.count)
-//        
-//        var hash: [UInt8] = .init(repeating: 0, count: 20)
-//        SHA1_Final(&hash, &ctx)
-//        return Data(bytes: hash, count: 20)
-//    }
-    
-    
-    
+    internal func computeHash() -> Data {
+        let identifierData = getDeviceIdentifier()
+        var ctx = SHA_CTX()
+        SHA1_Init(&ctx)
+
+        let identifierBytes: [UInt8] = .init(identifierData)
+        SHA1_Update(&ctx, identifierBytes, identifierData.count)
+
+        let opaqueBytes: [UInt8] = .init(opaqueData!)
+        SHA1_Update(&ctx, opaqueBytes, opaqueData!.count)
+
+        let bundleBytes: [UInt8] = .init(bundleIdData!)
+        SHA1_Update(&ctx, bundleBytes, bundleIdData!.count)
+
+        var hash: [UInt8] = .init(repeating: 0, count: 20)
+        SHA1_Final(&hash, &ctx)
+        return Data(bytes: hash, count: 20)
+    }
 }
