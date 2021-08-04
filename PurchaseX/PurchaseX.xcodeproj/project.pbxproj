@@ -122,6 +122,7 @@
 		E5C7819026BA61CF008B096A /* asn1err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812526BA61CF008B096A /* asn1err.h */; };
 		E5C7819126BA61CF008B096A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C7812726BA61CF008B096A /* libcrypto.a */; };
 		E5C7819226BA61CF008B096A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C7812826BA61CF008B096A /* libssl.a */; };
+		E5C7819526BA6F04008B096A /* IAPReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7819426BA6F04008B096A /* IAPReceipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +242,7 @@
 		E5C7812526BA61CF008B096A /* asn1err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1err.h; sourceTree = "<group>"; };
 		E5C7812726BA61CF008B096A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		E5C7812826BA61CF008B096A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		E5C7819426BA6F04008B096A /* IAPReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPReceipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +298,7 @@
 		E5A05ADD26A93EA100B1B7FC /* PurchaseXHelper */ = {
 			isa = PBXGroup;
 			children = (
+				E5C7819326BA6ED2008B096A /* ReceiptValidate */,
 				E5A05ADE26A93EDC00B1B7FC /* PurchaseXManager.swift */,
 				E5A05AE226AA5A0E00B1B7FC /* PurchaseXState.swift */,
 				E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */,
@@ -440,6 +443,14 @@
 				E5C7812826BA61CF008B096A /* libssl.a */,
 			);
 			path = openssl_lib;
+			sourceTree = "<group>";
+		};
+		E5C7819326BA6ED2008B096A /* ReceiptValidate */ = {
+			isa = PBXGroup;
+			children = (
+				E5C7819426BA6F04008B096A /* IAPReceipt.swift */,
+			);
+			path = ReceiptValidate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +639,7 @@
 				E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */,
 				E5A05AEA26AA96FA00B1B7FC /* PurchaseXException.swift in Sources */,
 				E5A05AE826AA96DE00B1B7FC /* PurchaseXNotification.swift in Sources */,
+				E5C7819526BA6F04008B096A /* IAPReceipt.swift in Sources */,
 				E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */,
 				E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */,
 				E5A05AE326AA5A0E00B1B7FC /* PurchaseXState.swift in Sources */,
