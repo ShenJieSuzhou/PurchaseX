@@ -16,6 +16,112 @@
 		E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE526AA956200B1B7FC /* PXLog.swift */; };
 		E5A05AE826AA96DE00B1B7FC /* PurchaseXNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */; };
 		E5A05AEA26AA96FA00B1B7FC /* PurchaseXException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AE926AA96FA00B1B7FC /* PurchaseXException.swift */; };
+		E5C7812926BA61CF008B096A /* pem2.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780BE26BA61CF008B096A /* pem2.h */; };
+		E5C7812A26BA61CF008B096A /* kdf.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780BF26BA61CF008B096A /* kdf.h */; };
+		E5C7812B26BA61CF008B096A /* pem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C026BA61CF008B096A /* pem.h */; };
+		E5C7812C26BA61CF008B096A /* asyncerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C126BA61CF008B096A /* asyncerr.h */; };
+		E5C7812D26BA61CF008B096A /* md2.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C226BA61CF008B096A /* md2.h */; };
+		E5C7812E26BA61CF008B096A /* ssl3.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C326BA61CF008B096A /* ssl3.h */; };
+		E5C7812F26BA61CF008B096A /* ossl_typ.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C426BA61CF008B096A /* ossl_typ.h */; };
+		E5C7813026BA61CF008B096A /* dtls1.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C526BA61CF008B096A /* dtls1.h */; };
+		E5C7813126BA61CF008B096A /* err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C626BA61CF008B096A /* err.h */; };
+		E5C7813226BA61CF008B096A /* bn.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C726BA61CF008B096A /* bn.h */; };
+		E5C7813326BA61CF008B096A /* blowfish.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C826BA61CF008B096A /* blowfish.h */; };
+		E5C7813426BA61CF008B096A /* cms.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780C926BA61CF008B096A /* cms.h */; };
+		E5C7813526BA61CF008B096A /* engine.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780CA26BA61CF008B096A /* engine.h */; };
+		E5C7813626BA61CF008B096A /* conf_api.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780CB26BA61CF008B096A /* conf_api.h */; };
+		E5C7813726BA61CF008B096A /* x509.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780CC26BA61CF008B096A /* x509.h */; };
+		E5C7813826BA61CF008B096A /* asn1_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780CD26BA61CF008B096A /* asn1_mac.h */; };
+		E5C7813926BA61CF008B096A /* objectserr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780CE26BA61CF008B096A /* objectserr.h */; };
+		E5C7813A26BA61CF008B096A /* cmserr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780CF26BA61CF008B096A /* cmserr.h */; };
+		E5C7813B26BA61CF008B096A /* ui.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D026BA61CF008B096A /* ui.h */; };
+		E5C7813C26BA61CF008B096A /* sha.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D126BA61CF008B096A /* sha.h */; };
+		E5C7813D26BA61CF008B096A /* symhacks.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D226BA61CF008B096A /* symhacks.h */; };
+		E5C7813E26BA61CF008B096A /* asn1.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D326BA61CF008B096A /* asn1.h */; };
+		E5C7813F26BA61CF008B096A /* bioerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D426BA61CF008B096A /* bioerr.h */; };
+		E5C7814026BA61CF008B096A /* opensslconf.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D526BA61CF008B096A /* opensslconf.h */; };
+		E5C7814126BA61CF008B096A /* bio.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D626BA61CF008B096A /* bio.h */; };
+		E5C7814226BA61CF008B096A /* rc2.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D726BA61CF008B096A /* rc2.h */; };
+		E5C7814326BA61CF008B096A /* dh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D826BA61CF008B096A /* dh.h */; };
+		E5C7814426BA61CF008B096A /* x509v3.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780D926BA61CF008B096A /* x509v3.h */; };
+		E5C7814526BA61CF008B096A /* conf.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780DA26BA61CF008B096A /* conf.h */; };
+		E5C7814626BA61CF008B096A /* rand_drbg.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780DB26BA61CF008B096A /* rand_drbg.h */; };
+		E5C7814726BA61CF008B096A /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780DC26BA61CF008B096A /* md5.h */; };
+		E5C7814826BA61CF008B096A /* pemerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780DD26BA61CF008B096A /* pemerr.h */; };
+		E5C7814926BA61CF008B096A /* x509_vfy.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780DE26BA61CF008B096A /* x509_vfy.h */; };
+		E5C7814A26BA61CF008B096A /* txt_db.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780DF26BA61CF008B096A /* txt_db.h */; };
+		E5C7814B26BA61CF008B096A /* comperr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E026BA61CF008B096A /* comperr.h */; };
+		E5C7814C26BA61CF008B096A /* cterr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E126BA61CF008B096A /* cterr.h */; };
+		E5C7814D26BA61CF008B096A /* safestack.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E226BA61CF008B096A /* safestack.h */; };
+		E5C7814E26BA61CF008B096A /* ecdsa.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E326BA61CF008B096A /* ecdsa.h */; };
+		E5C7814F26BA61CF008B096A /* sslerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E426BA61CF008B096A /* sslerr.h */; };
+		E5C7815026BA61CF008B096A /* rc5.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E526BA61CF008B096A /* rc5.h */; };
+		E5C7815126BA61CF008B096A /* uierr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E626BA61CF008B096A /* uierr.h */; };
+		E5C7815226BA61CF008B096A /* x509v3err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E726BA61CF008B096A /* x509v3err.h */; };
+		E5C7815326BA61CF008B096A /* objects.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E826BA61CF008B096A /* objects.h */; };
+		E5C7815426BA61CF008B096A /* pkcs12.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780E926BA61CF008B096A /* pkcs12.h */; };
+		E5C7815526BA61CF008B096A /* crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780EA26BA61CF008B096A /* crypto.h */; };
+		E5C7815626BA61CF008B096A /* opensslv.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780EB26BA61CF008B096A /* opensslv.h */; };
+		E5C7815726BA61CF008B096A /* evperr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780EC26BA61CF008B096A /* evperr.h */; };
+		E5C7815826BA61CF008B096A /* pkcs7.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780ED26BA61CF008B096A /* pkcs7.h */; };
+		E5C7815926BA61CF008B096A /* obj_mac.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780EE26BA61CF008B096A /* obj_mac.h */; };
+		E5C7815A26BA61CF008B096A /* ct.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780EF26BA61CF008B096A /* ct.h */; };
+		E5C7815B26BA61CF008B096A /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F026BA61CF008B096A /* async.h */; };
+		E5C7815C26BA61CF008B096A /* buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F126BA61CF008B096A /* buffer.h */; };
+		E5C7815D26BA61CF008B096A /* ssl.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F226BA61CF008B096A /* ssl.h */; };
+		E5C7815E26BA61CF008B096A /* srp.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F326BA61CF008B096A /* srp.h */; };
+		E5C7815F26BA61CF008B096A /* camellia.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F426BA61CF008B096A /* camellia.h */; };
+		E5C7816026BA61CF008B096A /* dherr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F526BA61CF008B096A /* dherr.h */; };
+		E5C7816126BA61CF008B096A /* evp.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F626BA61CF008B096A /* evp.h */; };
+		E5C7816226BA61CF008B096A /* e_os2.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F726BA61CF008B096A /* e_os2.h */; };
+		E5C7816326BA61CF008B096A /* md4.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F826BA61CF008B096A /* md4.h */; };
+		E5C7816426BA61CF008B096A /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780F926BA61CF008B096A /* hmac.h */; };
+		E5C7816526BA61CF008B096A /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780FA26BA61CF008B096A /* aes.h */; };
+		E5C7816626BA61CF008B096A /* engineerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780FB26BA61CF008B096A /* engineerr.h */; };
+		E5C7816726BA61CF008B096A /* comp.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780FC26BA61CF008B096A /* comp.h */; };
+		E5C7816826BA61CF008B096A /* pkcs12err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780FD26BA61CF008B096A /* pkcs12err.h */; };
+		E5C7816926BA61CF008B096A /* cast.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780FE26BA61CF008B096A /* cast.h */; };
+		E5C7816A26BA61CF008B096A /* rc4.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C780FF26BA61CF008B096A /* rc4.h */; };
+		E5C7816B26BA61CF008B096A /* stack.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810026BA61CF008B096A /* stack.h */; };
+		E5C7816C26BA61CF008B096A /* des.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810126BA61CF008B096A /* des.h */; };
+		E5C7816D26BA61CF008B096A /* ocsp.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810226BA61CF008B096A /* ocsp.h */; };
+		E5C7816E26BA61CF008B096A /* ec.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810326BA61CF008B096A /* ec.h */; };
+		E5C7816F26BA61CF008B096A /* ecdh.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810426BA61CF008B096A /* ecdh.h */; };
+		E5C7817026BA61CF008B096A /* rand.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810526BA61CF008B096A /* rand.h */; };
+		E5C7817126BA61CF008B096A /* ecerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810626BA61CF008B096A /* ecerr.h */; };
+		E5C7817226BA61CF008B096A /* ts.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810726BA61CF008B096A /* ts.h */; };
+		E5C7817326BA61CF008B096A /* cryptoerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810826BA61CF008B096A /* cryptoerr.h */; };
+		E5C7817426BA61CF008B096A /* storeerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810926BA61CF008B096A /* storeerr.h */; };
+		E5C7817526BA61CF008B096A /* buffererr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810A26BA61CF008B096A /* buffererr.h */; };
+		E5C7817626BA61CF008B096A /* seed.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810B26BA61CF008B096A /* seed.h */; };
+		E5C7817726BA61CF008B096A /* modes.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810C26BA61CF008B096A /* modes.h */; };
+		E5C7817826BA61CF008B096A /* ssl2.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810D26BA61CF008B096A /* ssl2.h */; };
+		E5C7817926BA61CF008B096A /* tserr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810E26BA61CF008B096A /* tserr.h */; };
+		E5C7817A26BA61CF008B096A /* rsa.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7810F26BA61CF008B096A /* rsa.h */; };
+		E5C7817B26BA61CF008B096A /* ripemd.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811026BA61CF008B096A /* ripemd.h */; };
+		E5C7817C26BA61CF008B096A /* whrlpool.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811126BA61CF008B096A /* whrlpool.h */; };
+		E5C7817D26BA61CF008B096A /* tls1.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811226BA61CF008B096A /* tls1.h */; };
+		E5C7817E26BA61CF008B096A /* rsaerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811326BA61CF008B096A /* rsaerr.h */; };
+		E5C7817F26BA61CF008B096A /* randerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811426BA61CF008B096A /* randerr.h */; };
+		E5C7818026BA61CF008B096A /* mdc2.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811526BA61CF008B096A /* mdc2.h */; };
+		E5C7818126BA61CF008B096A /* ocsperr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811626BA61CF008B096A /* ocsperr.h */; };
+		E5C7818226BA61CF008B096A /* x509err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811726BA61CF008B096A /* x509err.h */; };
+		E5C7818326BA61CF008B096A /* pkcs7err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811826BA61CF008B096A /* pkcs7err.h */; };
+		E5C7818426BA61CF008B096A /* dsa.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811926BA61CF008B096A /* dsa.h */; };
+		E5C7818526BA61CF008B096A /* kdferr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811A26BA61CF008B096A /* kdferr.h */; };
+		E5C7818626BA61CF008B096A /* srtp.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811B26BA61CF008B096A /* srtp.h */; };
+		E5C7818726BA61CF008B096A /* asn1t.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811C26BA61CF008B096A /* asn1t.h */; };
+		E5C7818826BA61CF008B096A /* dsaerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811D26BA61CF008B096A /* dsaerr.h */; };
+		E5C7818926BA61CF008B096A /* bnerr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811E26BA61CF008B096A /* bnerr.h */; };
+		E5C7818A26BA61CF008B096A /* conferr.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7811F26BA61CF008B096A /* conferr.h */; };
+		E5C7818B26BA61CF008B096A /* cmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812026BA61CF008B096A /* cmac.h */; };
+		E5C7818C26BA61CF008B096A /* ebcdic.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812126BA61CF008B096A /* ebcdic.h */; };
+		E5C7818D26BA61CF008B096A /* store.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812226BA61CF008B096A /* store.h */; };
+		E5C7818E26BA61CF008B096A /* idea.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812326BA61CF008B096A /* idea.h */; };
+		E5C7818F26BA61CF008B096A /* lhash.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812426BA61CF008B096A /* lhash.h */; };
+		E5C7819026BA61CF008B096A /* asn1err.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C7812526BA61CF008B096A /* asn1err.h */; };
+		E5C7819126BA61CF008B096A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C7812726BA61CF008B096A /* libcrypto.a */; };
+		E5C7819226BA61CF008B096A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C7812826BA61CF008B096A /* libssl.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +135,112 @@
 		E5A05AE526AA956200B1B7FC /* PXLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PXLog.swift; sourceTree = "<group>"; };
 		E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXNotification.swift; sourceTree = "<group>"; };
 		E5A05AE926AA96FA00B1B7FC /* PurchaseXException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXException.swift; sourceTree = "<group>"; };
+		E5C780BE26BA61CF008B096A /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		E5C780BF26BA61CF008B096A /* kdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kdf.h; sourceTree = "<group>"; };
+		E5C780C026BA61CF008B096A /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		E5C780C126BA61CF008B096A /* asyncerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asyncerr.h; sourceTree = "<group>"; };
+		E5C780C226BA61CF008B096A /* md2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md2.h; sourceTree = "<group>"; };
+		E5C780C326BA61CF008B096A /* ssl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		E5C780C426BA61CF008B096A /* ossl_typ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		E5C780C526BA61CF008B096A /* dtls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		E5C780C626BA61CF008B096A /* err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		E5C780C726BA61CF008B096A /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		E5C780C826BA61CF008B096A /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		E5C780C926BA61CF008B096A /* cms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		E5C780CA26BA61CF008B096A /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		E5C780CB26BA61CF008B096A /* conf_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		E5C780CC26BA61CF008B096A /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		E5C780CD26BA61CF008B096A /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		E5C780CE26BA61CF008B096A /* objectserr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objectserr.h; sourceTree = "<group>"; };
+		E5C780CF26BA61CF008B096A /* cmserr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmserr.h; sourceTree = "<group>"; };
+		E5C780D026BA61CF008B096A /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		E5C780D126BA61CF008B096A /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		E5C780D226BA61CF008B096A /* symhacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		E5C780D326BA61CF008B096A /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		E5C780D426BA61CF008B096A /* bioerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bioerr.h; sourceTree = "<group>"; };
+		E5C780D526BA61CF008B096A /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		E5C780D626BA61CF008B096A /* bio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		E5C780D726BA61CF008B096A /* rc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		E5C780D826BA61CF008B096A /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		E5C780D926BA61CF008B096A /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		E5C780DA26BA61CF008B096A /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		E5C780DB26BA61CF008B096A /* rand_drbg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand_drbg.h; sourceTree = "<group>"; };
+		E5C780DC26BA61CF008B096A /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		E5C780DD26BA61CF008B096A /* pemerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pemerr.h; sourceTree = "<group>"; };
+		E5C780DE26BA61CF008B096A /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		E5C780DF26BA61CF008B096A /* txt_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		E5C780E026BA61CF008B096A /* comperr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comperr.h; sourceTree = "<group>"; };
+		E5C780E126BA61CF008B096A /* cterr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cterr.h; sourceTree = "<group>"; };
+		E5C780E226BA61CF008B096A /* safestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		E5C780E326BA61CF008B096A /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		E5C780E426BA61CF008B096A /* sslerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sslerr.h; sourceTree = "<group>"; };
+		E5C780E526BA61CF008B096A /* rc5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc5.h; sourceTree = "<group>"; };
+		E5C780E626BA61CF008B096A /* uierr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uierr.h; sourceTree = "<group>"; };
+		E5C780E726BA61CF008B096A /* x509v3err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3err.h; sourceTree = "<group>"; };
+		E5C780E826BA61CF008B096A /* objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		E5C780E926BA61CF008B096A /* pkcs12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		E5C780EA26BA61CF008B096A /* crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		E5C780EB26BA61CF008B096A /* opensslv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		E5C780EC26BA61CF008B096A /* evperr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evperr.h; sourceTree = "<group>"; };
+		E5C780ED26BA61CF008B096A /* pkcs7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		E5C780EE26BA61CF008B096A /* obj_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		E5C780EF26BA61CF008B096A /* ct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ct.h; sourceTree = "<group>"; };
+		E5C780F026BA61CF008B096A /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
+		E5C780F126BA61CF008B096A /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		E5C780F226BA61CF008B096A /* ssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		E5C780F326BA61CF008B096A /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		E5C780F426BA61CF008B096A /* camellia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		E5C780F526BA61CF008B096A /* dherr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dherr.h; sourceTree = "<group>"; };
+		E5C780F626BA61CF008B096A /* evp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		E5C780F726BA61CF008B096A /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		E5C780F826BA61CF008B096A /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		E5C780F926BA61CF008B096A /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		E5C780FA26BA61CF008B096A /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		E5C780FB26BA61CF008B096A /* engineerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engineerr.h; sourceTree = "<group>"; };
+		E5C780FC26BA61CF008B096A /* comp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		E5C780FD26BA61CF008B096A /* pkcs12err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12err.h; sourceTree = "<group>"; };
+		E5C780FE26BA61CF008B096A /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		E5C780FF26BA61CF008B096A /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		E5C7810026BA61CF008B096A /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		E5C7810126BA61CF008B096A /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		E5C7810226BA61CF008B096A /* ocsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		E5C7810326BA61CF008B096A /* ec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		E5C7810426BA61CF008B096A /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		E5C7810526BA61CF008B096A /* rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		E5C7810626BA61CF008B096A /* ecerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecerr.h; sourceTree = "<group>"; };
+		E5C7810726BA61CF008B096A /* ts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		E5C7810826BA61CF008B096A /* cryptoerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptoerr.h; sourceTree = "<group>"; };
+		E5C7810926BA61CF008B096A /* storeerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = storeerr.h; sourceTree = "<group>"; };
+		E5C7810A26BA61CF008B096A /* buffererr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffererr.h; sourceTree = "<group>"; };
+		E5C7810B26BA61CF008B096A /* seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		E5C7810C26BA61CF008B096A /* modes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		E5C7810D26BA61CF008B096A /* ssl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		E5C7810E26BA61CF008B096A /* tserr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tserr.h; sourceTree = "<group>"; };
+		E5C7810F26BA61CF008B096A /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		E5C7811026BA61CF008B096A /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		E5C7811126BA61CF008B096A /* whrlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		E5C7811226BA61CF008B096A /* tls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		E5C7811326BA61CF008B096A /* rsaerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsaerr.h; sourceTree = "<group>"; };
+		E5C7811426BA61CF008B096A /* randerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = randerr.h; sourceTree = "<group>"; };
+		E5C7811526BA61CF008B096A /* mdc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		E5C7811626BA61CF008B096A /* ocsperr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocsperr.h; sourceTree = "<group>"; };
+		E5C7811726BA61CF008B096A /* x509err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509err.h; sourceTree = "<group>"; };
+		E5C7811826BA61CF008B096A /* pkcs7err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7err.h; sourceTree = "<group>"; };
+		E5C7811926BA61CF008B096A /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		E5C7811A26BA61CF008B096A /* kdferr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kdferr.h; sourceTree = "<group>"; };
+		E5C7811B26BA61CF008B096A /* srtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		E5C7811C26BA61CF008B096A /* asn1t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		E5C7811D26BA61CF008B096A /* dsaerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsaerr.h; sourceTree = "<group>"; };
+		E5C7811E26BA61CF008B096A /* bnerr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bnerr.h; sourceTree = "<group>"; };
+		E5C7811F26BA61CF008B096A /* conferr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conferr.h; sourceTree = "<group>"; };
+		E5C7812026BA61CF008B096A /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		E5C7812126BA61CF008B096A /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		E5C7812226BA61CF008B096A /* store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = store.h; sourceTree = "<group>"; };
+		E5C7812326BA61CF008B096A /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		E5C7812426BA61CF008B096A /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		E5C7812526BA61CF008B096A /* asn1err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1err.h; sourceTree = "<group>"; };
+		E5C7812726BA61CF008B096A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		E5C7812826BA61CF008B096A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +248,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C7819226BA61CF008B096A /* libssl.a in Frameworks */,
+				E5C7819126BA61CF008B096A /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +275,7 @@
 		E5A05A9F26A6B78900B1B7FC /* PurchaseX */ = {
 			isa = PBXGroup;
 			children = (
+				E5C780BB26BA614B008B096A /* lib */,
 				E5A05ADD26A93EA100B1B7FC /* PurchaseXHelper */,
 				E5A05ADA26A93E5B00B1B7FC /* Util */,
 				E5A05AA026A6B78900B1B7FC /* PurchaseX.h */,
@@ -90,6 +305,143 @@
 			path = PurchaseXHelper;
 			sourceTree = "<group>";
 		};
+		E5C780BB26BA614B008B096A /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				E5C780BC26BA61CF008B096A /* include */,
+				E5C7812626BA61CF008B096A /* openssl_lib */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		E5C780BC26BA61CF008B096A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				E5C780BD26BA61CF008B096A /* openssl */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		E5C780BD26BA61CF008B096A /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				E5C780BE26BA61CF008B096A /* pem2.h */,
+				E5C780BF26BA61CF008B096A /* kdf.h */,
+				E5C780C026BA61CF008B096A /* pem.h */,
+				E5C780C126BA61CF008B096A /* asyncerr.h */,
+				E5C780C226BA61CF008B096A /* md2.h */,
+				E5C780C326BA61CF008B096A /* ssl3.h */,
+				E5C780C426BA61CF008B096A /* ossl_typ.h */,
+				E5C780C526BA61CF008B096A /* dtls1.h */,
+				E5C780C626BA61CF008B096A /* err.h */,
+				E5C780C726BA61CF008B096A /* bn.h */,
+				E5C780C826BA61CF008B096A /* blowfish.h */,
+				E5C780C926BA61CF008B096A /* cms.h */,
+				E5C780CA26BA61CF008B096A /* engine.h */,
+				E5C780CB26BA61CF008B096A /* conf_api.h */,
+				E5C780CC26BA61CF008B096A /* x509.h */,
+				E5C780CD26BA61CF008B096A /* asn1_mac.h */,
+				E5C780CE26BA61CF008B096A /* objectserr.h */,
+				E5C780CF26BA61CF008B096A /* cmserr.h */,
+				E5C780D026BA61CF008B096A /* ui.h */,
+				E5C780D126BA61CF008B096A /* sha.h */,
+				E5C780D226BA61CF008B096A /* symhacks.h */,
+				E5C780D326BA61CF008B096A /* asn1.h */,
+				E5C780D426BA61CF008B096A /* bioerr.h */,
+				E5C780D526BA61CF008B096A /* opensslconf.h */,
+				E5C780D626BA61CF008B096A /* bio.h */,
+				E5C780D726BA61CF008B096A /* rc2.h */,
+				E5C780D826BA61CF008B096A /* dh.h */,
+				E5C780D926BA61CF008B096A /* x509v3.h */,
+				E5C780DA26BA61CF008B096A /* conf.h */,
+				E5C780DB26BA61CF008B096A /* rand_drbg.h */,
+				E5C780DC26BA61CF008B096A /* md5.h */,
+				E5C780DD26BA61CF008B096A /* pemerr.h */,
+				E5C780DE26BA61CF008B096A /* x509_vfy.h */,
+				E5C780DF26BA61CF008B096A /* txt_db.h */,
+				E5C780E026BA61CF008B096A /* comperr.h */,
+				E5C780E126BA61CF008B096A /* cterr.h */,
+				E5C780E226BA61CF008B096A /* safestack.h */,
+				E5C780E326BA61CF008B096A /* ecdsa.h */,
+				E5C780E426BA61CF008B096A /* sslerr.h */,
+				E5C780E526BA61CF008B096A /* rc5.h */,
+				E5C780E626BA61CF008B096A /* uierr.h */,
+				E5C780E726BA61CF008B096A /* x509v3err.h */,
+				E5C780E826BA61CF008B096A /* objects.h */,
+				E5C780E926BA61CF008B096A /* pkcs12.h */,
+				E5C780EA26BA61CF008B096A /* crypto.h */,
+				E5C780EB26BA61CF008B096A /* opensslv.h */,
+				E5C780EC26BA61CF008B096A /* evperr.h */,
+				E5C780ED26BA61CF008B096A /* pkcs7.h */,
+				E5C780EE26BA61CF008B096A /* obj_mac.h */,
+				E5C780EF26BA61CF008B096A /* ct.h */,
+				E5C780F026BA61CF008B096A /* async.h */,
+				E5C780F126BA61CF008B096A /* buffer.h */,
+				E5C780F226BA61CF008B096A /* ssl.h */,
+				E5C780F326BA61CF008B096A /* srp.h */,
+				E5C780F426BA61CF008B096A /* camellia.h */,
+				E5C780F526BA61CF008B096A /* dherr.h */,
+				E5C780F626BA61CF008B096A /* evp.h */,
+				E5C780F726BA61CF008B096A /* e_os2.h */,
+				E5C780F826BA61CF008B096A /* md4.h */,
+				E5C780F926BA61CF008B096A /* hmac.h */,
+				E5C780FA26BA61CF008B096A /* aes.h */,
+				E5C780FB26BA61CF008B096A /* engineerr.h */,
+				E5C780FC26BA61CF008B096A /* comp.h */,
+				E5C780FD26BA61CF008B096A /* pkcs12err.h */,
+				E5C780FE26BA61CF008B096A /* cast.h */,
+				E5C780FF26BA61CF008B096A /* rc4.h */,
+				E5C7810026BA61CF008B096A /* stack.h */,
+				E5C7810126BA61CF008B096A /* des.h */,
+				E5C7810226BA61CF008B096A /* ocsp.h */,
+				E5C7810326BA61CF008B096A /* ec.h */,
+				E5C7810426BA61CF008B096A /* ecdh.h */,
+				E5C7810526BA61CF008B096A /* rand.h */,
+				E5C7810626BA61CF008B096A /* ecerr.h */,
+				E5C7810726BA61CF008B096A /* ts.h */,
+				E5C7810826BA61CF008B096A /* cryptoerr.h */,
+				E5C7810926BA61CF008B096A /* storeerr.h */,
+				E5C7810A26BA61CF008B096A /* buffererr.h */,
+				E5C7810B26BA61CF008B096A /* seed.h */,
+				E5C7810C26BA61CF008B096A /* modes.h */,
+				E5C7810D26BA61CF008B096A /* ssl2.h */,
+				E5C7810E26BA61CF008B096A /* tserr.h */,
+				E5C7810F26BA61CF008B096A /* rsa.h */,
+				E5C7811026BA61CF008B096A /* ripemd.h */,
+				E5C7811126BA61CF008B096A /* whrlpool.h */,
+				E5C7811226BA61CF008B096A /* tls1.h */,
+				E5C7811326BA61CF008B096A /* rsaerr.h */,
+				E5C7811426BA61CF008B096A /* randerr.h */,
+				E5C7811526BA61CF008B096A /* mdc2.h */,
+				E5C7811626BA61CF008B096A /* ocsperr.h */,
+				E5C7811726BA61CF008B096A /* x509err.h */,
+				E5C7811826BA61CF008B096A /* pkcs7err.h */,
+				E5C7811926BA61CF008B096A /* dsa.h */,
+				E5C7811A26BA61CF008B096A /* kdferr.h */,
+				E5C7811B26BA61CF008B096A /* srtp.h */,
+				E5C7811C26BA61CF008B096A /* asn1t.h */,
+				E5C7811D26BA61CF008B096A /* dsaerr.h */,
+				E5C7811E26BA61CF008B096A /* bnerr.h */,
+				E5C7811F26BA61CF008B096A /* conferr.h */,
+				E5C7812026BA61CF008B096A /* cmac.h */,
+				E5C7812126BA61CF008B096A /* ebcdic.h */,
+				E5C7812226BA61CF008B096A /* store.h */,
+				E5C7812326BA61CF008B096A /* idea.h */,
+				E5C7812426BA61CF008B096A /* lhash.h */,
+				E5C7812526BA61CF008B096A /* asn1err.h */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		E5C7812626BA61CF008B096A /* openssl_lib */ = {
+			isa = PBXGroup;
+			children = (
+				E5C7812726BA61CF008B096A /* libcrypto.a */,
+				E5C7812826BA61CF008B096A /* libssl.a */,
+			);
+			path = openssl_lib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -97,7 +449,111 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C7818B26BA61CF008B096A /* cmac.h in Headers */,
+				E5C7815A26BA61CF008B096A /* ct.h in Headers */,
+				E5C7813C26BA61CF008B096A /* sha.h in Headers */,
+				E5C7814F26BA61CF008B096A /* sslerr.h in Headers */,
+				E5C7816926BA61CF008B096A /* cast.h in Headers */,
+				E5C7814726BA61CF008B096A /* md5.h in Headers */,
+				E5C7813E26BA61CF008B096A /* asn1.h in Headers */,
+				E5C7818526BA61CF008B096A /* kdferr.h in Headers */,
+				E5C7813226BA61CF008B096A /* bn.h in Headers */,
+				E5C7817A26BA61CF008B096A /* rsa.h in Headers */,
+				E5C7817C26BA61CF008B096A /* whrlpool.h in Headers */,
+				E5C7816E26BA61CF008B096A /* ec.h in Headers */,
+				E5C7815526BA61CF008B096A /* crypto.h in Headers */,
+				E5C7815B26BA61CF008B096A /* async.h in Headers */,
+				E5C7816526BA61CF008B096A /* aes.h in Headers */,
+				E5C7818326BA61CF008B096A /* pkcs7err.h in Headers */,
+				E5C7815F26BA61CF008B096A /* camellia.h in Headers */,
+				E5C7816626BA61CF008B096A /* engineerr.h in Headers */,
+				E5C7816726BA61CF008B096A /* comp.h in Headers */,
+				E5C7813A26BA61CF008B096A /* cmserr.h in Headers */,
+				E5C7818C26BA61CF008B096A /* ebcdic.h in Headers */,
+				E5C7813926BA61CF008B096A /* objectserr.h in Headers */,
+				E5C7817E26BA61CF008B096A /* rsaerr.h in Headers */,
+				E5C7817126BA61CF008B096A /* ecerr.h in Headers */,
+				E5C7813126BA61CF008B096A /* err.h in Headers */,
+				E5C7813B26BA61CF008B096A /* ui.h in Headers */,
+				E5C7817426BA61CF008B096A /* storeerr.h in Headers */,
+				E5C7813726BA61CF008B096A /* x509.h in Headers */,
+				E5C7813026BA61CF008B096A /* dtls1.h in Headers */,
+				E5C7818126BA61CF008B096A /* ocsperr.h in Headers */,
+				E5C7814226BA61CF008B096A /* rc2.h in Headers */,
+				E5C7814526BA61CF008B096A /* conf.h in Headers */,
+				E5C7815326BA61CF008B096A /* objects.h in Headers */,
+				E5C7815226BA61CF008B096A /* x509v3err.h in Headers */,
+				E5C7816F26BA61CF008B096A /* ecdh.h in Headers */,
+				E5C7816426BA61CF008B096A /* hmac.h in Headers */,
+				E5C7817326BA61CF008B096A /* cryptoerr.h in Headers */,
+				E5C7813F26BA61CF008B096A /* bioerr.h in Headers */,
+				E5C7818726BA61CF008B096A /* asn1t.h in Headers */,
+				E5C7816D26BA61CF008B096A /* ocsp.h in Headers */,
+				E5C7812D26BA61CF008B096A /* md2.h in Headers */,
+				E5C7815726BA61CF008B096A /* evperr.h in Headers */,
+				E5C7816126BA61CF008B096A /* evp.h in Headers */,
+				E5C7814D26BA61CF008B096A /* safestack.h in Headers */,
+				E5C7816326BA61CF008B096A /* md4.h in Headers */,
+				E5C7818E26BA61CF008B096A /* idea.h in Headers */,
+				E5C7814126BA61CF008B096A /* bio.h in Headers */,
+				E5C7813826BA61CF008B096A /* asn1_mac.h in Headers */,
+				E5C7818A26BA61CF008B096A /* conferr.h in Headers */,
+				E5C7819026BA61CF008B096A /* asn1err.h in Headers */,
+				E5C7816826BA61CF008B096A /* pkcs12err.h in Headers */,
+				E5C7817826BA61CF008B096A /* ssl2.h in Headers */,
+				E5C7814626BA61CF008B096A /* rand_drbg.h in Headers */,
+				E5C7814026BA61CF008B096A /* opensslconf.h in Headers */,
+				E5C7816026BA61CF008B096A /* dherr.h in Headers */,
+				E5C7814826BA61CF008B096A /* pemerr.h in Headers */,
+				E5C7818D26BA61CF008B096A /* store.h in Headers */,
+				E5C7818626BA61CF008B096A /* srtp.h in Headers */,
+				E5C7814C26BA61CF008B096A /* cterr.h in Headers */,
+				E5C7812A26BA61CF008B096A /* kdf.h in Headers */,
+				E5C7818926BA61CF008B096A /* bnerr.h in Headers */,
+				E5C7812B26BA61CF008B096A /* pem.h in Headers */,
+				E5C7815126BA61CF008B096A /* uierr.h in Headers */,
+				E5C7814426BA61CF008B096A /* x509v3.h in Headers */,
+				E5C7817026BA61CF008B096A /* rand.h in Headers */,
+				E5C7817B26BA61CF008B096A /* ripemd.h in Headers */,
+				E5C7818826BA61CF008B096A /* dsaerr.h in Headers */,
+				E5C7818026BA61CF008B096A /* mdc2.h in Headers */,
+				E5C7817626BA61CF008B096A /* seed.h in Headers */,
+				E5C7816C26BA61CF008B096A /* des.h in Headers */,
+				E5C7817226BA61CF008B096A /* ts.h in Headers */,
+				E5C7814926BA61CF008B096A /* x509_vfy.h in Headers */,
+				E5C7817726BA61CF008B096A /* modes.h in Headers */,
+				E5C7815E26BA61CF008B096A /* srp.h in Headers */,
+				E5C7815626BA61CF008B096A /* opensslv.h in Headers */,
+				E5C7818226BA61CF008B096A /* x509err.h in Headers */,
+				E5C7817926BA61CF008B096A /* tserr.h in Headers */,
+				E5C7817526BA61CF008B096A /* buffererr.h in Headers */,
+				E5C7816226BA61CF008B096A /* e_os2.h in Headers */,
+				E5C7815426BA61CF008B096A /* pkcs12.h in Headers */,
+				E5C7815C26BA61CF008B096A /* buffer.h in Headers */,
+				E5C7813526BA61CF008B096A /* engine.h in Headers */,
+				E5C7813D26BA61CF008B096A /* symhacks.h in Headers */,
+				E5C7812E26BA61CF008B096A /* ssl3.h in Headers */,
+				E5C7817F26BA61CF008B096A /* randerr.h in Headers */,
+				E5C7812926BA61CF008B096A /* pem2.h in Headers */,
+				E5C7818F26BA61CF008B096A /* lhash.h in Headers */,
+				E5C7814B26BA61CF008B096A /* comperr.h in Headers */,
+				E5C7813626BA61CF008B096A /* conf_api.h in Headers */,
+				E5C7815826BA61CF008B096A /* pkcs7.h in Headers */,
+				E5C7818426BA61CF008B096A /* dsa.h in Headers */,
+				E5C7814326BA61CF008B096A /* dh.h in Headers */,
+				E5C7815026BA61CF008B096A /* rc5.h in Headers */,
+				E5C7814A26BA61CF008B096A /* txt_db.h in Headers */,
+				E5C7812F26BA61CF008B096A /* ossl_typ.h in Headers */,
+				E5C7817D26BA61CF008B096A /* tls1.h in Headers */,
+				E5C7813426BA61CF008B096A /* cms.h in Headers */,
 				E5A05AA326A6B78900B1B7FC /* PurchaseX.h in Headers */,
+				E5C7815926BA61CF008B096A /* obj_mac.h in Headers */,
+				E5C7814E26BA61CF008B096A /* ecdsa.h in Headers */,
+				E5C7816A26BA61CF008B096A /* rc4.h in Headers */,
+				E5C7815D26BA61CF008B096A /* ssl.h in Headers */,
+				E5C7813326BA61CF008B096A /* blowfish.h in Headers */,
+				E5C7812C26BA61CF008B096A /* asyncerr.h in Headers */,
+				E5C7816B26BA61CF008B096A /* stack.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +779,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PurchaseX/lib/openssl_lib",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.SnailAgreement.PurchaseX;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -350,6 +810,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PurchaseX/lib/openssl_lib",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.SnailAgreement.PurchaseX;
