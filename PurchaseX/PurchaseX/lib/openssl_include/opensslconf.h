@@ -10,7 +10,7 @@
  * https://www.openssl.org/source/license.html
  */
 
-#include <openssl/opensslv.h>
+#include "opensslv.h"
 
 #ifdef  __cplusplus
 extern "C" {
