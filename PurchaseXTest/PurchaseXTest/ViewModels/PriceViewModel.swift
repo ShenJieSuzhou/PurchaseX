@@ -29,6 +29,8 @@ struct PriceViewModel {
                 
             } else if notification == .purchaseSuccess{
                 updatePurchaseState(state: .complete)
+                
+                
             } else if notification == .purchaseCancelled {
                 updatePurchaseState(state: .cancelled)
             } else if notification == .purchaseFailure {

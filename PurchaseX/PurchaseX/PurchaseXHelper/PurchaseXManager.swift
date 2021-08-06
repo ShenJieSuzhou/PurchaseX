@@ -69,8 +69,14 @@ public class PurchaseXManager: NSObject,ObservableObject {
         return matchProduct.first
     }
     
+    
+    /// Encapsulates the Appstore receipt located in the main bundle
+    var receipt: IAPReceipt!
     /// Used to request product info from Appstore
     var productsRequest: SKProductsRequest?
+    /// Used to request  a receipt refresh async from the Appstore
+    var receiptRequest: SKRequest?
+    
     
     public var count: Int = 0
     
@@ -155,6 +161,26 @@ extension PurchaseXManager {
     }
     
     
+    
+    /// Validate the receipt issued by the Appstore
+    /// - Returns: true if validate successfully
+    public func processReceipt() -> Bool {
+        
+        receipt = IAPReceipt()
+        
+        guard receipt.isReachable,
+              receipt.load(),
+              receipt.validateSigning(),
+              receipt.readReceipt(),
+              receipt.validate() else {
+                  PXLog.event(.transactionValidationFailure)
+                  return false
+              }
+        
+        PXLog.event(.transactionValidationSuccess)
+        
+        return true
+    }
     
     /// Get a localized price for product
     /// - Parameter product: SKProduct object
