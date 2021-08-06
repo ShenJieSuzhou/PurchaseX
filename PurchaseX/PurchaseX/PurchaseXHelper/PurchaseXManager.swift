@@ -179,6 +179,8 @@ extension PurchaseXManager {
         
         PXLog.event(.transactionValidationSuccess)
         
+        // Persist the purchase history
+        
         return true
     }
     
