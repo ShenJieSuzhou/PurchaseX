@@ -8,7 +8,7 @@
 import Foundation
 import StoreKit
 
-public class PurchaseXManager: NSObject,ObservableObject {
+public class PurchaseXManager: NSObject, ObservableObject {
     
     // MARK: Purchasing completion handler
     // Completion handler when requesting products from appstore.
@@ -78,8 +78,8 @@ public class PurchaseXManager: NSObject,ObservableObject {
     var receiptRequest: SKRequest?
     
     
-    public var count: Int = 0
     
+    public var count: Int = 0
         
     // MARK: - Initialization
     public override init() {
@@ -103,9 +103,7 @@ public class PurchaseXManager: NSObject,ObservableObject {
     deinit {
         SKPaymentQueue.default().remove(self)
     }
-}
-
-extension PurchaseXManager {
+    
     /// - Request products form appstore
     /// - Parameter completion: a closure that will be called when the results returned from the appstore
     public func requestProductsFromAppstore(completion: @escaping (_ notification: PurchaseXNotification?) -> Void) {
@@ -193,5 +191,37 @@ extension PurchaseXManager {
         priceFormatter.numberStyle = .currency
         priceFormatter.locale = product.priceLocale
         return priceFormatter.string(from: product.price)
+    }
+}
+
+extension PurchaseXManager: SKProductsRequestDelegate {
+
+    /// Receive products from Appstore
+    /// - Parameters:
+    ///   - request: request object
+    ///   - response: response from Appstore
+    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        guard !response.products.isEmpty else {
+            PXLog.event(.requestProductsFailure)
+            DispatchQueue.main.async {
+                self.requestProductsCompletion?(.requestProductsNoProduct)
+            }
+            return
+        }
+
+        guard response.invalidProductIdentifiers.isEmpty else {
+            PXLog.event(.requestProductsInvalidProducts)
+            DispatchQueue.main.async {
+                self.requestProductsCompletion?(.requestProductsInvalidProducts)
+            }
+            return
+        }
+
+        // save the products returned from Appstore
+        DispatchQueue.main.async {
+            self.products = response.products
+            PXLog.event(.requestProductsSuccess)
+            //self.requestProductsCompletion?(.requestProductsSuccess)
+        }
     }
 }

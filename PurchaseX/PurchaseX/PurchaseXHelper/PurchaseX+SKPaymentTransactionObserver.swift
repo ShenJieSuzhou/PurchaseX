@@ -1,70 +1,12 @@
 //
-//  Purchase+SKProductsRequestDelegate.swift
+//  PurchaseXDelegate.swift
 //  PurchaseX
 //
-//  Created by shenjie on 2021/7/26.
+//  Created by shenjie on 2021/8/9.
 //
 
 import Foundation
 import StoreKit
-
-extension PurchaseXManager: SKProductsRequestDelegate {
-    
-    /// Receive products from Appstore
-    /// - Parameters:
-    ///   - request: request object
-    ///   - response: response from Appstore
-    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        guard !response.products.isEmpty else {
-            PXLog.event(.requestProductsFailure)
-            DispatchQueue.main.async {
-                self.requestProductsCompletion?(.requestProductsNoProduct)
-            }
-            return
-        }
-        
-        guard response.invalidProductIdentifiers.isEmpty else {
-            PXLog.event(.requestProductsInvalidProducts)
-            DispatchQueue.main.async {
-                self.requestProductsCompletion?(.requestProductsInvalidProducts)
-            }
-            return
-        }
-        
-        // save the products returned from Appstore
-        DispatchQueue.main.async {
-            self.products = response.products
-            PXLog.event(.requestProductsSuccess)
-            //self.requestProductsCompletion?(.requestProductsSuccess)
-        }
-    }
-}
-
-extension PurchaseXManager: SKRequestDelegate {
-    
-    public func requestDidFinish(_ request: SKRequest) {
-        
-        if productsRequest != nil {
-            productsRequest = nil
-            PXLog.event(.requestProductsDidFinish)
-            DispatchQueue.main.async {
-                self.requestProductsCompletion?(.requestProductsDidFinish)
-            }
-            return
-        }
-    }
-    
-    public func request(_ request: SKRequest, didFailWithError error: Error) {
-        if productsRequest != nil {
-            productsRequest = nil
-            PXLog.event(.requestProductsFailure)
-            DispatchQueue.main.async {
-                self.requestProductsCompletion?(.requestProductsFailure)
-            }
-            return
-        }
-    }
-}
 
 extension PurchaseXManager: SKPaymentTransactionObserver {
     /// Listen transaction state
@@ -89,8 +31,8 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
             }
         }
     }
-    
-    
+
+
     ///  Purchase is in process
     /// - Parameter transaction: transaction object
     private func purchaseInProcess(transaction: SKPaymentTransaction){
@@ -99,7 +41,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
             self.purchasingProductCompletion?(.purchaseInProgress)
         }
     }
-    
+
     /// Purchase is completed
     /// - Parameters:
     ///   - transaction: transtraction object
@@ -108,16 +50,16 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         defer {
             SKPaymentQueue.default().finishTransaction(transaction)
         }
-        
+
         isPurchaseing = false
         purchaseState = .complete
-        
+
         // restore or not
         guard let identifier = restore ? transaction.original?.payment.productIdentifier :
                 transaction.payment.productIdentifier else {
-                    
+
                     PXLog.event(restore ? .purchaseRestoreFailure : .purchaseFailure)
-                    
+
                     if restore {
                         self.restorePurchasesCompletion?(.purchaseRestoreFailure)
                     } else {
@@ -128,9 +70,9 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
                     return
                 }
         // Persist purchased productID
-        
+
         // save purchased productID to our back list
-     
+
         PXLog.event(restore ? .purchaseRestoreSuccess : .purchaseSuccess)
         if restore {
             DispatchQueue.main.async {
@@ -142,14 +84,14 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
             }
         }
     }
-    
+
     ///  Purchase failed
     /// - Parameter transaction: transaction object
     private func purchaseFailed(transaction: SKPaymentTransaction) {
         defer {
             SKPaymentQueue.default().finishTransaction(transaction)
         }
-        
+
         isPurchaseing = false
         purchaseState = .failed
         let identifier = transaction.payment.productIdentifier
@@ -172,7 +114,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
             }
         }
     }
-    
+
     /// Purchasse is pending
     /// - Parameter transaction: transaction object
     private func purchaseDeferred(transaction: SKPaymentTransaction) {
@@ -183,5 +125,5 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
             self.purchasingProductCompletion?(.purchasePending)
         }
     }
-    
+
 }

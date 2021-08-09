@@ -125,7 +125,9 @@
 		E52188BC26BD08E2007EBCEA /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E521885026BD08E1007EBCEA /* libssl.a */; };
 		E52188BE26BD262A007EBCEA /* IAPPersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52188BD26BD262A007EBCEA /* IAPPersistenceProtocol.swift */; };
 		E52188C026BD2641007EBCEA /* IAPPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52188BF26BD2641007EBCEA /* IAPPersistence.swift */; };
-		E571922126AEAF9A000097A9 /* PurchaseXDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922026AEAF9A000097A9 /* PurchaseXDelegate.swift */; };
+		E52188C626C14B50007EBCEA /* PurchaseX+SKPaymentTransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52188C526C14B50007EBCEA /* PurchaseX+SKPaymentTransactionObserver.swift */; };
+		E52188C826C15431007EBCEA /* PurchaseX+SKProductsRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52188C726C15431007EBCEA /* PurchaseX+SKProductsRequestDelegate.swift */; };
+		E52188CA26C15477007EBCEA /* PurchaseX+SKRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52188C926C15477007EBCEA /* PurchaseX+SKRequestDelegate.swift */; };
 		E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */; };
 		E5A05AA326A6B78900B1B7FC /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A05AA026A6B78900B1B7FC /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05ADB26A93E8500B1B7FC /* Configuration.swift */; };
@@ -256,7 +258,9 @@
 		E521885026BD08E1007EBCEA /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		E52188BD26BD262A007EBCEA /* IAPPersistenceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPersistenceProtocol.swift; sourceTree = "<group>"; };
 		E52188BF26BD2641007EBCEA /* IAPPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPPersistence.swift; sourceTree = "<group>"; };
-		E571922026AEAF9A000097A9 /* PurchaseXDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXDelegate.swift; sourceTree = "<group>"; };
+		E52188C526C14B50007EBCEA /* PurchaseX+SKPaymentTransactionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseX+SKPaymentTransactionObserver.swift"; sourceTree = "<group>"; };
+		E52188C726C15431007EBCEA /* PurchaseX+SKProductsRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseX+SKProductsRequestDelegate.swift"; sourceTree = "<group>"; };
+		E52188C926C15477007EBCEA /* PurchaseX+SKRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseX+SKRequestDelegate.swift"; sourceTree = "<group>"; };
 		E5A05A9D26A6B78900B1B7FC /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A05AA026A6B78900B1B7FC /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
 		E5A05AA126A6B78900B1B7FC /* PurchaseX.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PurchaseX.docc; sourceTree = "<group>"; };
@@ -458,8 +462,10 @@
 				E5A05AE226AA5A0E00B1B7FC /* PurchaseXState.swift */,
 				E5A05AE726AA96DE00B1B7FC /* PurchaseXNotification.swift */,
 				E5A05AE926AA96FA00B1B7FC /* PurchaseXException.swift */,
-				E571922026AEAF9A000097A9 /* PurchaseXDelegate.swift */,
 				E521873326BA9B3E007EBCEA /* PurchaseXConstants.swift */,
+				E52188C526C14B50007EBCEA /* PurchaseX+SKPaymentTransactionObserver.swift */,
+				E52188C726C15431007EBCEA /* PurchaseX+SKProductsRequestDelegate.swift */,
+				E52188C926C15477007EBCEA /* PurchaseX+SKRequestDelegate.swift */,
 			);
 			path = PurchaseXHelper;
 			sourceTree = "<group>";
@@ -668,8 +674,10 @@
 			files = (
 				E521873026BA91F7007EBCEA /* IAPReceipt+ReadReceipt.swift in Sources */,
 				E5A05AE626AA956200B1B7FC /* PXLog.swift in Sources */,
+				E52188CA26C15477007EBCEA /* PurchaseX+SKRequestDelegate.swift in Sources */,
 				E521873B26BBBE71007EBCEA /* IAPReceiptProductInfo.swift in Sources */,
 				E52188C026BD2641007EBCEA /* IAPPersistence.swift in Sources */,
+				E52188C626C14B50007EBCEA /* PurchaseX+SKPaymentTransactionObserver.swift in Sources */,
 				E5A05AEA26AA96FA00B1B7FC /* PurchaseXException.swift in Sources */,
 				E5A05AE826AA96DE00B1B7FC /* PurchaseXNotification.swift in Sources */,
 				E5C7819526BA6F04008B096A /* IAPReceipt.swift in Sources */,
@@ -677,13 +685,13 @@
 				E521873426BA9B3E007EBCEA /* PurchaseXConstants.swift in Sources */,
 				E5A05AA226A6B78900B1B7FC /* PurchaseX.docc in Sources */,
 				E521872C26BA9184007EBCEA /* IAPReceipt+Load.swift in Sources */,
+				E52188C826C15431007EBCEA /* PurchaseX+SKProductsRequestDelegate.swift in Sources */,
 				E521873726BBBA05007EBCEA /* IAPOpenSSL.swift in Sources */,
 				E5A05ADC26A93E8500B1B7FC /* Configuration.swift in Sources */,
 				E521873226BA9219007EBCEA /* IAPReceipt+ValidateReceipt.swift in Sources */,
 				E5A05AE326AA5A0E00B1B7FC /* PurchaseXState.swift in Sources */,
 				E521873926BBBC50007EBCEA /* IAPOpenSSLAttributeType.swift in Sources */,
 				E5A05ADF26A93EDC00B1B7FC /* PurchaseXManager.swift in Sources */,
-				E571922126AEAF9A000097A9 /* PurchaseXDelegate.swift in Sources */,
 				E521872E26BA91DD007EBCEA /* IAPReceipt+ValidateAppleSigning.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
