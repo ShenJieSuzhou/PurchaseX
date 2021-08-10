@@ -850,7 +850,7 @@
 					"\"$(SRCROOT)/PurchaseX/lib/openssl_lib\"",
 					"$(PROJECT_DIR)/PurchaseX/lib/openssl-lib",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.PurchaseX;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -892,7 +892,7 @@
 					"\"$(SRCROOT)/PurchaseX/lib/openssl_lib\"",
 					"$(PROJECT_DIR)/PurchaseX/lib/openssl-lib",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.PurchaseX;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

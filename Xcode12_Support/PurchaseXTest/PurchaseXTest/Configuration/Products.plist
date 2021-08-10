@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Products</key>
+	<array>
+		<string>com.purchasex.60</string>
+		<string>com.purchasex.120</string>
+		<string>com.purchasex.stylefilter</string>
+		<string>com.purchase.monthcard</string>
+		<string>com.purchasex.vip1</string>
+		<string>com.purchasex.vip2</string>
+	</array>
+</dict>
+</plist>

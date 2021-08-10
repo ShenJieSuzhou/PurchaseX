@@ -78,10 +78,57 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "requestProductsFromAppstore(completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1310EFE6-465C-46DE-8C5F-6AE92F786B0B - 9cb146e7aadf560f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PurchaseX.PurchaseXManager.requestProductsFromAppstore(completion: (Swift.Optional&lt;PurchaseX.PurchaseXNotification&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PurchaseXTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "1310EFE6-465C-46DE-8C5F-6AE92F786B0B - 109d43d25a6a31d3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PurchaseX.PurchaseXManager.requestProductsFromAppstore(completion: (Swift.Optional&lt;PurchaseX.PurchaseXNotification&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PurchaseX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "111"
+                  endingLineNumber = "111"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "1310EFE6-465C-46DE-8C5F-6AE92F786B0B - 109d43d25a6a3269"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PurchaseX.PurchaseXManager.requestProductsFromAppstore(completion: (Swift.Optional&lt;PurchaseX.PurchaseXNotification&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "PurchaseX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "352">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,8 +157,87 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "PurchaseXManager"
+            landmarkType = "21">
+            <Locations>
+               <Location
+                  uuid = "28D3B106-BFC4-4081-86FF-C60F1E227F06 - 90ce759c0e5b834e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PurchaseX.PurchaseXManager.productsRequest(_: __C.SKProductsRequest, didReceive: __C.SKProductsResponse) -&gt; ()"
+                  moduleName = "PurchaseXTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "28D3B106-BFC4-4081-86FF-C60F1E227F06 - 1ce270a9feeee492"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PurchaseX.PurchaseXManager.productsRequest(_: __C.SKProductsRequest, didReceive: __C.SKProductsResponse) -&gt; ()"
+                  moduleName = "PurchaseX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  uuid = "28D3B106-BFC4-4081-86FF-C60F1E227F06 - 1ce270a9feeee724"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PurchaseX.PurchaseXManager.productsRequest(_: __C.SKProductsRequest, didReceive: __C.SKProductsResponse) -&gt; ()"
+                  moduleName = "PurchaseX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "216"
+                  endingLineNumber = "216"
+                  offsetFromSymbolStart = "356">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F993CDA1-B8BB-4847-B6AE-01624757627D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20767D17-76A7-4E52-A602-1A3417FA7F8E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "productsRequest(_:didReceive:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E521873D26BBCA10007EBCEA /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; };
+		E52188CE26C26A03007EBCEA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52188CD26C26A03007EBCEA /* StoreKit.framework */; };
+		E52188CF26C26C06007EBCEA /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; };
+		E52188D026C26C06007EBCEA /* PurchaseX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05AC826A6B7DD00B1B7FC /* PurchaseX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E571922A26B28804000097A9 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = E571922926B28804000097A9 /* StoreKitTestCertificate.cer */; };
 		E571922E26B39DEC000097A9 /* ConsumableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571922D26B39DEC000097A9 /* ConsumableView.swift */; };
 		E571923126B3AC5E000097A9 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571923026B3AC5E000097A9 /* PriceView.swift */; };
@@ -17,7 +19,6 @@
 		E5A05AB826A6B7C800B1B7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AB726A6B7C800B1B7FC /* ContentView.swift */; };
 		E5A05ABA26A6B7C900B1B7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05AB926A6B7C900B1B7FC /* Assets.xcassets */; };
 		E5A05ABD26A6B7C900B1B7FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5A05ABC26A6B7C900B1B7FC /* Preview Assets.xcassets */; };
-		E5A05ACF26A80BA600B1B7FC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A05ACE26A80BA600B1B7FC /* StoreKit.framework */; };
 		E5A05AD226A816C500B1B7FC /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD126A816C500B1B7FC /* Product.swift */; };
 		E5A05AD526A8174800B1B7FC /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD426A8174800B1B7FC /* ProductView.swift */; };
 		E5A05AD826A91F9D00B1B7FC /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */; };
@@ -34,7 +35,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E52188D126C26C06007EBCEA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E52188D026C26C06007EBCEA /* PurchaseX.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E52188CD26C26A03007EBCEA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E571922926B28804000097A9 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../../../../../../Desktop/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		E571922D26B39DEC000097A9 /* ConsumableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumableView.swift; sourceTree = "<group>"; };
 		E571923026B3AC5E000097A9 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
@@ -47,7 +63,6 @@
 		E5A05ABC26A6B7C900B1B7FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5A05AC326A6B7DD00B1B7FC /* PurchaseX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PurchaseX.xcodeproj; path = ../PurchaseX/PurchaseX.xcodeproj; sourceTree = "<group>"; };
 		E5A05ACA26A6C90900B1B7FC /* Production.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Production.storekit; sourceTree = "<group>"; };
-		E5A05ACE26A80BA600B1B7FC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E5A05AD126A816C500B1B7FC /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		E5A05AD426A8174800B1B7FC /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		E5A05AD726A91F9D00B1B7FC /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
@@ -59,8 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E521873D26BBCA10007EBCEA /* PurchaseX.framework in Frameworks */,
-				E5A05ACF26A80BA600B1B7FC /* StoreKit.framework in Frameworks */,
+				E52188CF26C26C06007EBCEA /* PurchaseX.framework in Frameworks */,
+				E52188CE26C26A03007EBCEA /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +151,7 @@
 		E5A05ACD26A80BA600B1B7FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5A05ACE26A80BA600B1B7FC /* StoreKit.framework */,
+				E52188CD26C26A03007EBCEA /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,6 +187,7 @@
 				E5A05AAE26A6B7C800B1B7FC /* Sources */,
 				E5A05AAF26A6B7C800B1B7FC /* Frameworks */,
 				E5A05AB026A6B7C800B1B7FC /* Resources */,
+				E52188D126C26C06007EBCEA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
