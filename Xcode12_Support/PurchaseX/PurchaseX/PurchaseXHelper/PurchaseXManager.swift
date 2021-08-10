@@ -84,30 +84,20 @@ public class PurchaseXManager: NSObject, ObservableObject {
     // MARK: - Initialization
     public override init() {
         super.init()
-//        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(self)
         
         // Read productID from config plist file
-//        if let productIds = Configuration.readConfigFile() {
-//            PXLog.event(.requestProductsStarted)
-//            configuredProductIdentifiers = productIds
-//
-//            // request products from Appstore
-//            self.requestProductsFromAppstore { notification in
-//                if notification == .requestProductsSuccess {
-//
-//                }
-//            }
-//        }
-        let test:Set<String> = ["com.purchasex.60","com.purchasex.120","com.purchasex.stylefilter"]
-        
-        // 1. Cancel pending requests
-        productsRequest?.cancel()
-        // 2. Init SKProductsRequest
-        productsRequest = SKProductsRequest(productIdentifiers: test)
-        // 3. Set Delegate to receive the notification
-        productsRequest!.delegate = self
-        // 4. Start request
-        productsRequest!.start()
+        if let productIds = Configuration.readConfigFile() {
+            PXLog.event(.requestProductsStarted)
+            configuredProductIdentifiers = productIds
+
+            // request products from Appstore
+            self.requestProductsFromAppstore { notification in
+                if notification == .requestProductsSuccess {
+
+                }
+            }
+        }
     }
     
     deinit {
@@ -131,13 +121,11 @@ public class PurchaseXManager: NSObject, ObservableObject {
         if products != nil {
             products?.removeAll()
         }
-        
-        let test:Set<String> = ["com.purchasex.60","com.purchasex.120","com.purchasex.stylefilter"]
-        
+                
         // 1. Cancel pending requests
         productsRequest?.cancel()
         // 2. Init SKProductsRequest
-        productsRequest = SKProductsRequest(productIdentifiers: test)
+        productsRequest = SKProductsRequest(productIdentifiers: configuredProductIdentifiers!)
         // 3. Set Delegate to receive the notification
         productsRequest!.delegate = self
         // 4. Start request
@@ -207,38 +195,33 @@ public class PurchaseXManager: NSObject, ObservableObject {
 }
 
 extension PurchaseXManager: SKProductsRequestDelegate {
-   
-    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        print(response.products)
-    }
-    
 
     /// Receive products from Appstore
     /// - Parameters:
     ///   - request: request object
     ///   - response: response from Appstore
-//    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-//        guard !response.products.isEmpty else {
-//            PXLog.event(.requestProductsFailure)
-//            DispatchQueue.main.async {
-//                self.requestProductsCompletion?(.requestProductsNoProduct)
-//            }
-//            return
-//        }
-//
-//        guard response.invalidProductIdentifiers.isEmpty else {
-//            PXLog.event(.requestProductsInvalidProducts)
-//            DispatchQueue.main.async {
-//                self.requestProductsCompletion?(.requestProductsInvalidProducts)
-//            }
-//            return
-//        }
-//
-//        // save the products returned from Appstore
-//        DispatchQueue.main.async {
-//            self.products = response.products
-//            PXLog.event(.requestProductsSuccess)
-//            //self.requestProductsCompletion?(.requestProductsSuccess)
-//        }
-//    }
+    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        guard !response.products.isEmpty else {
+            PXLog.event(.requestProductsFailure)
+            DispatchQueue.main.async {
+                self.requestProductsCompletion?(.requestProductsNoProduct)
+            }
+            return
+        }
+
+        guard response.invalidProductIdentifiers.isEmpty else {
+            PXLog.event(.requestProductsInvalidProducts)
+            DispatchQueue.main.async {
+                self.requestProductsCompletion?(.requestProductsInvalidProducts)
+            }
+            return
+        }
+
+        // save the products returned from Appstore
+        DispatchQueue.main.async {
+            self.products = response.products
+            PXLog.event(.requestProductsSuccess)
+            //self.requestProductsCompletion?(.requestProductsSuccess)
+        }
+    }
 }
