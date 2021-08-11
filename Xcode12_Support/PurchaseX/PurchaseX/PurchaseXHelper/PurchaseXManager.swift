@@ -27,10 +27,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
     // MARK: Property
     /// Array of products retrieved from AppleStore
     @Published public var products: [SKProduct]?
-    
-    /// Singleton access
-//    public static let shareInstance: PurchaseXManager = PurchaseXManager()
-    
+        
     /// Array of productID
     private var purchasedProducts = [String]()
     

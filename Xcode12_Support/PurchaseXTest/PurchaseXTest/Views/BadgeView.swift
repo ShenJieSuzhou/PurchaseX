@@ -28,7 +28,7 @@ struct BadgeView: View {
     func badgeOptions() -> (badgeName: String, fgColor: Color)? {
         switch purchaseState {
             case .notStarted:         return nil
-        case .inProgress:         return (badgeName: "hourglass", Color.gray)
+            case .inProgress:         return (badgeName: "hourglass", Color.gray)
             case .complete:           return (badgeName: "checkmark", Color.green)
             case .pending:            return (badgeName: "hourglass", Color.orange)
             case .cancelled:          return (badgeName: "person.crop.circle.fill.badge.xmark", Color.blue)

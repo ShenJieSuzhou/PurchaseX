@@ -15,6 +15,7 @@ struct PriceView: View {
     @Binding var pending: Bool
     @Binding var failed: Bool
     @Binding var purchased: Bool
+    @Binding var bageViewSwitch: Bool
     
     var product: Product
     
@@ -28,15 +29,10 @@ struct PriceView: View {
                                             purchased: $purchased)
         
         HStack {
-            
-            if purchasing {
-                ProgressView()
-            }
-            
-            Spacer()
-            
             Button {
                 purchasing = true
+                purchased = false
+                bageViewSwitch = false
                 // start a purchase
                 priceViewModel.purchase(product: product)
             } label: {
@@ -47,7 +43,6 @@ struct PriceView: View {
                     .frame(height: 40)
                     .background(Color.blue)
                     .cornerRadius(25)
-                
             }
         }
     }

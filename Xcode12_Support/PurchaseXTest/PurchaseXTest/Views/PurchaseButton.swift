@@ -16,31 +16,36 @@ struct PurchaseButton: View {
     @State var pending: Bool = false
     @State var failed: Bool = false
     @State var purchased: Bool = false
+    @State var bageViewSwitch = false
     
     var product: Product
     
     var body: some View {
         HStack {
-            if purchased, product.type != .Consumable {
+            if purchasing {
+                ProgressView()
+            }
+
+            if purchased && !bageViewSwitch {
                 // complete state
                 BadgeView(purchaseState: .complete)
-            } else {
-                if cancelled {
-                    BadgeView(purchaseState: .cancelled)
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.bageViewSwitch.toggle()
+                        }
                 }
-                
-                if pending {
-                    BadgeView(purchaseState: .pending)
-                }
-                
-                PriceView(purchaseXManager: purchaseXManager,
-                          purchasing: $purchasing,
-                          cancelled: $cancelled,
-                          pending: $pending,
-                          failed: $failed,
-                          purchased: $purchased,
-                          product: product)
             }
+            
+            Spacer()
+
+            PriceView(purchaseXManager: purchaseXManager,
+                      purchasing: $purchasing,
+                      cancelled: $cancelled,
+                      pending: $pending,
+                      failed: $failed,
+                      purchased: $purchased,
+                      bageViewSwitch: $bageViewSwitch,
+                      product: product)
         }
         .onAppear {
             

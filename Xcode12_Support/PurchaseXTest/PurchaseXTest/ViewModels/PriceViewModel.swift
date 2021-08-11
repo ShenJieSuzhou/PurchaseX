@@ -43,8 +43,6 @@ struct PriceViewModel {
                 updatePurchaseState(state: .failed)
             } else if notification == .purchasePending {
                 updatePurchaseState(state: .pending)
-            } else if notification == .purchaseInProgress {
-                updatePurchaseState(state: .inProgress)
             }
         }
     }
