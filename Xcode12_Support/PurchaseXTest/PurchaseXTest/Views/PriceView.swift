@@ -9,6 +9,7 @@ import SwiftUI
 import PurchaseX
 
 struct PriceView: View {
+    @ObservedObject var purchaseXManager: PurchaseXManager
     @Binding var purchasing: Bool
     @Binding var cancelled: Bool
     @Binding var pending: Bool
@@ -19,7 +20,8 @@ struct PriceView: View {
     
     var body: some View {
         
-        let priceViewModel = PriceViewModel(purchasing: $purchasing,
+        let priceViewModel = PriceViewModel(purchaseXManager: purchaseXManager,
+                                            purchasing: $purchasing,
                                             cancelled: $cancelled,
                                             pending: $pending,
                                             failed: $failed,

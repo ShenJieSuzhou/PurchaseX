@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import PurchaseX
 
 struct ProductView: View {
+    @ObservedObject var purchaseXManager: PurchaseXManager
     var product: Product
     
     var body: some View {
@@ -31,7 +33,7 @@ struct ProductView: View {
             
             Spacer()
             
-            PurchaseButton(product: product)
+            PurchaseButton(purchaseXManager: purchaseXManager, product: product)
         }
         .padding()
     }

@@ -43,7 +43,7 @@ extension IAPReceipt {
         let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, nil)
         #endif
 
-        guard verificationResult == 1  else {
+        if verificationResult == 1 {
             PXLog.event("receiptValidateSigningFailure")
             return false
         }

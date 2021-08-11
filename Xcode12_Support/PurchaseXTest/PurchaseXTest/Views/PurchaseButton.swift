@@ -9,7 +9,7 @@ import SwiftUI
 import PurchaseX
 
 struct PurchaseButton: View {
-    @ObservedObject var purchaseXManager = PurchaseXManager()
+    @ObservedObject var purchaseXManager:PurchaseXManager
     
     @State var purchasing: Bool = false
     @State var cancelled: Bool = false
@@ -33,7 +33,8 @@ struct PurchaseButton: View {
                     BadgeView(purchaseState: .pending)
                 }
                 
-                PriceView(purchasing: $purchasing,
+                PriceView(purchaseXManager: purchaseXManager,
+                          purchasing: $purchasing,
                           cancelled: $cancelled,
                           pending: $pending,
                           failed: $failed,

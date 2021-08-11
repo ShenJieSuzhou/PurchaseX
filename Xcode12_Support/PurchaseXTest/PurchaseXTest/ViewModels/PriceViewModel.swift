@@ -12,7 +12,7 @@ import PurchaseX
 
 struct PriceViewModel {
     
-    @ObservedObject var purchaseXManager = PurchaseXManager()
+    @ObservedObject var purchaseXManager: PurchaseXManager
     
     @Binding var purchasing: Bool
     @Binding var cancelled: Bool
@@ -28,8 +28,12 @@ struct PriceViewModel {
             } else if notification == .purchaseRestoreFailure {
                 
             } else if notification == .purchaseSuccess{
-                updatePurchaseState(state: .complete)
-                
+                if purchaseXManager.processReceipt() {
+                    updatePurchaseState(state: .complete)
+                    print("验证完毕，给账户增加道具")
+                } else {
+                    print("验证失败")
+                }
                 
             } else if notification == .purchaseCancelled {
                 updatePurchaseState(state: .cancelled)
