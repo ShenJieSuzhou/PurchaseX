@@ -9,7 +9,7 @@ import SwiftUI
 import PurchaseX
 
 struct PurchaseButton: View {
-    @ObservedObject var purchaseXManager:PurchaseXManager
+    @EnvironmentObject var purchaseXManager:PurchaseXManager
     
     @State var purchasing: Bool = false
     @State var cancelled: Bool = false
@@ -38,8 +38,7 @@ struct PurchaseButton: View {
             
             Spacer()
 
-            PriceView(purchaseXManager: purchaseXManager,
-                      purchasing: $purchasing,
+            PriceView(purchasing: $purchasing,
                       cancelled: $cancelled,
                       pending: $pending,
                       failed: $failed,

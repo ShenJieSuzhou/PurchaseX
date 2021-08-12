@@ -10,7 +10,7 @@ import PurchaseX
 
 struct ConsumableView: View {
 
-    @ObservedObject var purchaseXManager: PurchaseXManager
+    @EnvironmentObject var purchaseXManager: PurchaseXManager
     @State var count: Int = 0
 
     var product: Product
@@ -40,7 +40,7 @@ struct ConsumableView: View {
             
             Spacer()
             
-            PurchaseButton(purchaseXManager: purchaseXManager, product: product)
+            PurchaseButton(product: product)
         }
         .padding()
         .onAppear {
@@ -71,6 +71,6 @@ struct Badge: View {
 
 struct ConsumableView_Previews: PreviewProvider {
     static var previews: some View {
-        ConsumableView(purchaseXManager: PurchaseXManager(), product: Product(pid: "", displayName: "", thumb: "", price: "", type: .Consumable))
+        ConsumableView(product: Product(pid: "", displayName: "", thumb: "", price: "", type: .Consumable))
     }
 }

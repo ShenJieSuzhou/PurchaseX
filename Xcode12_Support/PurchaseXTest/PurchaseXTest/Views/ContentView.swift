@@ -11,7 +11,7 @@ import PurchaseX
 /// The main app View
 struct ContentView: View {
     
-    @ObservedObject var purchaseXManager = PurchaseXManager()
+    @EnvironmentObject var purchaseXManager: PurchaseXManager
         
     let configProducts:[Product] = [
         Product(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
@@ -87,7 +87,7 @@ struct ContentView: View {
                         Section(header: Text("ConsumableProducts")) {
                             ForEach(0..<consumables.count) {
                                 let product = consumables[$0]
-                                ConsumableView(purchaseXManager: purchaseXManager, product: product)
+                                ConsumableView(product: product)
                             }
                         }
                     }
@@ -96,7 +96,7 @@ struct ContentView: View {
                         Section(header: Text("NonConsumableProducts")) {
                             ForEach(0..<nonConsumables.count) {
                                 let product = nonConsumables[$0]
-                                ProductView(purchaseXManager: purchaseXManager, product: product)
+                                ProductView(product: product)
                             }
                         }
                     }
@@ -105,7 +105,7 @@ struct ContentView: View {
                         Section(header: Text("NoRenewSubscriptionProducts")) {
                             ForEach(0..<noRenewSubscriptions.count) {
                                 let product = noRenewSubscriptions[$0]
-                                ProductView(purchaseXManager: purchaseXManager, product: product)
+                                ProductView(product: product)
                             }
                         }
                     }
@@ -114,7 +114,7 @@ struct ContentView: View {
                         Section(header: Text("Subscriptions")) {
                             ForEach(0..<subscriptions.count) {
                                 let product = subscriptions[$0]
-                                ProductView(purchaseXManager: purchaseXManager, product: product)
+                                ProductView(product: product)
                             }
                         }
                     }

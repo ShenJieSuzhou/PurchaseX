@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import PurchaseX
 
 @main
 struct PurchaseXTestApp: App {
+    
+    @StateObject var purchaseXManager = PurchaseXManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(purchaseXManager)
         }
     }
 }
