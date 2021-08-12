@@ -154,8 +154,14 @@ public class PurchaseXManager: NSObject, ObservableObject {
     }
     
     /// Ask Appstore to restore purchase
-    public func restorePurchase() {
+    public func restorePurchase(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+        guard  !isPurchaseing else {
+            return
+        }
         
+        restorePurchasesCompletion = completion
+        SKPaymentQueue.default().restoreCompletedTransactions()
+        PXLog.event("Purchase restore started")
     }
     
     
@@ -315,9 +321,13 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
                     return
                 }
         // Persist purchased productID
-
-        // save purchased productID to our back list
-
+//        IAPPersistence.savePurchaseState(for: transaction.payment.productIdentifier)
+//        // save purchased productID to our back list
+//        guard !purchasedProductIdentifiers.contains(transaction.payment.productIdentifier) else {
+//            return
+//        }
+//        purchasedProductIdentifiers.insert(transaction.payment.productIdentifier)
+        
         PXLog.event(restore ? .purchaseRestoreSuccess : .purchaseSuccess)
         if restore {
             DispatchQueue.main.async {

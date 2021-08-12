@@ -37,7 +37,7 @@ struct PurchaseButton: View {
             }
             
             Spacer()
-
+    
             PriceView(purchasing: $purchasing,
                       cancelled: $cancelled,
                       pending: $pending,

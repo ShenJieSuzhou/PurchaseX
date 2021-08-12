@@ -24,6 +24,7 @@
 		E5760E3826C282F500877C3B /* PurchaseX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5760E3626C282EA00877C3B /* PurchaseX.framework */; };
 		E5760E3A26C282FE00877C3B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5760E3926C282FE00877C3B /* StoreKit.framework */; };
 		E5760E3F26C3A4A700877C3B /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = E5760E3D26C3A4A700877C3B /* StoreKitTestCertificate.cer */; };
+		E5760E5D26C517D900877C3B /* RestoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E5C26C517D900877C3B /* RestoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		E5760E3126C282EA00877C3B /* PurchaseX.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PurchaseX.xcodeproj; path = ../PurchaseX/PurchaseX.xcodeproj; sourceTree = "<group>"; };
 		E5760E3926C282FE00877C3B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E5760E3D26C3A4A700877C3B /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		E5760E5C26C517D900877C3B /* RestoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E5760E1826C2828F00877C3B /* PriceViewModel.swift */,
+				E5760E5C26C517D900877C3B /* RestoreViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				E5760E0926C2823B00877C3B /* PurchaseXTestApp.swift in Sources */,
 				E5760E2C26C282B500877C3B /* ProductView.swift in Sources */,
 				E5760E2B26C282B500877C3B /* PriceView.swift in Sources */,
+				E5760E5D26C517D900877C3B /* RestoreViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

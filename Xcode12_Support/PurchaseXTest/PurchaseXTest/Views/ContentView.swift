@@ -83,6 +83,23 @@ struct ContentView: View {
         NavigationView {
             if purchaseXManager.hasProducts {
                 List {
+                    HStack {
+                        Spacer()
+                        Button {
+                            print("恢复购买")
+                            let restoreViewModel = RestoreViewModel(purchaseXManager: purchaseXManager)
+                            restoreViewModel.restorePurchase()
+                        } label: {
+                            Text("Restore")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(height: 40)
+                                .background(Color.blue)
+                                .cornerRadius(25)
+                        }
+                    }.frame(height: 60)
+
                     if let consumables = consumableProducts {
                         Section(header: Text("ConsumableProducts")) {
                             ForEach(0..<consumables.count) {
