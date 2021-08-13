@@ -21,7 +21,7 @@ struct RestoreViewModel {
             case .purchaseRestoreSuccess:
                 fallthrough
             case .purchaseRestoreFailure:
-                
+                fallthrough
             default:
                 break
             }

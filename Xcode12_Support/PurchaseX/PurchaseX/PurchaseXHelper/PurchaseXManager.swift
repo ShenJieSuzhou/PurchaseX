@@ -37,6 +37,8 @@ public class PurchaseXManager: NSObject, ObservableObject {
     /// List of productIds read from the storekit configuration file.
     public var configuredProductIdentifiers: Set<String>?
     
+    /// Store purchased product only for non-consumable products
+    public var purchasedProductIdentifier = Set<String>()
     /// True if purchase is in Process
     public var isPurchaseing = false
     
@@ -195,6 +197,11 @@ public class PurchaseXManager: NSObject, ObservableObject {
         priceFormatter.locale = product.priceLocale
         return priceFormatter.string(from: product.price)
     }
+    
+    
+    public func isPurchased(productId: String) -> Bool {
+        return purchasedProductIdentifiers.contains(productId)
+    }
 }
 
 extension PurchaseXManager: SKProductsRequestDelegate {
@@ -330,6 +337,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         
         PXLog.event(restore ? .purchaseRestoreSuccess : .purchaseSuccess)
         if restore {
+            //  Store transaction
             DispatchQueue.main.async {
                 self.restorePurchasesCompletion?(.purchaseRestoreSuccess)
             }
@@ -379,5 +387,13 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         DispatchQueue.main.async {
             self.purchasingProductCompletion?(.purchasePending)
         }
+    }
+    
+    public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        
+    }
+    
+    public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        PXLog.event("Restore operation failed: \(error)")
     }
 }
