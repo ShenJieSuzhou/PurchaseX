@@ -32,12 +32,8 @@ public enum PurchaseXNotification: Error, Equatable {
     case purchaseRestoreSuccess
     case purchaseRestoreFailure
 
-    case transactionReceived
-    case transactionValidationSuccess
-    case transactionValidationFailure
-    case transactionFailure
-    case transactionSuccess
-    case transactionRevoked
+    case receiptValidationSuccess
+    case receiptValidationFailure
 
     case consumableSavedInKeychain
     case consumableKeychainError
@@ -67,12 +63,11 @@ public enum PurchaseXNotification: Error, Equatable {
             case .purchaseRestoreSuccess:          return "Purchase restore success"
             case .purchaseRestoreFailure:          return "Purchase restore failure"
                 
-            case .transactionReceived:             return "Transaction received"
-            case .transactionValidationSuccess:    return "Transaction validation success"
-            case .transactionValidationFailure:    return "Transaction validation failure"
-            case .transactionFailure:              return "Transaction failure"
-            case .transactionSuccess:              return "Transaction success"
-            case .transactionRevoked:              return "Transaction was revoked (refunded) by the App Store"
+            case .receiptValidationSuccess:        return "Receipt validation success"
+            case .receiptValidationFailure:        return "Receipt validation failure"
+            //case .transactionFailure:              return "Transaction failure"
+            //case .transactionSuccess:              return "Transaction success"
+            //case .transactionRevoked:              return "Transaction was revoked (refunded) by the App Store"
                 
             case .consumableSavedInKeychain:       return "Consumable purchase successfully saved to the keychain"
             case .consumableKeychainError:         return "Keychain error"

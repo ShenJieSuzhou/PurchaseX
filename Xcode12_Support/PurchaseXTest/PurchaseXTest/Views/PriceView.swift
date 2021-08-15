@@ -29,20 +29,30 @@ struct PriceView: View {
                                             purchased: $purchased)
         
         HStack {
-            Button {
-                purchasing = true
-                purchased = false
-                bageViewSwitch = false
-                // start a purchase
-                priceViewModel.purchase(product: product)
-            } label: {
-                Text(product.price)
+            if purchaseXManager.isPurchased(productId: product.productID) && product.type == .Non_Consumable{
+                Text("Purchased")
                     .font(.title2)
                     .foregroundColor(.white)
                     .padding()
                     .frame(height: 40)
-                    .background(Color.blue)
+                    .background(Color.gray)
                     .cornerRadius(25)
+            } else {
+                Button {
+                    purchasing = true
+                    purchased = false
+                    bageViewSwitch = false
+                    // start a purchase
+                    priceViewModel.purchase(product: product)
+                } label: {
+                    Text(product.price)
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(height: 40)
+                        .background(Color.blue)
+                        .cornerRadius(25)
+                }
             }
         }
     }

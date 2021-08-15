@@ -20,14 +20,11 @@ struct PriceViewModel {
     @Binding var failed: Bool
     @Binding var purchased: Bool
     
+    
     func purchase(product: Product) {
         
         purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
-            if notification == .purchaseRestoreSuccess {
-                updatePurchaseState(state: .complete)
-            } else if notification == .purchaseRestoreFailure {
-                updatePurchaseState(state: .failed)
-            } else if notification == .purchaseSuccess{
+            if notification == .purchaseSuccess{
                 if purchaseXManager.processReceipt() {
                     updatePurchaseState(state: .complete)
                     print("验证完毕，给账户增加道具")

@@ -16,44 +16,44 @@ extension IAPReceipt {
               let version = bundleVersionString,
               let _ = opaqueData,
               let hash = hashData else {
-                  PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
                   return false
               }
         
         guard let appBundleId = Bundle.main.bundleIdentifier else {
-            PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
             return false
         }
         
         guard idString == appBundleId else {
-            PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
             return false
         }
         
         guard let appVersionString = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
-            PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
             return false
         }
         
         guard version == appVersionString else {
-            PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
             return false
         }
         
         guard hash == computeHash() else {
-            PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
             return false
         }
         
         if let expirarionDate = expirationDate {
             if expirarionDate < Date() {
-                PXLog.event(.transactionValidationFailure)
+                PXLog.event(.receiptValidationFailure)
                 return false
             }
         }
         
         isValid = true
-        PXLog.event(.transactionValidationSuccess)
+        PXLog.event(.receiptValidationFailure)
         
         return true
     }

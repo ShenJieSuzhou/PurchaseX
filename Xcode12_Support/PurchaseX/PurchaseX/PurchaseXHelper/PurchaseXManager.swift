@@ -37,13 +37,19 @@ public class PurchaseXManager: NSObject, ObservableObject {
     /// List of productIds read from the storekit configuration file.
     public var configuredProductIdentifiers: Set<String>?
     
-    /// Store purchased product only for non-consumable products
-    public var purchasedProductIdentifier = Set<String>()
+    /// List of purchased productId
+    public var purchasedProductIdentifiers = Set<String>()
+    
     /// True if purchase is in Process
     public var isPurchaseing = false
     
-    ///
-    public var purchasedProductIdentifiers = Set<String>()
+    /// True if configuredProductId count > 0
+    public var haveConfiguredProductIdentifiers: Bool {
+        guard configuredProductIdentifiers != nil else {
+            return false
+        }
+        return configuredProductIdentifiers!.count > 0 ? true : false
+    }
     
     /// True if appstore products have been retrived via function
     public var hasProducts: Bool {
@@ -80,7 +86,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
     var receiptRequest: SKRequest?
     
     
-    
     public var count: Int = 0
         
     // MARK: - Initialization
@@ -100,6 +105,20 @@ public class PurchaseXManager: NSObject, ObservableObject {
                 }
             }
         }
+        
+        // Load purchased products from UserDefault
+        loadPurchasedProductIds()
+    }
+    
+    /// Load purchased products from UserDefault
+    internal func loadPurchasedProductIds() {
+        guard haveConfiguredProductIdentifiers else {
+            PXLog.event("Purchased products load failed")
+            return
+        }
+        
+        purchasedProductIdentifiers = IAPPersistence.loadPurchasedProductIds(for: configuredProductIdentifiers!)
+        PXLog.event("Purchased products load successed")
     }
     
     deinit {
@@ -178,12 +197,14 @@ public class PurchaseXManager: NSObject, ObservableObject {
               receipt.validateSigning(),
               receipt.readReceipt(),
               receipt.validate() else {
-                  PXLog.event(.transactionValidationFailure)
+            PXLog.event(.receiptValidationFailure)
                   return false
               }
         
-        // Persist the purchase history
-        
+        // Compare the backlist of purchased product with the validated purchased product
+        // retrived from appstore
+        createValidatedPurchasedProductIds(receipt: receipt)
+        PXLog.event(.receiptValidationSuccess)
         return true
     }
     
@@ -201,6 +222,15 @@ public class PurchaseXManager: NSObject, ObservableObject {
     
     public func isPurchased(productId: String) -> Bool {
         return purchasedProductIdentifiers.contains(productId)
+    }
+    
+    public func createValidatedPurchasedProductIds(receipt: IAPReceipt) {
+        if purchasedProductIdentifiers == receipt.validatePurchasedProductIdentifiers {
+            PXLog.event("Purchased Products do not match receipt")
+        }
+        
+        IAPPersistence.resetPurchasedProductIds(from: purchasedProductIdentifiers, to: receipt.validatePurchasedProductIdentifiers)
+        purchasedProductIdentifiers = receipt.validatePurchasedProductIdentifiers
     }
 }
 
@@ -264,8 +294,6 @@ extension PurchaseXManager: SKRequestDelegate {
 }
 
 
-
-
 extension PurchaseXManager: SKPaymentTransactionObserver {
     /// Listen transaction state
     /// - Parameters:
@@ -313,7 +341,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         purchaseState = .complete
 
         // restore or not
-        guard let identifier = restore ? transaction.original?.payment.productIdentifier :
+        guard let _ = restore ? transaction.original?.payment.productIdentifier :
                 transaction.payment.productIdentifier else {
 
                     PXLog.event(restore ? .purchaseRestoreFailure : .purchaseFailure)
@@ -328,12 +356,13 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
                     return
                 }
         // Persist purchased productID
-//        IAPPersistence.savePurchaseState(for: transaction.payment.productIdentifier)
-//        // save purchased productID to our back list
-//        guard !purchasedProductIdentifiers.contains(transaction.payment.productIdentifier) else {
-//            return
-//        }
-//        purchasedProductIdentifiers.insert(transaction.payment.productIdentifier)
+        IAPPersistence.savePurchaseState(for: transaction.payment.productIdentifier)
+        
+        // save purchased productID to our back list
+        guard !purchasedProductIdentifiers.contains(transaction.payment.productIdentifier) else {
+            return
+        }
+        purchasedProductIdentifiers.insert(transaction.payment.productIdentifier)
         
         PXLog.event(restore ? .purchaseRestoreSuccess : .purchaseSuccess)
         if restore {
@@ -357,7 +386,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
 
         isPurchaseing = false
         purchaseState = .failed
-        let identifier = transaction.payment.productIdentifier
+        
         if let e = transaction.error as NSError? {
             if e.code == SKError.paymentCancelled.rawValue {
                 PXLog.event(.purchaseCancelled)
@@ -378,7 +407,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         }
     }
 
-    /// Purchasse is pending
+    /// Purchasse is delay
     /// - Parameter transaction: transaction object
     private func purchaseDeferred(transaction: SKPaymentTransaction) {
         isPurchaseing = false
@@ -390,7 +419,7 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     }
     
     public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        
+        PXLog.event("Restore operation finished")
     }
     
     public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
