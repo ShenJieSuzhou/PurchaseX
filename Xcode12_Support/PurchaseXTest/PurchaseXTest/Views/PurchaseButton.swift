@@ -17,7 +17,6 @@ struct PurchaseButton: View {
     @State var failed: Bool = false
     @State var purchased: Bool = false
     @State var bageViewSwitch = false
-    @State var restore = false
     
     var product: Product
     
