@@ -21,7 +21,8 @@ struct RestoreViewModel {
             case .purchaseRestoreSuccess:
                 updatePurchaseState(state: .complete)
                 // validate receipt
-                // reload data
+                let _ = purchaseXManager.processReceipt()
+                
             case .purchaseRestoreFailure:
                 updatePurchaseState(state: .failed)
             default:
