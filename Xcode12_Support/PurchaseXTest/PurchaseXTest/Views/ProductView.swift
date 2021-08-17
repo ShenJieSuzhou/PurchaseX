@@ -10,6 +10,8 @@ import PurchaseX
 
 struct ProductView: View {
     @EnvironmentObject var purchaseXManager: PurchaseXManager
+    @Binding var restore: Bool
+    
     var product: Product
     
     var body: some View {
@@ -25,15 +27,9 @@ struct ProductView: View {
                 .lineLimit(2)
                 .minimumScaleFactor(0.5)
             
-            Text(product.price)
-                .font(.title3)
-                .padding()
-                .lineLimit(2)
-                .minimumScaleFactor(0.5)
-            
             Spacer()
             
-            PurchaseButton(product: product)
+            PurchaseButton(restore: $restore, product: product)
         }
         .padding()
     }

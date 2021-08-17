@@ -16,9 +16,7 @@ struct PriceView: View {
     @Binding var failed: Bool
     @Binding var purchased: Bool
     @Binding var bageViewSwitch: Bool
-    
-    @State var restore: Bool = false
-    
+    @Binding var restore: Bool
     
     var product: Product
     
@@ -33,7 +31,7 @@ struct PriceView: View {
         
         HStack {
             if restore && purchaseXManager.isPurchased(productId: product.productID) && product.type == .Non_Consumable{
-                Text("Purchased")
+                Text("Free")
                     .font(.title2)
                     .foregroundColor(.white)
                     .padding()

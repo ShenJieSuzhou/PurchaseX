@@ -10,6 +10,7 @@ import PurchaseX
 
 struct PurchaseButton: View {
     @EnvironmentObject var purchaseXManager:PurchaseXManager
+    @Binding var restore: Bool
     
     @State var purchasing: Bool = false
     @State var cancelled: Bool = false
@@ -44,7 +45,7 @@ struct PurchaseButton: View {
                       failed: $failed,
                       purchased: $purchased,
                       bageViewSwitch: $bageViewSwitch,
-                      product: product)
+                      restore: $restore, product: product)
         }
         .onAppear {
             

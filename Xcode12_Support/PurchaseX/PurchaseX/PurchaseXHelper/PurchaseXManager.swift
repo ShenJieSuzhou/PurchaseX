@@ -27,8 +27,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
     // MARK: Property
     /// Array of products retrieved from AppleStore
     @Published public var products: [SKProduct]?
-    
-    @Published public var restored: Bool = false
         
     /// Array of productID
     private var purchasedProducts = [String]()
@@ -361,9 +359,6 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
         IAPPersistence.savePurchaseState(for: transaction.payment.productIdentifier)
         
         // save purchased productID to our back list
-        guard !purchasedProductIdentifiers.contains(transaction.payment.productIdentifier) else {
-            return
-        }
         purchasedProductIdentifiers.insert(transaction.payment.productIdentifier)
         
         PXLog.event(restore ? .purchaseRestoreSuccess : .purchaseSuccess)
@@ -422,8 +417,6 @@ extension PurchaseXManager: SKPaymentTransactionObserver {
     
     public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
         PXLog.event("Restore operation finished")
-        self.restored = true
-//        self.products = products
     }
     
     public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {

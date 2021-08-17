@@ -12,6 +12,7 @@ import PurchaseX
 struct ContentView: View {
     
     @EnvironmentObject var purchaseXManager: PurchaseXManager
+    @State var restore: Bool = false
         
     let configProducts:[Product] = [
         Product(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
@@ -87,7 +88,7 @@ struct ContentView: View {
                         Spacer()
                         Button {
                             print("恢复购买")
-                            let restoreViewModel = RestoreViewModel(purchaseXManager: purchaseXManager)
+                            let restoreViewModel = RestoreViewModel(purchaseXManager: purchaseXManager, restored: $restore)
                             restoreViewModel.restorePurchase()
                         } label: {
                             Text("Restore")
@@ -104,7 +105,7 @@ struct ContentView: View {
                         Section(header: Text("ConsumableProducts")) {
                             ForEach(0..<consumables.count) {
                                 let product = consumables[$0]
-                                ConsumableView(product: product)
+                                ProductView(restore: $restore, product: product)
                             }
                         }
                     }
@@ -113,7 +114,7 @@ struct ContentView: View {
                         Section(header: Text("NonConsumableProducts")) {
                             ForEach(0..<nonConsumables.count) {
                                 let product = nonConsumables[$0]
-                                ProductView(product: product)
+                                ProductView(restore: $restore, product: product)
                             }
                         }
                     }
@@ -122,7 +123,7 @@ struct ContentView: View {
                         Section(header: Text("NoRenewSubscriptionProducts")) {
                             ForEach(0..<noRenewSubscriptions.count) {
                                 let product = noRenewSubscriptions[$0]
-                                ProductView(product: product)
+                                ProductView(restore: $restore, product: product)
                             }
                         }
                     }
@@ -131,7 +132,7 @@ struct ContentView: View {
                         Section(header: Text("Subscriptions")) {
                             ForEach(0..<subscriptions.count) {
                                 let product = subscriptions[$0]
-                                ProductView(product: product)
+                                ProductView(restore: $restore, product: product)
                             }
                         }
                     }
@@ -140,7 +141,7 @@ struct ContentView: View {
             } else {
                 Text("No products available")
                     .font(.title)
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }

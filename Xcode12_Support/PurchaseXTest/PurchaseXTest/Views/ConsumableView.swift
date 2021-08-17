@@ -40,7 +40,7 @@ struct ConsumableView: View {
             
             Spacer()
             
-            PurchaseButton(product: product)
+//            PurchaseButton(product: product)
         }
         .padding()
         .onAppear {
