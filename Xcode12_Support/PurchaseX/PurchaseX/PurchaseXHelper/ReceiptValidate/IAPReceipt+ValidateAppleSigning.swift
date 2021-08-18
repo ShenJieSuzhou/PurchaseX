@@ -44,12 +44,12 @@ extension IAPReceipt {
         #endif
 
         if verificationResult == 1 {
-            PXLog.event("receiptValidateSigningFailure")
-            return false
+            PXLog.event("receiptValidateSigningSuccess")
+            
+            return true
         }
 
-        PXLog.event("receiptValidateSigningSuccess")
-        
-        return true
+        PXLog.event("receiptValidateSigningFailure")
+        return false
     }
 }

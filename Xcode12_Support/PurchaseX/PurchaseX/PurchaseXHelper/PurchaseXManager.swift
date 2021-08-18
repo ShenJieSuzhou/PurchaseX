@@ -204,7 +204,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
         // Compare the backlist of purchased product with the validated purchased product
         // retrived from appstore
         createValidatedPurchasedProductIds(receipt: receipt)
-        PXLog.event(.receiptValidationSuccess)
         return true
     }
     

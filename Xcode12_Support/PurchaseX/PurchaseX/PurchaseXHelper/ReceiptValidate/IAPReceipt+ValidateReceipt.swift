@@ -53,7 +53,7 @@ extension IAPReceipt {
         }
         
         isValid = true
-        PXLog.event(.receiptValidationFailure)
+        PXLog.event(.receiptValidationSuccess)
         
         return true
     }
