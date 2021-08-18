@@ -18,7 +18,7 @@ struct ContentView: View {
         Product(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
         Product(pid: "com.purchasex.120", displayName: "120 金币", thumb: "com.purchasex.120", price: "1.99", type: .Consumable),
         Product(pid: "com.purchasex.stylefilter", displayName: "风格滤镜", thumb: "com.purchasex.stylefilter", price: "0.99", type: .Non_Consumable),
-        Product(pid: "com.purchase.monthcard", displayName: "月卡", thumb: "com.purchase.monthcard", price: "2.99", type: .Non_Renewing_Subscriptions),
+        Product(pid: "com.purchasex.monthcard", displayName: "月卡", thumb: "com.purchase.monthcard", price: "2.99", type: .Non_Renewing_Subscriptions),
         Product(pid: "com.purchasex.vip1", displayName: "VIP1", thumb: "com.purchasex.vip1", price: "2.99", type: .Auto_Renewable_Subscriptions),
         Product(pid: "com.purchasex.vip2", displayName: "VIP2", thumb: "com.purchasex.vip2", price: "6.99", type: .Auto_Renewable_Subscriptions)
     ]
@@ -56,7 +56,7 @@ struct ContentView: View {
         let products = purchaseXManager.products
         var targets = [Product]()
         for product in products! {
-            if product.productIdentifier == "com.purchase.monthcard" {
+            if product.productIdentifier == "com.purchasex.monthcard" {
                 let result = configProducts.filter { p in
                     return p.productID == product.productIdentifier
                 }
