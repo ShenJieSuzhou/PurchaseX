@@ -29,6 +29,7 @@ struct PriceViewModel {
                     updatePurchaseState(state: .complete)
                     print("验证完毕，给账户增加道具")
                 } else {
+                    updatePurchaseState(state: .failed)
                     print("验证失败")
                 }
             } else if notification == .purchaseCancelled {

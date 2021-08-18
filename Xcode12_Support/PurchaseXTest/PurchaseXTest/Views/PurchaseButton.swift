@@ -26,7 +26,17 @@ struct PurchaseButton: View {
             if purchasing {
                 ProgressView()
             }
-
+            
+            if failed && !bageViewSwitch {
+                // failed
+                BadgeView(purchaseState: .failed)
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            self.bageViewSwitch.toggle()
+                        }
+                }
+            }
+            
             if purchased && !bageViewSwitch {
                 // complete state
                 BadgeView(purchaseState: .complete)

@@ -1,7 +1,21 @@
 {
   "identifier" : "845A6A50",
   "nonRenewingSubscriptions" : [
-
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "2E433628",
+      "localizations" : [
+        {
+          "description" : "花费0.99购买月卡",
+          "displayName" : "月卡",
+          "locale" : "zh_CN"
+        }
+      ],
+      "productID" : "com.purchase.monthcard",
+      "referenceName" : "月卡",
+      "type" : "NonRenewingSubscription"
+    }
   ],
   "products" : [
     {
