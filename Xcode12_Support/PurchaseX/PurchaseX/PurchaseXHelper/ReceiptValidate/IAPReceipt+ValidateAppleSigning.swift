@@ -37,10 +37,11 @@ extension IAPReceipt {
         
         OPENSSL_init_crypto(UInt64(OPENSSL_INIT_ADD_ALL_DIGESTS), nil)
         
+//        OpenSSL_add_all_algorithms();
         #if DEBUG
         let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, PKCS7_NOCHAIN)
         #else
-        let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, nil)
+        let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, 0)
         #endif
 
         if verificationResult == 1 {
@@ -50,6 +51,7 @@ extension IAPReceipt {
         }
 
         PXLog.event("receiptValidateSigningFailure")
+
         return false
     }
 }
