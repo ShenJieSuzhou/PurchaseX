@@ -34,24 +34,20 @@ extension IAPReceipt {
         
         let store = X509_STORE_new()
         X509_STORE_add_cert(store, rootCertX509)
+        OPENSSL_add_all_algorithms_conf()
+//        OPENSSL_init_crypto(UInt64(OPENSSL_INIT_ADD_ALL_DIGESTS), nil)
         
-        OPENSSL_init_crypto(UInt64(OPENSSL_INIT_ADD_ALL_DIGESTS), nil)
-        
-//        OpenSSL_add_all_algorithms();
         #if DEBUG
         let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, PKCS7_NOCHAIN)
         #else
         let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, 0)
         #endif
-
-        if verificationResult == 1 {
-            PXLog.event("receiptValidateSigningSuccess")
-            
-            return true
+        
+        guard verificationResult == 1 else {
+            PXLog.event("receiptValidateSigningFailure")
+            return false
         }
-
-        PXLog.event("receiptValidateSigningFailure")
-
-        return false
+        
+        return true
     }
 }
