@@ -66,8 +66,10 @@
   ],
   "settings" : {
     "_askToBuyEnabled" : false,
+    "_billingIssuesEnabled" : false,
     "_failTransactionsEnabled" : false,
-    "_storeKitError" : 0
+    "_storeKitError" : 0,
+    "_timeRate" : 5
   },
   "subscriptionGroups" : [
     {
