@@ -26,6 +26,7 @@ extension IAPReceipt {
             return false
         }
         
+        
         let rootCertBio = BIO_new(BIO_s_mem())
         let rootCertBytes: [UInt8] = .init(rootCertificateData)
         BIO_write(rootCertBio, rootCertBytes, Int32(rootCertificateData.count))
@@ -35,7 +36,6 @@ extension IAPReceipt {
         let store = X509_STORE_new()
         X509_STORE_add_cert(store, rootCertX509)
         OPENSSL_add_all_algorithms_conf()
-//        OPENSSL_init_crypto(UInt64(OPENSSL_INIT_ADD_ALL_DIGESTS), nil)
         
         #if DEBUG
         let verificationResult = PKCS7_verify(receiptData, nil, store, nil, nil, PKCS7_NOCHAIN)

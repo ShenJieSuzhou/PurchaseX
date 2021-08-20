@@ -27,6 +27,7 @@
 		E5760E5D26C517D900877C3B /* RestoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E5C26C517D900877C3B /* RestoreViewModel.swift */; };
 		E5760E6A26CE228900877C3B /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5760E6726CE1B3C00877C3B /* openssl.framework */; };
 		E5760E6B26CE228900877C3B /* openssl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5760E6726CE1B3C00877C3B /* openssl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5760E7126CF524700877C3B /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = E5760E6F26CF524700877C3B /* AppleIncRootCertificate.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		E5760E3D26C3A4A700877C3B /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		E5760E5C26C517D900877C3B /* RestoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreViewModel.swift; sourceTree = "<group>"; };
 		E5760E6726CE1B3C00877C3B /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
+		E5760E6F26CF524700877C3B /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 		E5760E1B26C2828F00877C3B /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				E5760E6F26CF524700877C3B /* AppleIncRootCertificate.cer */,
 				E5760E3D26C3A4A700877C3B /* StoreKitTestCertificate.cer */,
 				E5760E1C26C2828F00877C3B /* Products.plist */,
 				E5760E1D26C2828F00877C3B /* Production.storekit */,
@@ -276,6 +279,7 @@
 				E5760E1026C2823D00877C3B /* Preview Assets.xcassets in Resources */,
 				E5760E2126C2828F00877C3B /* Production.storekit in Resources */,
 				E5760E0D26C2823D00877C3B /* Assets.xcassets in Resources */,
+				E5760E7126CF524700877C3B /* AppleIncRootCertificate.cer in Resources */,
 				E5760E2026C2828F00877C3B /* Products.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

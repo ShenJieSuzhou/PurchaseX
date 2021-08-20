@@ -50,9 +50,6 @@
             ReferencedContainer = "container:PurchaseXTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <StoreKitConfigurationFileReference
-         identifier = "../../PurchaseXTest/Configuration/Production.storekit">
-      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
