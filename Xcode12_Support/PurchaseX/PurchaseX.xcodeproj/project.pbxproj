@@ -25,6 +25,8 @@
 		E5760DF926C281B600877C3B /* IAPReceipt+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEF26C281B600877C3B /* IAPReceipt+Load.swift */; };
 		E5760DFA26C281B600877C3B /* IAPReceipt+ReadReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DF026C281B600877C3B /* IAPReceipt+ReadReceipt.swift */; };
 		E5760DFB26C281B600877C3B /* IAPReceiptProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */; };
+		F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */; };
+		F4B1785826D291FE00DC2701 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B1785726D291FE00DC2701 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		E5760DEF26C281B600877C3B /* IAPReceipt+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+Load.swift"; sourceTree = "<group>"; };
 		E5760DF026C281B600877C3B /* IAPReceipt+ReadReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ReadReceipt.swift"; sourceTree = "<group>"; };
 		E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceiptProductInfo.swift; sourceTree = "<group>"; };
+		F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateAppstore.swift"; sourceTree = "<group>"; };
+		F4B1785726D291FE00DC2701 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B1785826D291FE00DC2701 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,7 @@
 			children = (
 				E576097026C273C100877C3B /* PurchaseX */,
 				E576096F26C273C100877C3B /* Products */,
+				F4B1784F26D28FE700DC2701 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +129,17 @@
 				E5760DEF26C281B600877C3B /* IAPReceipt+Load.swift */,
 				E5760DF026C281B600877C3B /* IAPReceipt+ReadReceipt.swift */,
 				E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */,
+				F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */,
 			);
 			path = ReceiptValidate;
+			sourceTree = "<group>";
+		};
+		F4B1784F26D28FE700DC2701 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4B1785726D291FE00DC2701 /* Alamofire.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +231,7 @@
 				E5760DF626C281B600877C3B /* IAPPersistenceProtocol.swift in Sources */,
 				E5760DF526C281B600877C3B /* IAPOpenSSLAttributeType.swift in Sources */,
 				E5760DF326C281B600877C3B /* IAPOpenSSL.swift in Sources */,
+				F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */,
 				E5760DF226C281B600877C3B /* IAPReceipt.swift in Sources */,
 				E5760DF926C281B600877C3B /* IAPReceipt+Load.swift in Sources */,
 				E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */,
