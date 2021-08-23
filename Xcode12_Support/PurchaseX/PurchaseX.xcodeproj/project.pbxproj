@@ -26,7 +26,6 @@
 		E5760DFA26C281B600877C3B /* IAPReceipt+ReadReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DF026C281B600877C3B /* IAPReceipt+ReadReceipt.swift */; };
 		E5760DFB26C281B600877C3B /* IAPReceiptProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */; };
 		F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */; };
-		F4B1785826D291FE00DC2701 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4B1785726D291FE00DC2701 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +49,9 @@
 		E5760DEF26C281B600877C3B /* IAPReceipt+Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+Load.swift"; sourceTree = "<group>"; };
 		E5760DF026C281B600877C3B /* IAPReceipt+ReadReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ReadReceipt.swift"; sourceTree = "<group>"; };
 		E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceiptProductInfo.swift; sourceTree = "<group>"; };
+		E5760E7326D3346900877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5760E7526D334C300877C3B /* Pods_PurchaseXTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PurchaseXTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5760E7726D3370C00877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateAppstore.swift"; sourceTree = "<group>"; };
 		F4B1785726D291FE00DC2701 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -59,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4B1785826D291FE00DC2701 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +138,9 @@
 		F4B1784F26D28FE700DC2701 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5760E7726D3370C00877C3B /* Alamofire.framework */,
+				E5760E7526D334C300877C3B /* Pods_PurchaseXTest.framework */,
+				E5760E7326D3346900877C3B /* Alamofire.framework */,
 				F4B1785726D291FE00DC2701 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -378,6 +382,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PurchaseX/framework",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/PurchaseXTest-fbyifhbwrurepccfcebcovtoodyy/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,6 +422,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PurchaseX/framework",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/PurchaseXTest-fbyifhbwrurepccfcebcovtoodyy/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

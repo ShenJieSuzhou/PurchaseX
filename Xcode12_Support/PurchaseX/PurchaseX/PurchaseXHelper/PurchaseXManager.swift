@@ -23,6 +23,8 @@ public class PurchaseXManager: NSObject, ObservableObject {
     // Completion handler when requesting appstore to restore purchases
     var restorePurchasesCompletion: ((PurchaseXNotification) -> Void)? = nil
     
+    // Completion handler when validate receipt remotelly
+    var validateRemoteCompletion: ((PurchaseXNotification) -> Void)? = nil
     
     // MARK: Property
     /// Array of products retrieved from AppleStore
@@ -188,7 +190,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
     
     /// Validate the receipt issued by the Appstore
     /// - Returns: true if validate successfully
-    public func processReceipt() -> Bool {
+    public func processReceiptLocally() -> Bool {
         
         receipt = IAPReceipt()
         
@@ -205,6 +207,13 @@ public class PurchaseXManager: NSObject, ObservableObject {
         // retrived from appstore
         createValidatedPurchasedProductIds(receipt: receipt)
         return true
+    }
+    
+    public func processReceiptRemotely(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+        PXLog.event("Validate receipt remotelly")
+        validateRemoteCompletion = completion
+        
+        
     }
     
     /// Get a localized price for product

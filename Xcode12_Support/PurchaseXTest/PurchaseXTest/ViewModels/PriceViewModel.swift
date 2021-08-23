@@ -25,13 +25,25 @@ struct PriceViewModel {
         
         purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
             if notification == .purchaseSuccess{
-                if purchaseXManager.processReceipt() {
-                    updatePurchaseState(state: .complete)
-                    print("验证完毕，给账户增加道具")
-                } else {
-                    updatePurchaseState(state: .failed)
-                    print("验证失败")
+                /// validate locally
+//                if purchaseXManager.processReceiptLocally() {
+//                    updatePurchaseState(state: .complete)
+//                    print("验证完毕，给账户增加道具")
+//                } else {
+//                    updatePurchaseState(state: .failed)
+//                    print("验证失败")
+//                }
+                
+                /// validate remotelly
+                purchaseXManager.processReceiptRemotely { notification in
+                    
+                    if notification == .receiptValidationSuccess {
+                        
+                    } else {
+                        
+                    }
                 }
+                
             } else if notification == .purchaseCancelled {
                 updatePurchaseState(state: .cancelled)
             } else if notification == .purchaseFailure {
