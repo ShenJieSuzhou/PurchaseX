@@ -1,86 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "B5E1B573-F2BE-4FDE-875D-CDC4FA131290"
-   type = "1"
+   uuid = "445EBF90-D41F-4F71-BC7E-6D7058241C61"
+   type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2276AB69-1728-4351-A04C-C3D53A51DA6D"
+            uuid = "2228939B-2C93-4789-8254-D798BC6EF95F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+            filePath = "PurchaseXTest/ViewModels/PriceViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
-            landmarkName = "request(_:didFailWithError:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "purchase(product:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C12B3105-B33B-4009-9252-A61AAFE3F1C7"
+            uuid = "3538863E-036C-4A83-BA2B-7199ADC2A2B1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+            filePath = "PurchaseXTest/ViewModels/PriceViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
-            landmarkName = "purchaseFailed(transaction:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "purchase(product:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A1D95A84-04C8-4525-A9D1-C83835B5AA5B"
+            uuid = "1EC48E92-7C38-4BE3-947F-699FF5769110"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
-            landmarkName = "paymentQueue(_:updatedTransactions:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A1AF2B70-AB8D-4B3E-9AFC-252211F9837D"
+            uuid = "7606DA63-0B92-42B3-9236-F2465EAB8934"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ReadReceipt.swift"
+            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "readReceipt()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "79121D1A-7189-430F-BF98-B36E69EE3ECC"
+            uuid = "FB639A77-5CA4-4BFD-9894-43CB0318E94E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateReceipt.swift"
+            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "validate()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

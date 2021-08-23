@@ -75,12 +75,8 @@ extension IAPReceipt {
             }
 
             // data to json
-            do {
-                let json = try JSONSerialization.jsonObject(with: safeData, options: []) as? [String: Any]
-                print(json as Any)
-            } catch {
-                completion(.receiptValidationFailure, nil)
-            }
+            let str = String(decoding: safeData, as: UTF8.self)
+            print(str)
         }
         
         task.resume()
