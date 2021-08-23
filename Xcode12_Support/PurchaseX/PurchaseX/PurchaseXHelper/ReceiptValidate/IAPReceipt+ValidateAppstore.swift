@@ -20,7 +20,7 @@ extension IAPReceipt {
     ///   - sharedSecret: password
     ///   - isSandBox:  define sandbox env or production env
     /// - Returns:
-    public func validateInAppstore(sharedSecret: String?, isSandBox: Bool) -> Bool {
+    public func validateInAppstore(sharedSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification?, _ err: Error?) -> Void) {
         
         /// Start  validate
         let urlType: VerifyReceiptURLType = isSandBox ? .sandbox : .production
@@ -37,7 +37,11 @@ extension IAPReceipt {
                 let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
                 appStoreReceiptData = receiptData
             }
-            catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
+            catch {
+                print("Couldn't read receipt data with error: " + error.localizedDescription)
+                completion(.receiptValidationFailure, error)
+                return
+            }
         }
         
         let receiptString = appStoreReceiptData!.base64EncodedString(options: [])
@@ -45,39 +49,41 @@ extension IAPReceipt {
         // Read receiptData
         let requestContents: NSMutableDictionary = ["receipt-data": receiptString]
         guard sharedSecret != nil else {
-            return false
+            completion(.receiptValidationFailure, nil)
+            return
         }
         requestContents.setValue(sharedSecret, forKey: "password")
         
         do {
             storeRequest.httpBody = try JSONSerialization.data(withJSONObject: requestContents, options: [])
         } catch let error {
-            print(error)
-            return false
+            completion(.receiptValidationFailure, error)
+            return
         }
         
-//        let task = URLSession.shared.dataTask(with: storeRequest as URLRequest) { data, _, error -> Void in
-//
-//            if let error = error {
-//                return
-//            }
-//
-//            guard let safeData = data else {
-//                return
-//            }
-//
-////            JSONDecoder.decode(<#T##self: JSONDecoder##JSONDecoder#>)
-////
-////            guard let representation = safeData.cre else {
-////                return false
-////            }
-//
-//
-//
-//        }
+        let task = URLSession.shared.dataTask(with: storeRequest as URLRequest) { data, _, error -> Void in
+
+            if let error = error {
+                completion(.receiptValidationFailure, error)
+                return
+            }
+
+            guard let safeData = data else {
+                print("No remote data")
+                completion(.receiptValidationFailure, nil)
+                return
+            }
+
+            // data to json
+            do {
+                let json = try JSONSerialization.jsonObject(with: safeData, options: []) as? [String: Any]
+                print(json as Any)
+            } catch {
+                completion(.receiptValidationFailure, nil)
+            }
+        }
         
-//        task.resume()
-        return true
+        task.resume()
     }
     
 }

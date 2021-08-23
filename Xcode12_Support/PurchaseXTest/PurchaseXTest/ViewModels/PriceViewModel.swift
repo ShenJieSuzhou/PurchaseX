@@ -34,13 +34,12 @@ struct PriceViewModel {
 //                    print("验证失败")
 //                }
                 
-                /// validate remotelly
-                purchaseXManager.processReceiptRemotely { notification in
-                    
+                /// validate remotelly                
+                purchaseXManager.processReceiptRemotely(shareSecret: "", isSandBox: true) { notification, error in
                     if notification == .receiptValidationSuccess {
-                        
+
                     } else {
-                        
+
                     }
                 }
                 

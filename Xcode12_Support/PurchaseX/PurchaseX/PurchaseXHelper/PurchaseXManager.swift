@@ -209,11 +209,11 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return true
     }
     
-    public func processReceiptRemotely(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-        PXLog.event("Validate receipt remotelly")
-        validateRemoteCompletion = completion
+    public func processReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification? , _ error: Error?) -> Void) {
+        PXLog.event("Start validate receipt remotelly")
         
-        
+        receipt = IAPReceipt()
+        receipt.validateInAppstore(sharedSecret: shareSecret, isSandBox: isSandBox, completion: completion)
     }
     
     /// Get a localized price for product
