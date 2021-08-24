@@ -62,8 +62,8 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
             landmarkType = "7">
          </BreakpointContent>

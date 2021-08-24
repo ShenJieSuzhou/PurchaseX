@@ -53,6 +53,7 @@ extension IAPReceipt {
             return
         }
         requestContents.setValue(sharedSecret, forKey: "password")
+//        requestContents.setValue("application/json", forKey: "Content-type")
         
         do {
             storeRequest.httpBody = try JSONSerialization.data(withJSONObject: requestContents, options: [])
