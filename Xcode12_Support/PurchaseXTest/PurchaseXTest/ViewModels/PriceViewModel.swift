@@ -37,9 +37,9 @@ struct PriceViewModel {
                 /// validate remotelly                
                 purchaseXManager.processReceiptRemotely(shareSecret: "fd4748dc46cc4d75ac86d0d68926ebe9", isSandBox: true) { notification, error in
                     if notification == .receiptValidationSuccess {
-
+                        updatePurchaseState(state: .complete)
                     } else {
-
+                        updatePurchaseState(state: .failed)
                     }
                 }
                 
