@@ -13,6 +13,7 @@ enum VerifyReceiptURLType: String {
     case sandbox = "https://sandbox.itunes.apple.com/verifyReceipt"
 }
 
+/// Validate Remotelly
 extension IAPReceipt {
     
     /// Validate receipt via appstore

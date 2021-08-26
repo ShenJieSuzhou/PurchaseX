@@ -14,40 +14,8 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "490A391C-ED19-4D91-AA5C-835DB2F6805F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "21A30ABE-1504-4F1C-8A68-18E194A17F7B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/ReceiptValidate/IAPReceipt+ValidateAppstore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "validateInAppstore(sharedSecret:isSandBox:completion:)"
             landmarkType = "7">
          </BreakpointContent>
