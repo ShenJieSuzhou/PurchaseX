@@ -188,32 +188,38 @@ public class PurchaseXManager: NSObject, ObservableObject {
     }
     
     
-    /// Validate the receipt issued by the Appstore
+    /// Validate the receipt locally
     /// - Returns: true if validate successfully
-    public func processReceiptLocally() -> Bool {
-        
+    public func validateReceiptLocally(completion: @escaping(_ notification: PurchaseXNotification? , _ receipt: String?) -> Void) {
+        PXLog.event("Start validate receipt locally")
         receipt = IAPReceipt()
-        
-        guard receipt.isReachable,
-              receipt.load(),
-              receipt.validateSigning(),
-              receipt.readReceipt(),
-              receipt.validate() else {
-            PXLog.event(.receiptValidationFailure)
-                  return false
-              }
-        
-        // Compare the backlist of purchased product with the validated purchased product
-        // retrived from appstore
-        createValidatedPurchasedProductIds(receipt: receipt)
-        return true
+        receipt.validateLocally { notification, error in
+            if notification == .receiptValidationSuccess {
+                // Compare the backlist of purchased product with the validated purchased product
+                // retrived from appstore
+                self.createValidatedPurchasedProductIds(receipt: self.receipt)
+                completion(.receiptValidationSuccess, "")
+            } else {
+                completion(.receiptValidationFailure, "")
+            }
+        }
     }
     
-    public func processReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification? , _ error: Error?) -> Void) {
+    /// Validate the receipt remotely
+    public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification? , _ receipt: String?) -> Void) {
         PXLog.event("Start validate receipt remotelly")
         
         receipt = IAPReceipt()
-        receipt.validateInAppstore(sharedSecret: shareSecret, isSandBox: isSandBox, completion: completion)
+        receipt.validateInAppstore(sharedSecret: shareSecret, isSandBox: isSandBox) { notification, error in
+            if notification == .receiptValidationSuccess {
+                // Compare the backlist of purchased product with the validated purchased product
+                // retrived from appstore
+                self.createValidatedPurchasedProductIds(receipt: self.receipt)
+                completion(.receiptValidationSuccess, "")
+            } else {
+                completion(.receiptValidationFailure, "")
+            }
+        }
     }
     
     /// Get a localized price for product
@@ -236,7 +242,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         if purchasedProductIdentifiers == receipt.validatePurchasedProductIdentifiers {
             PXLog.event("Purchased Products do not match receipt")
         }
-        
+
         IAPPersistence.resetPurchasedProductIds(from: purchasedProductIdentifiers, to: receipt.validatePurchasedProductIdentifiers)
         purchasedProductIdentifiers = receipt.validatePurchasedProductIdentifiers
     }

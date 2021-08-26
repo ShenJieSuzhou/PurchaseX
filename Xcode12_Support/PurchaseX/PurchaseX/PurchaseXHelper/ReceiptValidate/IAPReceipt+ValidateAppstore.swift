@@ -20,6 +20,7 @@ extension IAPReceipt {
     /// - Parameters:
     ///   - sharedSecret: password
     ///   - isSandBox:  define sandbox env or production env
+    ///   - completion: result handler
     /// - Returns:
     public func validateInAppstore(sharedSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification?, _ err: Error?) -> Void) {
         
@@ -89,6 +90,11 @@ extension IAPReceipt {
             
             let status = response.status
             if status == 0 {
+                
+                response.latestReceiptInfo?.forEach({ info in
+                    self.validatePurchasedProductIdentifiers.insert(info.productID)
+                })
+                
                 completion(.receiptValidationSuccess, nil)
             } else if status == -2 {
                 PXLog.event("Not decodable status.")

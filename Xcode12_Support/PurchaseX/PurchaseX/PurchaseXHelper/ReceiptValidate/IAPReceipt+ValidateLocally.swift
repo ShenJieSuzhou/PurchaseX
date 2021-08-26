@@ -11,6 +11,25 @@ import Foundation
 //MARK: - Validate Locally
 extension IAPReceipt {
     
+    
+    /// Validate receipt locally
+    /// - Parameter completion: result handler
+    public func validateLocally(completion: @escaping(_ notification: PurchaseXNotification?, _ err: Error?) -> Void) {
+        
+        guard self.isReachable,
+              self.load(),
+              self.validateSigning(),
+              self.readReceipt(),
+              self.validate() else {
+            
+                PXLog.event(.receiptValidationFailure)
+                completion(.receiptValidationFailure, nil)
+                  return
+              }
+        completion(.receiptValidationSuccess, nil)
+    }
+    
+    
     // MARK: - Loading the receipt from the main bundle.
     /// Returns: return true if load sucess otherwise false
     public func load() -> Bool {
