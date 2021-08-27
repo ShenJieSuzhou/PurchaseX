@@ -14,7 +14,7 @@ extension IAPReceipt {
     
     /// Validate receipt locally
     /// - Parameter completion: result handler
-    public func validateLocally(completion: @escaping(_ notification: PurchaseXNotification?, _ err: Error?) -> Void) {
+    public func validateLocally() -> ReceiptValidationResult {
         
         guard self.isReachable,
               self.load(),
@@ -23,10 +23,10 @@ extension IAPReceipt {
               self.validate() else {
             
                 PXLog.event(.receiptValidationFailure)
-                completion(.receiptValidationFailure, nil)
-                  return
+            return .error(error: nil)
               }
-        completion(.receiptValidationSuccess, nil)
+        
+        return .success(receipt: nil)
     }
     
     

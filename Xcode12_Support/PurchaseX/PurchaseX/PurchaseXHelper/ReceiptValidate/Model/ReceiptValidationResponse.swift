@@ -6,7 +6,7 @@
 //
 
 
-struct ReceiptValidationResponse: Codable {
+public struct ReceiptValidationResponse: Codable {
     let environment: String
     let receipt: Receipt?
     let latestReceiptInfo: [LatestReceiptInfo]?
@@ -24,7 +24,7 @@ struct ReceiptValidationResponse: Codable {
 }
 
 // MARK: - LatestReceiptInfo
-struct LatestReceiptInfo: Codable {
+public struct LatestReceiptInfo: Codable {
     let quantity, productID, transactionID, originalTransactionID: String
     let purchaseDate, purchaseDateMS, purchaseDatePst, originalPurchaseDate: String
     let originalPurchaseDateMS, originalPurchaseDatePst: String
@@ -56,12 +56,12 @@ struct LatestReceiptInfo: Codable {
     }
 }
 
-enum InAppOwnershipType: String, Codable {
+public enum InAppOwnershipType: String, Codable {
     case purchased = "PURCHASED"
 }
 
 // MARK: - PendingRenewalInfo
-struct PendingRenewalInfo: Codable {
+public struct PendingRenewalInfo: Codable {
     let expirationIntent, autoRenewProductID, isInBillingRetryPeriod, productID: String
     let originalTransactionID, autoRenewStatus: String
 
@@ -76,7 +76,7 @@ struct PendingRenewalInfo: Codable {
 }
 
 // MARK: - Receipt
-struct Receipt: Codable {
+public struct Receipt: Codable {
     let receiptType: String
     let adamID, appItemID: Int
     let bundleID, applicationVersion: String

@@ -22,7 +22,7 @@ extension IAPReceipt {
     ///   - isSandBox:  define sandbox env or production env
     ///   - completion: result handler
     /// - Returns:
-    public func validateInAppstore(sharedSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification?, _ err: Error?) -> Void) {
+    public func validateInAppstore(sharedSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
         
         /// Start  validate
         let urlType: VerifyReceiptURLType = isSandBox ? .sandbox : .production
@@ -41,12 +41,12 @@ extension IAPReceipt {
             }
             catch {
                 print("Couldn't read receipt data with error: " + error.localizedDescription)
-                completion(.receiptValidationFailure, error)
+                completion(.error(error: error))
                 return
             }
         } else {
             PXLog.event(.receiptValidationFailure)
-            completion(.receiptValidationFailure, nil)
+            completion(.error(error: nil))
             return
         }
         
@@ -56,7 +56,7 @@ extension IAPReceipt {
         // Set request body
         let requestContents: NSMutableDictionary = ["receipt-data": receiptString]
         guard sharedSecret != nil else {
-            completion(.receiptValidationFailure, nil)
+            completion(.error(error: nil))
             return
         }
         requestContents.setValue(sharedSecret, forKey: "password")
@@ -65,26 +65,26 @@ extension IAPReceipt {
         do {
             storeRequest.httpBody = try JSONSerialization.data(withJSONObject: requestContents, options: [])
         } catch let error {
-            completion(.receiptValidationFailure, error)
+            completion(.error(error: error))
             return
         }
         
         let task = URLSession.shared.dataTask(with: storeRequest as URLRequest) { data, _, error -> Void in
             if let error = error {
-                completion(.receiptValidationFailure, error)
+                completion(.error(error: error))
                 return
             }
 
             guard let safeData = data else {
                 print("No remote data")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
                 return
             }
 
             // data to json
             guard let response = try? JSONDecoder().decode(ReceiptValidationResponse.self, from: safeData) else {
                 PXLog.event("No receipt data")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
                 return
             }
             
@@ -95,46 +95,46 @@ extension IAPReceipt {
                     self.validatePurchasedProductIdentifiers.insert(info.productID)
                 })
                 
-                completion(.receiptValidationSuccess, nil)
+                completion(.success(receipt: response.receipt))
             } else if status == -2 {
                 PXLog.event("Not decodable status.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == -1 {
                 PXLog.event("No status returned.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21000 {
                 PXLog.event("The request to the App Store was not made using the HTTP POST request method.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21002 {
                 PXLog.event("This status code is no longer sent by the App Store.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21002 {
                 PXLog.event("The data in the receipt-data property was malformed or the service experienced a temporary issue. Try again.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21003 {
                 PXLog.event("The receipt could not be authenticated.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21004 {
                 PXLog.event("The shared secret you provided does not match the shared secret on file for your account.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21005 {
                 PXLog.event("The receipt server was temporarily unable to provide the receipt. Try again.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21006 {
                 PXLog.event("This receipt is valid but the subscription has expired. When this status code is returned to your server, the receipt data is also decoded and returned as part of the response. Only returned for iOS 6-style transaction receipts for auto-renewable subscriptions.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21007 {
                 PXLog.event("This receipt is from the test environment, but it was sent to the production environment for verification.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21008 {
                 PXLog.event("This receipt is from the production environment, but it was sent to the test environment for verification.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21009 {
                 PXLog.event("Internal data access error. Try again later.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             } else if status == 21010 {
                 PXLog.event("The user account cannot be found or has been deleted.")
-                completion(.receiptValidationFailure, nil)
+                completion(.error(error: nil))
             }
         }
         

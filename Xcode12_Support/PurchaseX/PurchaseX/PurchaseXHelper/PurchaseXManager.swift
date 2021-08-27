@@ -190,34 +190,30 @@ public class PurchaseXManager: NSObject, ObservableObject {
     
     /// Validate the receipt locally
     /// - Returns: true if validate successfully
-    public func validateReceiptLocally(completion: @escaping(_ notification: PurchaseXNotification? , _ receipt: String?) -> Void) {
+    public func validateReceiptLocally(completion: @escaping(ReceiptValidationResult) -> Void) {
         PXLog.event("Start validate receipt locally")
         receipt = IAPReceipt()
-        receipt.validateLocally { notification, error in
-            if notification == .receiptValidationSuccess {
-                // Compare the backlist of purchased product with the validated purchased product
-                // retrived from appstore
-                self.createValidatedPurchasedProductIds(receipt: self.receipt)
-                completion(.receiptValidationSuccess, "")
-            } else {
-                completion(.receiptValidationFailure, "")
-            }
+        switch receipt.validateLocally() {
+        case .success(let receipt):
+            // Compare the backlist of purchased product with the validated purchased product
+            // retrived from appstore
+            self.createValidatedPurchasedProductIds(receipt: self.receipt)
+            completion(.success(receipt: receipt))
+        case .error(let error):
+            completion(.error(error: error))
         }
     }
     
     /// Validate the receipt remotely
-    public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(_ notification: PurchaseXNotification? , _ receipt: String?) -> Void) {
+    public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
         PXLog.event("Start validate receipt remotelly")
-        
         receipt = IAPReceipt()
-        receipt.validateInAppstore(sharedSecret: shareSecret, isSandBox: isSandBox) { notification, error in
-            if notification == .receiptValidationSuccess {
-                // Compare the backlist of purchased product with the validated purchased product
-                // retrived from appstore
-                self.createValidatedPurchasedProductIds(receipt: self.receipt)
-                completion(.receiptValidationSuccess, "")
-            } else {
-                completion(.receiptValidationFailure, "")
+        receipt.validateInAppstore(sharedSecret: shareSecret, isSandBox: isSandBox) { validationResult in
+            switch validationResult {
+            case .success(let receipt):
+                completion(.success(receipt: receipt))
+            case .error(let error):
+                completion(.error(error: error))
             }
         }
     }

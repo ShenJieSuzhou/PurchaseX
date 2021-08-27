@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 /// IAPReceipt is used to verify Appstore purchase receipts locally.
 public class IAPReceipt {
     
