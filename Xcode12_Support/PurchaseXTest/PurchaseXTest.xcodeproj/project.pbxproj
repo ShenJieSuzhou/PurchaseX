@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7CD1C0E60FD532E7B06B0BDF /* Pods_PurchaseXTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FD354387EB17D91639478F /* Pods_PurchaseXTest.framework */; };
+		E50821BE26DF639000EE3576 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50821BD26DF639000EE3576 /* LoadingView.swift */; };
 		E5760E0926C2823B00877C3B /* PurchaseXTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E0826C2823B00877C3B /* PurchaseXTestApp.swift */; };
 		E5760E0D26C2823D00877C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5760E0C26C2823D00877C3B /* Assets.xcassets */; };
 		E5760E1026C2823D00877C3B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5760E0F26C2823D00877C3B /* Preview Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		04471E617088F6A0C80BEFA5 /* Pods-PurchaseXTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchaseXTest.debug.xcconfig"; path = "Target Support Files/Pods-PurchaseXTest/Pods-PurchaseXTest.debug.xcconfig"; sourceTree = "<group>"; };
 		B9B8B3F21201F83F26AC031C /* Pods-PurchaseXTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PurchaseXTest.release.xcconfig"; path = "Target Support Files/Pods-PurchaseXTest/Pods-PurchaseXTest.release.xcconfig"; sourceTree = "<group>"; };
 		D5FD354387EB17D91639478F /* Pods_PurchaseXTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PurchaseXTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50821BD26DF639000EE3576 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E5760E0526C2823B00877C3B /* PurchaseXTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PurchaseXTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5760E0826C2823B00877C3B /* PurchaseXTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXTestApp.swift; sourceTree = "<group>"; };
 		E5760E0C26C2823D00877C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 				04471E617088F6A0C80BEFA5 /* Pods-PurchaseXTest.debug.xcconfig */,
 				B9B8B3F21201F83F26AC031C /* Pods-PurchaseXTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -189,6 +190,7 @@
 				E5760E2726C282B500877C3B /* PurchaseErrorView.swift */,
 				E5760E2826C282B500877C3B /* ContentView.swift */,
 				E5760E2926C282B500877C3B /* ConsumableView.swift */,
+				E50821BD26DF639000EE3576 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +359,7 @@
 				E5760E2A26C282B500877C3B /* BadgeView.swift in Sources */,
 				E5760E2E26C282B500877C3B /* PurchaseErrorView.swift in Sources */,
 				E5760E1F26C2828F00877C3B /* Product.swift in Sources */,
+				E50821BE26DF639000EE3576 /* LoadingView.swift in Sources */,
 				E5760E1E26C2828F00877C3B /* PriceViewModel.swift in Sources */,
 				E5760E2F26C282B500877C3B /* ContentView.swift in Sources */,
 				E5760E0926C2823B00877C3B /* PurchaseXTestApp.swift in Sources */,

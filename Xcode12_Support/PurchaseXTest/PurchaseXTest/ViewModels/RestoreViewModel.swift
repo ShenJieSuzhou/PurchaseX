@@ -13,6 +13,7 @@ struct RestoreViewModel {
     
     @ObservedObject var purchaseXManager: PurchaseXManager
     @Binding var restored: Bool
+    @Binding var isLoading: Bool
     
     func restorePurchase() {
         purchaseXManager.restorePurchase { notification in
@@ -39,6 +40,7 @@ struct RestoreViewModel {
     }
         
     private func updatePurchaseState(state: PurchaseXState) {
+        isLoading = false
         restored = state == .complete
     }
 }

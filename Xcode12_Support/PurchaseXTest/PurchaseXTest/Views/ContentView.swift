@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @EnvironmentObject var purchaseXManager: PurchaseXManager
     @State var restore: Bool = false
+    @State var isLoading: Bool = false
         
     let configProducts:[Product] = [
         Product(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
@@ -83,61 +84,67 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if purchaseXManager.hasProducts {
-                List {
-                    HStack {
-                        Spacer()
-                        Button {
-                            print("恢复购买")
-                            let restoreViewModel = RestoreViewModel(purchaseXManager: purchaseXManager, restored: $restore)
-                            restoreViewModel.restorePurchase()
-                        } label: {
-                            Text("Restore")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                                .padding()
-                                .frame(height: 40)
-                                .background(Color.blue)
-                                .cornerRadius(25)
-                        }
-                    }.frame(height: 60)
+//                VStack {
+                    List {
+                        HStack {
+                            Spacer()
+                            Button {
+                                let restoreViewModel = RestoreViewModel(purchaseXManager: purchaseXManager, restored: $restore, isLoading: $isLoading)
+                                restoreViewModel.restorePurchase()
+                                isLoading.toggle()
+                            } label: {
+                                Text("Restore")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(height: 40)
+                                    .background(Color.blue)
+                                    .cornerRadius(25)
+                            }
+                        }.frame(height: 60)
 
-                    if let consumables = consumableProducts {
-                        Section(header: Text("ConsumableProducts")) {
-                            ForEach(0..<consumables.count) {
-                                let product = consumables[$0]
-                                ProductView(restore: $restore, product: product)
+                        if let consumables = consumableProducts {
+                            Section(header: Text("ConsumableProducts")) {
+                                ForEach(0..<consumables.count) {
+                                    let product = consumables[$0]
+                                    ProductView(restore: $restore, product: product)
+                                }
+                            }
+                        }
+                        
+                        if let nonConsumables = nonConsumableProducts {
+                            Section(header: Text("NonConsumableProducts")) {
+                                ForEach(0..<nonConsumables.count) {
+                                    let product = nonConsumables[$0]
+                                    ProductView(restore: $restore, product: product)
+                                }
+                            }
+                        }
+                        
+                        if let noRenewSubscriptions = noRenewSubscriptionProducts {
+                            Section(header: Text("NoRenewSubscriptionProducts")) {
+                                ForEach(0..<noRenewSubscriptions.count) {
+                                    let product = noRenewSubscriptions[$0]
+                                    ProductView(restore: $restore, product: product)
+                                }
+                            }
+                        }
+                        
+                        if let subscriptions = autoSubscriptionProducts {
+                            Section(header: Text("Subscriptions")) {
+                                ForEach(0..<subscriptions.count) {
+                                    let product = subscriptions[$0]
+                                    ProductView(restore: $restore, product: product)
+                                }
                             }
                         }
                     }
-                    
-                    if let nonConsumables = nonConsumableProducts {
-                        Section(header: Text("NonConsumableProducts")) {
-                            ForEach(0..<nonConsumables.count) {
-                                let product = nonConsumables[$0]
-                                ProductView(restore: $restore, product: product)
-                            }
-                        }
-                    }
-                    
-                    if let noRenewSubscriptions = noRenewSubscriptionProducts {
-                        Section(header: Text("NoRenewSubscriptionProducts")) {
-                            ForEach(0..<noRenewSubscriptions.count) {
-                                let product = noRenewSubscriptions[$0]
-                                ProductView(restore: $restore, product: product)
-                            }
-                        }
-                    }
-                    
-                    if let subscriptions = autoSubscriptionProducts {
-                        Section(header: Text("Subscriptions")) {
-                            ForEach(0..<subscriptions.count) {
-                                let product = subscriptions[$0]
-                                ProductView(restore: $restore, product: product)
-                            }
-                        }
-                    }
-                }
-                .navigationTitle("PurchaseX")
+                    .overlay(LoadingView(isLoading: $isLoading), alignment: .center)
+                    .navigationTitle("PurchaseX")
+//                }.onAppear {
+//
+//
+//                }
             } else {
                 Text("No products available")
                     .font(.title)
