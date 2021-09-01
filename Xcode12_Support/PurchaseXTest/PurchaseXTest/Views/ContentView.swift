@@ -84,7 +84,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if purchaseXManager.hasProducts {
-//                VStack {
                     List {
                         HStack {
                             Spacer()
@@ -141,10 +140,6 @@ struct ContentView: View {
                     }
                     .overlay(LoadingView(isLoading: $isLoading), alignment: .center)
                     .navigationTitle("PurchaseX")
-//                }.onAppear {
-//
-//
-//                }
             } else {
                 Text("No products available")
                     .font(.title)
