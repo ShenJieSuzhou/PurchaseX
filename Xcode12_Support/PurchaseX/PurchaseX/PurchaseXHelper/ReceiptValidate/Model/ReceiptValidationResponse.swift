@@ -77,14 +77,51 @@ public struct PendingRenewalInfo: Codable {
 
 // MARK: - Receipt
 public struct Receipt: Codable {
-    let receiptType: String
-    let adamID, appItemID: Int
+    let receiptType: String?
+    let adamID, appItemID: Int?
     let bundleID, applicationVersion: String
-    let downloadID, versionExternalIdentifier: Int
-    let receiptCreationDate, receiptCreationDateMS, receiptCreationDatePst, requestDate: String
-    let requestDateMS, requestDatePst, originalPurchaseDate, originalPurchaseDateMS: String
-    let originalPurchaseDatePst, originalApplicationVersion: String
-    let inApp: [LatestReceiptInfo]
+    let downloadID, versionExternalIdentifier: Int?
+    let receiptCreationDate, receiptCreationDateMS, receiptCreationDatePst, requestDate: String?
+    let requestDateMS, requestDatePst, originalPurchaseDate, originalPurchaseDateMS: String?
+    let originalPurchaseDatePst: String?
+    let originalApplicationVersion: String
+    let receiptExpirationDate: String?
+    let inApp: [LatestReceiptInfo]?
+    
+    init?(bundleID: String?,
+          appVersion: String?,
+          originalAppVersion: String?,
+          inAppPurchaseReceipts:[LatestReceiptInfo],
+          receiptCreationDate: String?,
+          expirationDate: String?) {
+        
+        guard let bundleID = bundleID,
+              let appVersion = appVersion,
+              let originalAppVersion = originalAppVersion,
+              let receiptCreationDate = receiptCreationDate else {
+            return nil
+        }
+        
+        self.bundleID = bundleID
+        self.applicationVersion = appVersion
+        self.inApp = inAppPurchaseReceipts
+        self.originalApplicationVersion = originalAppVersion
+        self.receiptCreationDate = receiptCreationDate
+        self.receiptCreationDatePst = receiptCreationDate
+        self.receiptCreationDateMS = nil
+        self.receiptExpirationDate = expirationDate
+        self.originalPurchaseDate = nil
+        self.originalPurchaseDatePst = nil
+        self.originalPurchaseDateMS = nil
+        self.requestDate = nil
+        self.requestDatePst = nil
+        self.requestDateMS = nil
+        self.appItemID = nil
+        self.adamID = nil
+        self.versionExternalIdentifier = nil
+        self.downloadID = nil
+        self.receiptType = nil
+    }
 
     enum CodingKeys: String, CodingKey {
         case receiptType = "receipt_type"
@@ -105,5 +142,6 @@ public struct Receipt: Codable {
         case originalPurchaseDatePst = "original_purchase_date_pst"
         case originalApplicationVersion = "original_application_version"
         case inApp = "in_app"
+        case receiptExpirationDate = "expiration_date"
     }
 }

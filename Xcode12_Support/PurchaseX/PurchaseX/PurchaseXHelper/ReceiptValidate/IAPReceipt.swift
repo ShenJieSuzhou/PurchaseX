@@ -38,7 +38,7 @@ public class IAPReceipt {
     
     // MARK: Private property
     
-    var inAppReceipts: [IAPReceiptProductInfo] = []
+    var inAppReceipts: [LatestReceiptInfo] = []
     // Pointer to the receipt's PKCS7 data
     var receiptData: UnsafeMutablePointer<PKCS7>?
     

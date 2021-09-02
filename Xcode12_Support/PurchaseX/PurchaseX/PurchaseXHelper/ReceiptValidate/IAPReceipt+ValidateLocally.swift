@@ -26,6 +26,12 @@ extension IAPReceipt {
             return .error(error: nil)
               }
         
+        Receipt(bundleID: "", appVersion: "", originalAppVersion: "", inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "")
+        
+//        guard let receipt = Receipt(bundleID: bundleIdString, appVersion: bundleVersionString, originalAppVersion: originalAppVersion, inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "") else {
+//            return .error(error: nil)
+//        }
+        
         return .success(receipt: nil)
     }
     
@@ -190,7 +196,7 @@ extension IAPReceipt {
                     var iapStartPtr = pointer
                     let receiptProductInfo = IAPReceiptProductInfo(with: &iapStartPtr, payloadLength: length)
                     if let rpi = receiptProductInfo {
-                        inAppReceipts.append(rpi)  // Cache in-app purchase record
+//                        inAppReceipts.append(rpi)  // Cache in-app purchase record
                         if let pid = rpi.productIdentifier { validatePurchasedProductIdentifiers.insert(pid) }
                     }
                     
