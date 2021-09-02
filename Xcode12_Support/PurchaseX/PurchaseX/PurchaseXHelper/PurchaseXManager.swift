@@ -79,14 +79,12 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return matchProduct.first
     }
     
-    
     /// Encapsulates the Appstore receipt located in the main bundle
     var receipt: IAPReceipt!
     /// Used to request product info from Appstore
     var productsRequest: SKProductsRequest?
     /// Used to request  a receipt refresh async from the Appstore
     var receiptRequest: SKRequest?
-    
     
     public var count: Int = 0
         
@@ -127,6 +125,21 @@ public class PurchaseXManager: NSObject, ObservableObject {
         SKPaymentQueue.default().remove(self)
     }
     
+    // MARK: - refreshReceipt
+    /// Used when receipt validate failed
+    /// - Parameter completion: a closure that will be called when the receipt has been refreshed.
+    public func refreshReceipt(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+        requestReceiptCompletion = completion
+        
+        receiptRequest?.cancel()
+        receiptRequest = SKReceiptRefreshRequest()
+        receiptRequest?.delegate = self
+        receiptRequest?.start()
+        
+        PXLog.event(.receiptRefreshStarted)
+    }
+    
+    // MARK: - requestProductsFromAppstore
     /// - Request products form appstore
     /// - Parameter completion: a closure that will be called when the results returned from the appstore
     public func requestProductsFromAppstore(completion: @escaping (_ notification: PurchaseXNotification?) -> Void) {
@@ -155,9 +168,10 @@ public class PurchaseXManager: NSObject, ObservableObject {
         productsRequest!.start()
     }
     
-    
+    // MARK: - purchase
     /// Start the process to purchase a product.
     /// - Parameter product: SKProduct object
+    /// - Parameter completion: a closure that will be called when  purchase result returned from the appstore
     public func purchase(product: SKProduct, completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
         // purchase handler
         purchasingProductCompletion = completion
@@ -176,7 +190,9 @@ public class PurchaseXManager: NSObject, ObservableObject {
         PXLog.event(.purchaseInProgress)
     }
     
+    // MARK: - restorePurchase
     /// Ask Appstore to restore purchase
+    /// - Parameter completion: a closure that will be called when  restore result returned from the appstore
     public func restorePurchase(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
         guard  !isPurchaseing else {
             return
@@ -187,9 +203,10 @@ public class PurchaseXManager: NSObject, ObservableObject {
         PXLog.event("Purchase restore started")
     }
     
-    
+    // MARK: - validateReceiptLocally
     /// Validate the receipt locally
     /// - Returns: true if validate successfully
+    /// - Parameter completion: a closure that will be called when  receipt validation completely
     public func validateReceiptLocally(completion: @escaping(ReceiptValidationResult) -> Void) {
         PXLog.event("Start validate receipt locally")
         receipt = IAPReceipt()
@@ -204,7 +221,12 @@ public class PurchaseXManager: NSObject, ObservableObject {
         }
     }
     
+    // MARK: - validateReceiptRemotely
     /// Validate the receipt remotely
+    /// - Parameters:
+    ///   - shareSecret: share secret generate from appstore
+    ///   - isSandBox: true if sandbox
+    ///   - completion: a closure that will be called when  receipt validation completely
     public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
         PXLog.event("Start validate receipt remotelly")
         receipt = IAPReceipt()
@@ -243,6 +265,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         purchasedProductIdentifiers = receipt.validatePurchasedProductIdentifiers
     }
 }
+
 
 extension PurchaseXManager: SKProductsRequestDelegate {
 
@@ -289,6 +312,14 @@ extension PurchaseXManager: SKRequestDelegate {
             }
             return
         }
+        
+        if receiptRequest != nil {
+            receiptRequest = nil
+            PXLog.event(.receiptRefreshFailure)
+            DispatchQueue.main.async {
+                self.requestProductsCompletion?(.receiptRefreshFailure)
+            }
+        }
     }
 
     public func request(_ request: SKRequest, didFailWithError error: Error) {
@@ -299,6 +330,14 @@ extension PurchaseXManager: SKRequestDelegate {
                 self.requestProductsCompletion?(.requestProductsFailure)
             }
             return
+        }
+        
+        if receiptRequest != nil {
+            receiptRequest = nil
+            PXLog.event(.receiptRefreshFailure)
+            DispatchQueue.main.async {
+                self.requestProductsCompletion?(.receiptRefreshFailure)
+            }
         }
     }
 }

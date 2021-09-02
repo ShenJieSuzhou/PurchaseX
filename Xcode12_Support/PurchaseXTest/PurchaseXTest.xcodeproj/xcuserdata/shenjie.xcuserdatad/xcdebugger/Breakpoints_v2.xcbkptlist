@@ -14,8 +14,8 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "purchaseFailed(transaction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "paymentQueue(_:updatedTransactions:)"
             landmarkType = "7">
          </BreakpointContent>
