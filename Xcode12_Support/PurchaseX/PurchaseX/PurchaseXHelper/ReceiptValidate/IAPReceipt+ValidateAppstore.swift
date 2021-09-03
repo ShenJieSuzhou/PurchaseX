@@ -81,6 +81,14 @@ extension IAPReceipt {
                 return
             }
 
+            
+            do{
+                let json = try JSONSerialization.jsonObject(with: safeData, options: []) as? [String : Any]
+                print("\(json)")
+            }catch{
+                print("erroMsg")
+            }
+            
             // data to json
             guard let response = try? JSONDecoder().decode(ReceiptValidationResponse.self, from: safeData) else {
                 PXLog.event("No receipt data")
