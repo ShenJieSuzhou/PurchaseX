@@ -24,6 +24,7 @@
 		E5760E7E26D5E68D00877C3B /* ReceiptValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */; };
 		E5760E8226D7686500877C3B /* IAPReceipt+ValidateLocally.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */; };
 		E5760E8526D8899000877C3B /* IAPReceiptValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */; };
+		F40C631526E4DA50004FA5AD /* PurchaseX+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */; };
 		F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptValidationResponse.swift; sourceTree = "<group>"; };
 		E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateLocally.swift"; sourceTree = "<group>"; };
 		E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPReceiptValidationResult.swift; sourceTree = "<group>"; };
+		F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseX+Extension.swift"; sourceTree = "<group>"; };
 		F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateAppstore.swift"; sourceTree = "<group>"; };
 		F4B1785726D291FE00DC2701 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 		E576097926C2740A00877C3B /* PurchaseXHelper */ = {
 			isa = PBXGroup;
 			children = (
+				F40C631326E4DA12004FA5AD /* Extension */,
 				E5760DE726C281B600877C3B /* ReceiptValidate */,
 				E576097B26C2740A00877C3B /* PurchaseXConstants.swift */,
 				E576097D26C2740A00877C3B /* PurchaseXException.swift */,
@@ -138,6 +141,14 @@
 				E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F40C631326E4DA12004FA5AD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F4B1784F26D28FE700DC2701 /* Frameworks */ = {
@@ -236,6 +247,7 @@
 				E5760DFB26C281B600877C3B /* IAPReceiptProductInfo.swift in Sources */,
 				E5760B5826C2740B00877C3B /* Configuration.swift in Sources */,
 				E5760E7E26D5E68D00877C3B /* ReceiptValidationResponse.swift in Sources */,
+				F40C631526E4DA50004FA5AD /* PurchaseX+Extension.swift in Sources */,
 				E5760A6E26C2740B00877C3B /* PurchaseXConstants.swift in Sources */,
 				E5760DF626C281B600877C3B /* IAPPersistenceProtocol.swift in Sources */,
 				E5760DF526C281B600877C3B /* IAPOpenSSLAttributeType.swift in Sources */,

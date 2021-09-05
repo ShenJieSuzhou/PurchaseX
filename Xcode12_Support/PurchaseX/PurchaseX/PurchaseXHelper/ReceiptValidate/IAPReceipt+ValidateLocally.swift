@@ -26,7 +26,7 @@ extension IAPReceipt {
             return .error(error: nil)
               }
         
-        Receipt(bundleID: "", appVersion: "", originalAppVersion: "", inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "")
+//        Receipt(bundleID: "", appVersion: "", originalAppVersion: "", inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "")
         
 //        guard let receipt = Receipt(bundleID: bundleIdString, appVersion: bundleVersionString, originalAppVersion: originalAppVersion, inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "") else {
 //            return .error(error: nil)

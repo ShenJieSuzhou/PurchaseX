@@ -25,13 +25,16 @@ public struct ReceiptValidationResponse: Codable {
 
 // MARK: - LatestReceiptInfo
 public struct LatestReceiptInfo: Codable {
-    let quantity, productID, transactionID, originalTransactionID: String
-    let purchaseDate, purchaseDateMS, purchaseDatePst, originalPurchaseDate: String
-    let originalPurchaseDateMS, originalPurchaseDatePst: String
-    let expiresDate, expiresDateMS, expiresDatePst, webOrderLineItemID: String?
-    let isTrialPeriod: String
-    let isInIntroOfferPeriod: String?
-    let inAppOwnershipType: InAppOwnershipType
+    let quantity, productID, transactionID, originalTransactionID, webOrderLineItemID: String?
+    let purchaseDate, purchaseDatePst, originalPurchaseDate: Date?
+    let purchaseDateMS: TimeInterval?
+    let originalPurchaseDatePst: Date?
+    let originalPurchaseDateMS: TimeInterval?
+    let expiresDate, expiresDatePst: Date?
+    let expiresDateMS: TimeInterval?
+    let isTrialPeriod: Bool?
+    let isInIntroOfferPeriod: Bool?
+    let inAppOwnershipType: String?
     let subscriptionGroupIdentifier: String?
 
     enum CodingKeys: String, CodingKey {
@@ -54,10 +57,47 @@ public struct LatestReceiptInfo: Codable {
         case inAppOwnershipType = "in_app_ownership_type"
         case subscriptionGroupIdentifier = "subscription_group_identifier"
     }
-}
-
-public enum InAppOwnershipType: String, Codable {
-    case purchased = "PURCHASED"
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        quantity = try values.decodeIfPresent(String.self, forKey: .quantity)
+        productID = try values.decodeIfPresent(String.self, forKey: .productID)
+        transactionID = try values.decodeIfPresent(String.self, forKey: .transactionID)
+        originalTransactionID = try values.decodeIfPresent(String.self, forKey: .originalTransactionID)
+        webOrderLineItemID = try values.decodeIfPresent(String.self, forKey: .webOrderLineItemID)
+        purchaseDate = try values.decodeIfPresent(Date.self, forKey: .purchaseDate)
+        purchaseDateMS = {
+            guard let str = try? values.decode(String.self, forKey: .purchaseDateMS) else { return nil }
+            return TimeInterval(millisecondsString: str)
+        }()
+        purchaseDatePst = try values.decodeIfPresent(Date.self, forKey: .purchaseDatePst)
+        originalPurchaseDate = try values.decodeIfPresent(Date.self, forKey: .originalPurchaseDate)
+        
+        originalPurchaseDateMS = {
+            guard let str = try? values.decode(String.self, forKey: .originalPurchaseDateMS) else { return nil }
+            return TimeInterval(millisecondsString: str)
+        }()
+        originalPurchaseDatePst = try values.decodeIfPresent(Date.self, forKey: .originalPurchaseDatePst)
+        expiresDate = try values.decodeIfPresent(Date.self, forKey: .expiresDate)
+        expiresDateMS = {
+            guard let str = try? values.decode(String.self, forKey: .expiresDateMS) else { return nil }
+            return TimeInterval(millisecondsString: str)
+        }()
+        
+        expiresDatePst = try values.decodeIfPresent(Date.self, forKey: .expiresDatePst)
+        if let isTrialPeriodString = try values.decodeIfPresent(String.self, forKey: .isTrialPeriod) {
+            isTrialPeriod = Bool(isTrialPeriodString)
+        } else{
+            isTrialPeriod = nil
+        }
+        if let isInIntroOfferPeriodString = try values.decodeIfPresent(String.self, forKey: .isInIntroOfferPeriod) {
+            isInIntroOfferPeriod = Bool(isInIntroOfferPeriodString)
+        } else {
+            isInIntroOfferPeriod = nil
+        }
+        inAppOwnershipType = try values.decodeIfPresent(String.self, forKey: .inAppOwnershipType)
+        subscriptionGroupIdentifier = try values.decodeIfPresent(String.self, forKey: .subscriptionGroupIdentifier)
+    }
 }
 
 // MARK: - PendingRenewalInfo
@@ -79,21 +119,60 @@ public struct PendingRenewalInfo: Codable {
 public struct Receipt: Codable {
     let receiptType: String?
     let adamID, appItemID: Int?
-    let bundleID, applicationVersion: String
+    let bundleID, applicationVersion: String?
     let downloadID, versionExternalIdentifier: Int?
-    let receiptCreationDate, receiptCreationDateMS, receiptCreationDatePst, requestDate: String?
-    let requestDateMS, requestDatePst, originalPurchaseDate, originalPurchaseDateMS: String?
-    let originalPurchaseDatePst: String?
-    let originalApplicationVersion: String
-    let receiptExpirationDate: String?
+    let receiptCreationDate, receiptCreationDatePst, requestDate: Date?
+    let receiptCreationDateMS: TimeInterval?
+    let requestDatePst, originalPurchaseDate: Date?
+    let requestDateMS: TimeInterval?
+    let originalPurchaseDateMS: TimeInterval?
+    let originalPurchaseDatePst: Date?
+    let originalApplicationVersion: String?
+    let receiptExpirationDate: Date?
     let inApp: [LatestReceiptInfo]?
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        receiptType = try values.decodeIfPresent(String.self, forKey: .receiptType)
+        adamID = try values.decodeIfPresent(Int.self, forKey: .adamID)
+        appItemID = try values.decodeIfPresent(Int.self, forKey: .appItemID)
+        bundleID = try values.decodeIfPresent(String.self, forKey: .bundleID)
+        applicationVersion = try values.decodeIfPresent(String.self, forKey: .applicationVersion)
+        downloadID = try values.decodeIfPresent(Int.self, forKey: .downloadID)
+        versionExternalIdentifier = try values.decodeIfPresent(Int.self, forKey: .versionExternalIdentifier)
+        receiptCreationDate = try values.decodeIfPresent(Date.self, forKey: .receiptCreationDate)
+        receiptCreationDatePst = try values.decodeIfPresent(Date.self, forKey: .receiptCreationDatePst)
+        requestDate = try values.decodeIfPresent(Date.self, forKey: .requestDate)
+        receiptCreationDateMS = {
+            guard let str = try? values.decode(String.self, forKey: .receiptCreationDateMS) else { return nil }
+            return TimeInterval(millisecondsString: str)
+        }()
+        
+        requestDatePst = try values.decodeIfPresent(Date.self, forKey: .requestDatePst)
+        originalPurchaseDate = try values.decodeIfPresent(Date.self, forKey: .originalPurchaseDate)
+        
+        requestDateMS = {
+            guard let str = try? values.decode(String.self, forKey: .requestDateMS) else { return nil }
+            return TimeInterval(millisecondsString: str)
+        }()
+        
+        originalPurchaseDateMS = {
+            guard let str = try? values.decode(String.self, forKey: .originalPurchaseDateMS) else { return nil }
+            return TimeInterval(millisecondsString: str)
+        }()
+        
+        originalPurchaseDatePst = try values.decodeIfPresent(Date.self, forKey: .originalPurchaseDatePst)
+        originalApplicationVersion = try values.decodeIfPresent(String.self, forKey: .originalApplicationVersion)
+        receiptExpirationDate = try values.decodeIfPresent(Date.self, forKey: .receiptExpirationDate)
+        inApp = try? values.decode([LatestReceiptInfo].self, forKey: .inApp)
+    }
     
     init?(bundleID: String?,
           appVersion: String?,
           originalAppVersion: String?,
           inAppPurchaseReceipts:[LatestReceiptInfo],
-          receiptCreationDate: String?,
-          expirationDate: String?) {
+          receiptCreationDate: Date?,
+          expirationDate: Date?) {
         
         guard let bundleID = bundleID,
               let appVersion = appVersion,

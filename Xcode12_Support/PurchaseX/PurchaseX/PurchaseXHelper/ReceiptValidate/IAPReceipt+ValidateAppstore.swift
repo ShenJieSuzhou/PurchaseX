@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import Alamofire
 
 enum VerifyReceiptURLType: String {
     case production = "https://buy.itunes.apple.com/verifyReceipt"
@@ -80,15 +79,7 @@ extension IAPReceipt {
                 completion(.error(error: nil))
                 return
             }
-
-            
-            do{
-                let json = try JSONSerialization.jsonObject(with: safeData, options: []) as? [String : Any]
-                print("\(json)")
-            }catch{
-                print("erroMsg")
-            }
-            
+                        
             // data to json
             guard let response = try? JSONDecoder().decode(ReceiptValidationResponse.self, from: safeData) else {
                 PXLog.event("No receipt data")
@@ -100,7 +91,7 @@ extension IAPReceipt {
             if status == 0 {
                 
                 response.latestReceiptInfo?.forEach({ info in
-                    self.validatePurchasedProductIdentifiers.insert(info.productID)
+                    self.validatePurchasedProductIdentifiers.insert(info.productID!)
                 })
                 
                 completion(.success(receipt: response.receipt))
