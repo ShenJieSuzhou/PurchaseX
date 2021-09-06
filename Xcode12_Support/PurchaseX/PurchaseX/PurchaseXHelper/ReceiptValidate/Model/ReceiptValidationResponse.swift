@@ -4,7 +4,7 @@
 //
 //  Created by shenjie on 2021/8/25.
 //
-
+//  https://developer.apple.com/documentation/appstorereceipts/responsebody/receipt
 
 public struct ReceiptValidationResponse: Codable {
     let environment: String
@@ -35,11 +35,11 @@ public struct LatestReceiptInfo: Codable {
     let cancellationDate, cancellationDatePst: Date?
     let cancellationDateMs: TimeInterval?
     let cancellationReason: String?
-    let isTrialPeriod: Bool?
-    let isInIntroOfferPeriod: Bool?
+    let isTrialPeriod: String?
+    let isInIntroOfferPeriod: String?
     let inAppOwnershipType: String?
     let subscriptionGroupIdentifier: String?
-    let isUpgraded: Bool?
+    let isUpgraded: String?
     let offerCodeRefName: String?
     let promotionalOfferId: String?
     let appAccountToken: String?
@@ -110,28 +110,67 @@ public struct LatestReceiptInfo: Codable {
         cancellationDatePst = try values.decodeIfPresent(Date.self, forKey: .cancellationDatePst)
         cancellationReason = try values.decodeIfPresent(String.self, forKey: .cancellationReason)
         
-        if let isTrialPeriodString = try values.decodeIfPresent(String.self, forKey: .isTrialPeriod) {
-            isTrialPeriod = Bool(isTrialPeriodString)
-        } else{
-            isTrialPeriod = nil
-        }
-        if let isInIntroOfferPeriodString = try values.decodeIfPresent(String.self, forKey: .isInIntroOfferPeriod) {
-            isInIntroOfferPeriod = Bool(isInIntroOfferPeriodString)
-        } else {
-            isInIntroOfferPeriod = nil
-        }
+        isTrialPeriod = try values.decodeIfPresent(String.self, forKey: .isTrialPeriod)
+            
+        isInIntroOfferPeriod = try values.decodeIfPresent(String.self, forKey: .isInIntroOfferPeriod)
         inAppOwnershipType = try values.decodeIfPresent(String.self, forKey: .inAppOwnershipType)
         subscriptionGroupIdentifier = try values.decodeIfPresent(String.self, forKey: .subscriptionGroupIdentifier)
         
-        if let isUpgradedString = try values.decodeIfPresent(String.self, forKey: .isUpgraded) {
-            isUpgraded = Bool(isUpgradedString)
-        } else{
-            isUpgraded = nil
-        }
+        isUpgraded = try values.decodeIfPresent(String.self, forKey: .isUpgraded)
         
         offerCodeRefName = try values.decodeIfPresent(String.self, forKey: .offerCodeRefName)
         promotionalOfferId = try values.decodeIfPresent(String.self, forKey: .promotionalOfferId)
         appAccountToken = try values.decodeIfPresent(String.self, forKey: .appAccountToken)
+    }
+    
+    public init?(quantity: Int?,
+          productIdentifier: String?,
+          transactionIdentifier: String?,
+          originalTransactionIdentifier: String?,
+          purchaseDate: Date?,
+          originalPurchaseDate: Date?,
+          subscriptionExpirationDate: Date?,
+          subscriptionIntroductoryPricePeriod: Int?,
+          cancellationDate: Date?,
+          webOrderLineItemId: String?) {
+        
+        guard let quantity = quantity,
+            let productIdentifier = productIdentifier,
+            let transactionIdentifier = transactionIdentifier else {
+                return nil
+        }
+        
+        self.quantity = String(quantity)
+        self.productID = productIdentifier
+        self.transactionID = transactionIdentifier
+        self.originalTransactionID = originalTransactionIdentifier
+        
+        self.purchaseDate = purchaseDate
+        self.purchaseDatePst = purchaseDate
+        self.purchaseDateMS = purchaseDate?.timeIntervalSince1970
+        
+        self.originalPurchaseDate = originalPurchaseDate
+        self.originalPurchaseDatePst = originalPurchaseDate
+        self.originalPurchaseDateMS = originalPurchaseDate?.timeIntervalSince1970
+
+        self.expiresDate = subscriptionExpirationDate
+        self.expiresDatePst = subscriptionExpirationDate
+        self.expiresDateMS = subscriptionExpirationDate?.timeIntervalSince1970
+
+        self.isInIntroOfferPeriod = subscriptionIntroductoryPricePeriod == 1 ? "true" : "false"
+        self.cancellationDate = cancellationDate
+        self.webOrderLineItemID = webOrderLineItemId
+
+        self.cancellationReason = nil
+        self.isTrialPeriod = nil
+        self.cancellationDatePst = nil
+        self.cancellationDateMs = nil
+        self.inAppOwnershipType = nil
+        self.subscriptionGroupIdentifier = nil
+        self.isUpgraded = nil
+        self.offerCodeRefName = nil
+        self.promotionalOfferId = nil
+        self.appAccountToken = nil
     }
 }
 
@@ -219,45 +258,45 @@ public struct Receipt: Codable {
         inApp = try? values.decode([LatestReceiptInfo].self, forKey: .inApp)
     }
     
-//    init?(bundleID: String?,
-//          appVersion: String?,
-//          originalAppVersion: String?,
-//          inAppPurchaseReceipts:[LatestReceiptInfo],
-//          receiptCreationDate: Date?,
-//          expirationDate: Date?) {
-//
-//        guard let bundleID = bundleID,
-//              let appVersion = appVersion,
-//              let originalAppVersion = originalAppVersion,
-//              let receiptCreationDate = receiptCreationDate else {
-//            return nil
-//        }
-//
-//        self.bundleID = bundleID
-//        self.applicationVersion = appVersion
-//        self.inApp = inAppPurchaseReceipts
-//        self.originalApplicationVersion = originalAppVersion
-//        self.receiptCreationDate = receiptCreationDate
-//        self.receiptCreationDatePst = receiptCreationDate
-//        self.receiptCreationDateMS = nil
-//        self.receiptExpirationDate = expirationDate
-//        self.originalPurchaseDate = nil
-//        self.originalPurchaseDatePst = nil
-//        self.originalPurchaseDateMS = nil
-//        self.requestDate = nil
-//        self.requestDatePst = nil
-//        self.requestDateMS = nil
-//        self.appItemID = nil
-//        self.adamID = nil
-//        self.versionExternalIdentifier = nil
-//        self.downloadID = nil
-//        self.receiptType = nil
-//        self.expirationDateMs = nil
-//        self.expirationDatePst = nil
-//        self.preorderDate = nil
-//        self.preorderDateMs = nil
-//        self.preorderDatePst = nil
-//    }
+    init?(bundleID: String?,
+          appVersion: String?,
+          originalAppVersion: String?,
+          inAppPurchaseReceipts:[LatestReceiptInfo],
+          receiptCreationDate: Date?,
+          expirationDate: Date?) {
+
+        guard let bundleID = bundleID,
+              let appVersion = appVersion,
+              let originalAppVersion = originalAppVersion,
+              let receiptCreationDate = receiptCreationDate else {
+            return nil
+        }
+
+        self.bundleID = bundleID
+        self.applicationVersion = appVersion
+        self.inApp = inAppPurchaseReceipts
+        self.originalApplicationVersion = originalAppVersion
+        self.receiptCreationDate = receiptCreationDate
+        self.receiptCreationDatePst = receiptCreationDate
+        self.receiptCreationDateMS = nil
+        self.receiptExpirationDate = expirationDate
+        self.originalPurchaseDate = nil
+        self.originalPurchaseDatePst = nil
+        self.originalPurchaseDateMS = nil
+        self.requestDate = nil
+        self.requestDatePst = nil
+        self.requestDateMS = nil
+        self.appItemID = nil
+        self.adamID = nil
+        self.versionExternalIdentifier = nil
+        self.downloadID = nil
+        self.receiptType = nil
+        self.expirationDateMs = nil
+        self.expirationDatePst = nil
+        self.preorderDate = nil
+        self.preorderDateMs = nil
+        self.preorderDatePst = nil
+    }
 
     enum CodingKeys: String, CodingKey {
         case receiptType = "receipt_type"

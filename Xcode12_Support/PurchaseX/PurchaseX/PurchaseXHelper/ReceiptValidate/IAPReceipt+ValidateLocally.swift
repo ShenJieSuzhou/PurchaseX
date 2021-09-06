@@ -25,14 +25,11 @@ extension IAPReceipt {
                 PXLog.event(.receiptValidationFailure)
             return .error(error: nil)
               }
-        
-//        Receipt(bundleID: "", appVersion: "", originalAppVersion: "", inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "")
-        
-//        guard let receipt = Receipt(bundleID: bundleIdString, appVersion: bundleVersionString, originalAppVersion: originalAppVersion, inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: "", expirationDate: "") else {
-//            return .error(error: nil)
-//        }
-        
-        return .success(receipt: nil)
+                
+        guard let receipt = Receipt(bundleID: bundleIdString, appVersion: bundleVersionString, originalAppVersion: originalAppVersion, inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: receiptCreationDate, expirationDate: expirationDate) else {
+            return .error(error: nil)
+        }
+        return .success(receipt: receipt)
     }
     
     
@@ -195,9 +192,18 @@ extension IAPReceipt {
                 case .IAPReceipt:
                     var iapStartPtr = pointer
                     let receiptProductInfo = IAPReceiptProductInfo(with: &iapStartPtr, payloadLength: length)
-                    if let rpi = receiptProductInfo {
-                        //inAppReceipts.append(rpi)  // Cache in-app purchase record
-                        if let pid = rpi.productIdentifier { validatePurchasedProductIdentifiers.insert(pid) }
+                    if let rpi = LatestReceiptInfo(quantity: receiptProductInfo?.quantity,
+                                                   productIdentifier: receiptProductInfo?.productIdentifier,
+                                                   transactionIdentifier: receiptProductInfo?.transactionIdentifer,
+                                                   originalTransactionIdentifier: receiptProductInfo?.originalTransactionIdentifier,
+                                                   purchaseDate: receiptProductInfo?.purchaseDate,
+                                                   originalPurchaseDate: receiptProductInfo?.originalPurchaseDate,
+                                                   subscriptionExpirationDate: receiptProductInfo?.subscriptionExpirationDate,
+                                                   subscriptionIntroductoryPricePeriod: receiptProductInfo?.subscriptionIntroductoryPricePeriod,
+                                                   cancellationDate: receiptProductInfo?.subscriptionCancellationDate,
+                                                   webOrderLineItemId: receiptProductInfo?.webOrderLineId) {
+                        inAppReceipts.append(rpi)  // Cache in-app purchase record
+                        if let pid = rpi.productID { validatePurchasedProductIdentifiers.insert(pid) }
                     }
                     
                 default: break  // Ignore other attributes in receipt
