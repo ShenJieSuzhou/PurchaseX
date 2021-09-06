@@ -8,7 +8,7 @@
 import Foundation
 
 
-/// Used to hold product info purchase from appstore
+///// Used to hold product info purchase from appstore
 public struct IAPReceiptProductInfo {
     var quantity: Int?
     var productIdentifier: String?
@@ -20,16 +20,16 @@ public struct IAPReceiptProductInfo {
     var subscriptionIntroductoryPricePeriod: Int?
     var subscriptionCancellationDate: Date?
     var webOrderLineId: Int?
-    
+
     init?(with pointer: inout UnsafePointer<UInt8>?, payloadLength: Int) {
         let endPointer = pointer!.advanced(by: payloadLength)
         var type: Int32 = 0
         var xclass: Int32 = 0
         var length = 0
-        
+
         ASN1_get_object(&pointer, &length, &type, &xclass, payloadLength)
         guard type == V_ASN1_SET else { return nil }
-        
+
         while pointer! < endPointer {
             ASN1_get_object(&pointer, &length, &type, &xclass, pointer!.distance(to: endPointer))
             guard type == V_ASN1_SEQUENCE else { return nil }
@@ -51,7 +51,7 @@ public struct IAPReceiptProductInfo {
                 case .WebOrderLineId: webOrderLineId                                = IAPOpenSSL.asn1Int(   p: &p, expectedLength: length)
                 default: break
             }
-            
+
             pointer = pointer!.advanced(by: length)
         }
     }

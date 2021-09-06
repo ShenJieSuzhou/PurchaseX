@@ -196,7 +196,7 @@ extension IAPReceipt {
                     var iapStartPtr = pointer
                     let receiptProductInfo = IAPReceiptProductInfo(with: &iapStartPtr, payloadLength: length)
                     if let rpi = receiptProductInfo {
-//                        inAppReceipts.append(rpi)  // Cache in-app purchase record
+                        //inAppReceipts.append(rpi)  // Cache in-app purchase record
                         if let pid = rpi.productIdentifier { validatePurchasedProductIdentifiers.insert(pid) }
                     }
                     

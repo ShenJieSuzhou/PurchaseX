@@ -80,8 +80,8 @@ extension IAPReceipt {
                 return
             }
                         
-            // data to json
-            guard let response = try? JSONDecoder().decode(ReceiptValidationResponse.self, from: safeData) else {
+            // Convert json data to receipt model
+            guard let response = try? JSONDecoder.receiptDecoder.decode(ReceiptValidationResponse.self, from: safeData) else {
                 PXLog.event("No receipt data")
                 completion(.error(error: nil))
                 return
@@ -89,11 +89,9 @@ extension IAPReceipt {
             
             let status = response.status
             if status == 0 {
-                
                 response.latestReceiptInfo?.forEach({ info in
                     self.validatePurchasedProductIdentifiers.insert(info.productID!)
                 })
-                
                 completion(.success(receipt: response.receipt))
             } else if status == -2 {
                 PXLog.event("Not decodable status.")
