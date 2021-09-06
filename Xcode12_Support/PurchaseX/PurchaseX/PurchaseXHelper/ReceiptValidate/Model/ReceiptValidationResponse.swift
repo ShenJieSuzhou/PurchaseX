@@ -267,7 +267,6 @@ public struct Receipt: Codable {
 
         guard let bundleID = bundleID,
               let appVersion = appVersion,
-              let originalAppVersion = originalAppVersion,
               let receiptCreationDate = receiptCreationDate else {
             return nil
         }
