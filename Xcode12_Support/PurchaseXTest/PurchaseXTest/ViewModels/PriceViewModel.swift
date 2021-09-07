@@ -36,7 +36,7 @@ struct PriceViewModel {
                     }
                 }
                 /// validate remotelly
-//                purchaseXManager.validateReceiptRemotely(shareSecret: "fd4748dc46cc4d75ac86d0d68926ebe9", isSandBox: true) { validateResult in
+//                purchaseXManager.validateReceiptRemotely(shareSecret: "put your share secret key", isSandBox: true) { validateResult in
 //                    switch validateResult {
 //                    case .success(let receipt):
 //                        updatePurchaseState(state: .complete)
