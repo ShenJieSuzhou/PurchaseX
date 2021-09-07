@@ -12,27 +12,33 @@ public class PurchaseXManager: NSObject, ObservableObject {
     
     // MARK: Purchasing completion handler
     // Completion handler when requesting products from appstore.
-    var requestProductsCompletion: ((PurchaseXNotification) -> Void)? = nil
+    internal var requestProductsCompletion: ((PurchaseXNotification) -> Void)? = nil
     
     // Completion handler when requesting a receipt refresh from appstore
-    var requestReceiptCompletion: ((PurchaseXNotification) -> Void)? = nil
+    internal var requestReceiptCompletion: ((PurchaseXNotification) -> Void)? = nil
 
     // Completion handler when purchasing a product from appstore
-    var purchasingProductCompletion: ((PurchaseXNotification) -> Void)? = nil
+    internal var purchasingProductCompletion: ((PurchaseXNotification) -> Void)? = nil
 
     // Completion handler when requesting appstore to restore purchases
-    var restorePurchasesCompletion: ((PurchaseXNotification) -> Void)? = nil
+    internal var restorePurchasesCompletion: ((PurchaseXNotification) -> Void)? = nil
     
     // Completion handler when validate receipt remotelly
-    var validateRemoteCompletion: ((PurchaseXNotification) -> Void)? = nil
+    internal var validateRemoteCompletion: ((PurchaseXNotification) -> Void)? = nil
     
-    // MARK: Property
-    /// Array of products retrieved from AppleStore
-    @Published public var products: [SKProduct]?
-        
+    /// Encapsulates the Appstore receipt located in the main bundle
+    internal var receipt: IAPReceipt!
+    /// Used to request product info from Appstore
+    internal var productsRequest: SKProductsRequest?
+    /// Used to request  a receipt refresh async from the Appstore
+    internal var receiptRequest: SKRequest?
     /// Array of productID
     private var purchasedProducts = [String]()
     
+    // MARK: Public Property
+    /// Array of products retrieved from AppleStore
+    @Published public var products: [SKProduct]?
+        
     /// the state of purchase
     public var purchaseState: PurchaseXState = .notStarted
     
@@ -79,15 +85,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return matchProduct.first
     }
     
-    /// Encapsulates the Appstore receipt located in the main bundle
-    var receipt: IAPReceipt!
-    /// Used to request product info from Appstore
-    var productsRequest: SKProductsRequest?
-    /// Used to request  a receipt refresh async from the Appstore
-    var receiptRequest: SKRequest?
-    
-    public var count: Int = 0
-        
     // MARK: - Initialization
     public override init() {
         super.init()
@@ -108,17 +105,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
         
         // Load purchased products from UserDefault
         loadPurchasedProductIds()
-    }
-    
-    /// Load purchased products from UserDefault
-    internal func loadPurchasedProductIds() {
-        guard haveConfiguredProductIdentifiers else {
-            PXLog.event("Purchased products load failed")
-            return
-        }
-        
-        purchasedProductIdentifiers = IAPPersistence.loadPurchasedProductIds(for: configuredProductIdentifiers!)
-        PXLog.event("Purchased products load successed")
     }
     
     deinit {
@@ -240,10 +226,21 @@ public class PurchaseXManager: NSObject, ObservableObject {
         }
     }
     
+    /// Load purchased products from UserDefault
+    private func loadPurchasedProductIds() {
+        guard haveConfiguredProductIdentifiers else {
+            PXLog.event("Purchased products load failed")
+            return
+        }
+        
+        purchasedProductIdentifiers = IAPPersistence.loadPurchasedProductIds(for: configuredProductIdentifiers!)
+        PXLog.event("Purchased products load successed")
+    }
+    
     /// Get a localized price for product
     /// - Parameter product: SKProduct object
     /// - Returns: Localized price
-    public func getLocalizedPriceFor(product: SKProduct) -> String? {
+    internal func getLocalizedPriceFor(product: SKProduct) -> String? {
         let priceFormatter = NumberFormatter()
         priceFormatter.formatterBehavior = .behavior10_4
         priceFormatter.numberStyle = .currency
@@ -251,12 +248,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return priceFormatter.string(from: product.price)
     }
     
-    
-    public func isPurchased(productId: String) -> Bool {
-        return purchasedProductIdentifiers.contains(productId)
-    }
-    
-    public func createValidatedPurchasedProductIds(receipt: IAPReceipt) {
+    internal func createValidatedPurchasedProductIds(receipt: IAPReceipt) {
         if purchasedProductIdentifiers == receipt.validatePurchasedProductIdentifiers {
             PXLog.event("Purchased Products do not match receipt")
         }
@@ -341,7 +333,6 @@ extension PurchaseXManager: SKRequestDelegate {
         }
     }
 }
-
 
 extension PurchaseXManager: SKPaymentTransactionObserver {
     /// Listen transaction state

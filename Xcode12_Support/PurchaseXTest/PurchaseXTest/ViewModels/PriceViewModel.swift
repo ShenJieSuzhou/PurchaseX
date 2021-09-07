@@ -23,6 +23,7 @@ struct PriceViewModel {
     
     func purchase(product: Product) {
         
+//        purchaseXManager.rece
         purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
             if notification == .purchaseSuccess{
                 /// validate locally
@@ -34,7 +35,6 @@ struct PriceViewModel {
                         updatePurchaseState(state: .failed)
                     }
                 }
-                
                 /// validate remotelly
 //                purchaseXManager.validateReceiptRemotely(shareSecret: "fd4748dc46cc4d75ac86d0d68926ebe9", isSandBox: true) { validateResult in
 //                    switch validateResult {

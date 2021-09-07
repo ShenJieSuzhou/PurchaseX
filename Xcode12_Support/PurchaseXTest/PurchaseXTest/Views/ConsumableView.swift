@@ -44,10 +44,10 @@ struct ConsumableView: View {
         }
         .padding()
         .onAppear {
-            count = purchaseXManager.count
+            
         }
         .onChange(of: purchaseXManager.products) { _ in
-            count = purchaseXManager.count
+            
         }
     }
 }
