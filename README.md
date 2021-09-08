@@ -30,7 +30,7 @@ var purchaseXManager = PurchaseXManager()
 purchaseXManager.requestProductsFromAppstore { notification in
             if notification == .requestProductsStarted {
             	print("Request Products Started")
-            } else if notification == .receiptValidationSuccess {
+            } else if notification == .requestProductsSuccess {
                 print("Request Products Success")
             } else if notification == .requestProductsFailure {
                 print("Request Products Failed")
