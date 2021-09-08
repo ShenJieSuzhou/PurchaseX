@@ -35,18 +35,18 @@ public class PurchaseXManager: NSObject, ObservableObject {
     /// Array of productID
     private var purchasedProducts = [String]()
     
+    /// List of productIds read from the storekit configuration file.
+    private var configuredProductIdentifiers: Set<String>?
+    
+    /// List of purchased productId
+    private var purchasedProductIdentifiers = Set<String>()
+    
     // MARK: Public Property
     /// Array of products retrieved from AppleStore
     @Published public var products: [SKProduct]?
         
     /// the state of purchase
     public var purchaseState: PurchaseXState = .notStarted
-    
-    /// List of productIds read from the storekit configuration file.
-    public var configuredProductIdentifiers: Set<String>?
-    
-    /// List of purchased productId
-    public var purchasedProductIdentifiers = Set<String>()
     
     /// True if purchase is in Process
     public var isPurchaseing = false
@@ -97,8 +97,18 @@ public class PurchaseXManager: NSObject, ObservableObject {
 
             // request products from Appstore
             self.requestProductsFromAppstore { notification in
-                if notification == .requestProductsSuccess {
+                if notification == .requestProductsStarted {
 
+                } else if notification == .requestProductsSuccess {
+                    
+                } else if notification == .requestProductsFailure {
+                    
+                } else if notification == .requestProductsDidFinish {
+                    
+                } else if notification == .requestProductsNoProduct {
+                    
+                } else if notification == .requestProductsInvalidProducts {
+                    
                 }
             }
         }
