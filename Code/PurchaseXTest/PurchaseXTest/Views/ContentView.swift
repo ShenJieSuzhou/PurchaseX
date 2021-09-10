@@ -16,12 +16,12 @@ struct ContentView: View {
     @State var isLoading: Bool = false
         
     let configProducts:[Product] = [
-        Product(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
-        Product(pid: "com.purchasex.120", displayName: "120 金币", thumb: "com.purchasex.120", price: "1.99", type: .Consumable),
-        Product(pid: "com.purchasex.stylefilter", displayName: "风格滤镜", thumb: "com.purchasex.stylefilter", price: "0.99", type: .Non_Consumable),
-        Product(pid: "com.purchase.monthcard", displayName: "月卡", thumb: "com.purchase.monthcard", price: "2.99", type: .Non_Renewing_Subscriptions),
-        Product(pid: "com.purchasex.vip1", displayName: "VIP1", thumb: "com.purchasex.vip1", price: "2.99", type: .Auto_Renewable_Subscriptions),
-        Product(pid: "com.purchasex.vip2", displayName: "VIP2", thumb: "com.purchasex.vip2", price: "6.99", type: .Auto_Renewable_Subscriptions)
+        Product(pid: "com.purchasex.60", displayName: "60 钻石", thumb: "com.purchasex.60", price: "0.99", type: .Consumable),
+        Product(pid: "com.purchasex.120", displayName: "120 钻石", thumb: "com.purchasex.120", price: "1.99", type: .Consumable),
+        Product(pid: "com.purchasex.stylefilter", displayName: "后羿", thumb: "com.purchasex.stylefilter", price: "0.99", type: .Non_Consumable),
+        Product(pid: "com.purchase.monthcard", displayName: "嫦娥皮肤", thumb: "com.purchase.monthcard", price: "2.99", type: .Non_Renewing_Subscriptions),
+        Product(pid: "com.purchasex.vip1", displayName: "彩蛋礼包1", thumb: "com.purchasex.vip1", price: "2.99", type: .Auto_Renewable_Subscriptions),
+        Product(pid: "com.purchasex.vip2", displayName: "彩蛋礼包2", thumb: "com.purchasex.vip2", price: "6.99", type: .Auto_Renewable_Subscriptions)
     ]
     
     ///  Display product info, due to SKProduct object cannot get subscription product title, so I get the title via the local config product array.
