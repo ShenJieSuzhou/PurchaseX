@@ -20,10 +20,11 @@
 		E5760DF426C281B600877C3B /* IAPPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEA26C281B600877C3B /* IAPPersistence.swift */; };
 		E5760DF526C281B600877C3B /* IAPOpenSSLAttributeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEB26C281B600877C3B /* IAPOpenSSLAttributeType.swift */; };
 		E5760DF626C281B600877C3B /* IAPPersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEC26C281B600877C3B /* IAPPersistenceProtocol.swift */; };
-		E5760DFB26C281B600877C3B /* IAPReceiptProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */; };
 		E5760E7E26D5E68D00877C3B /* ReceiptValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */; };
 		E5760E8226D7686500877C3B /* IAPReceipt+ValidateLocally.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */; };
 		E5760E8526D8899000877C3B /* IAPReceiptValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */; };
+		E579A41826EB029400DE5C7F /* ReceiptErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E579A41726EB029400DE5C7F /* ReceiptErrorHandling.swift */; };
+		E579A41A26EB087600DE5C7F /* IAPReceiptProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E579A41926EB087600DE5C7F /* IAPReceiptProductInfo.swift */; };
 		F40C631526E4DA50004FA5AD /* PurchaseX+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */; };
 		F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */; };
 /* End PBXBuildFile section */
@@ -44,13 +45,14 @@
 		E5760DEA26C281B600877C3B /* IAPPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPPersistence.swift; sourceTree = "<group>"; };
 		E5760DEB26C281B600877C3B /* IAPOpenSSLAttributeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPOpenSSLAttributeType.swift; sourceTree = "<group>"; };
 		E5760DEC26C281B600877C3B /* IAPPersistenceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPPersistenceProtocol.swift; sourceTree = "<group>"; };
-		E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceiptProductInfo.swift; sourceTree = "<group>"; };
 		E5760E7326D3346900877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5760E7526D334C300877C3B /* Pods_PurchaseXTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PurchaseXTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5760E7726D3370C00877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptValidationResponse.swift; sourceTree = "<group>"; };
 		E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateLocally.swift"; sourceTree = "<group>"; };
 		E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPReceiptValidationResult.swift; sourceTree = "<group>"; };
+		E579A41726EB029400DE5C7F /* ReceiptErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptErrorHandling.swift; sourceTree = "<group>"; };
+		E579A41926EB087600DE5C7F /* IAPReceiptProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceiptProductInfo.swift; sourceTree = "<group>"; };
 		F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseX+Extension.swift"; sourceTree = "<group>"; };
 		F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateAppstore.swift"; sourceTree = "<group>"; };
 		F4B1785726D291FE00DC2701 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,12 +127,13 @@
 				E5760DE826C281B600877C3B /* IAPReceipt.swift */,
 				E5760DE926C281B600877C3B /* IAPOpenSSL.swift */,
 				E5760DEA26C281B600877C3B /* IAPPersistence.swift */,
+				E579A41926EB087600DE5C7F /* IAPReceiptProductInfo.swift */,
 				E5760DEB26C281B600877C3B /* IAPOpenSSLAttributeType.swift */,
 				E5760DEC26C281B600877C3B /* IAPPersistenceProtocol.swift */,
-				E5760DF126C281B600877C3B /* IAPReceiptProductInfo.swift */,
 				F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */,
 				E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */,
 				E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */,
+				E579A41726EB029400DE5C7F /* ReceiptErrorHandling.swift */,
 			);
 			path = ReceiptValidate;
 			sourceTree = "<group>";
@@ -244,7 +247,6 @@
 				E5760A7E26C2740B00877C3B /* PurchaseXState.swift in Sources */,
 				E5760E8526D8899000877C3B /* IAPReceiptValidationResult.swift in Sources */,
 				E5760A7026C2740B00877C3B /* PurchaseXException.swift in Sources */,
-				E5760DFB26C281B600877C3B /* IAPReceiptProductInfo.swift in Sources */,
 				E5760B5826C2740B00877C3B /* Configuration.swift in Sources */,
 				E5760E7E26D5E68D00877C3B /* ReceiptValidationResponse.swift in Sources */,
 				F40C631526E4DA50004FA5AD /* PurchaseX+Extension.swift in Sources */,
@@ -253,6 +255,8 @@
 				E5760DF526C281B600877C3B /* IAPOpenSSLAttributeType.swift in Sources */,
 				E5760DF326C281B600877C3B /* IAPOpenSSL.swift in Sources */,
 				F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */,
+				E579A41826EB029400DE5C7F /* ReceiptErrorHandling.swift in Sources */,
+				E579A41A26EB087600DE5C7F /* IAPReceiptProductInfo.swift in Sources */,
 				E5760DF226C281B600877C3B /* IAPReceipt.swift in Sources */,
 				E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */,
 				E5760E8226D7686500877C3B /* IAPReceipt+ValidateLocally.swift in Sources */,

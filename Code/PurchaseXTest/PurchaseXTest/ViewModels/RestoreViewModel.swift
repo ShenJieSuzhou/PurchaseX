@@ -16,6 +16,18 @@ struct RestoreViewModel {
     @Binding var isLoading: Bool
     
     func restorePurchase() {
+        
+//        purchaseXManager.restorePurchase { notification in
+//            switch notification{
+//            case .purchaseRestoreSuccess:
+//                print("Restore Success")
+//            case .purchaseRestoreFailure:
+//                print("Restore Failed")
+//            default:
+//                break
+//            }
+//        }
+        
         purchaseXManager.restorePurchase { notification in
             
             switch notification{

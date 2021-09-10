@@ -16,18 +16,28 @@ extension IAPReceipt {
     /// - Parameter completion: result handler
     public func validateLocally() -> ReceiptValidationResult {
         
-        guard self.isReachable,
-              self.load(),
-              self.validateSigning(),
-              self.readReceipt(),
-              self.validate() else {
-            
-                PXLog.event(.receiptValidationFailure)
-            return .error(error: nil)
-              }
-                
+        if self.isReachable {
+            return .error(error: ReceiptError.noReceiptData)
+        }
+        
+        if self.load() {
+            return .error(error: ReceiptError.noReceiptData)
+        }
+        
+        if self.validateSigning() {
+            return .error(error: ReceiptError.receiptNotSigned)
+        }
+        
+        if self.readReceipt() {
+            return .error(error: ReceiptError.emptyReceiptContents)
+        }
+        
+        if self.validate() {
+            return .error(error: ReceiptError.incorrectHash)
+        }
+        
         guard let receipt = Receipt(bundleID: bundleIdString, appVersion: bundleVersionString, originalAppVersion: originalAppVersion, inAppPurchaseReceipts: inAppReceipts, receiptCreationDate: receiptCreationDate, expirationDate: expirationDate) else {
-            return .error(error: nil)
+            return .error(error: ReceiptError.noReceiptObject)
         }
         return .success(receipt: receipt)
     }
@@ -97,12 +107,12 @@ extension IAPReceipt {
     public func validateSigning() -> Bool {
         
         guard receiptData != nil else {
-            PXLog.event("receiptValidateSigningFailure")
+            PXLog.event("noReceiptData")
             return false
         }
         
         guard let rootCertificateUrl = Bundle.main.url(forResource: PurchaseXConstants.Certificate(), withExtension: PurchaseXConstants.CertificateExt()), let rootCertificateData = try? Data(contentsOf: rootCertificateUrl) else {
-            PXLog.event("receiptValidateSigningFailure")
+            PXLog.event("CertificateNotFound")
             return false
         }
         

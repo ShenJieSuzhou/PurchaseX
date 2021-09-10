@@ -23,6 +23,36 @@ struct PriceViewModel {
     
     func purchase(product: Product) {
         
+//        purchaseXManager.requestProductsFromAppstore { notification in
+//            if notification == .requestProductsStarted {
+//
+//            } else if notification == .receiptValidationSuccess {
+//
+//            } else if notification == .requestProductsFailure {
+//
+//            } else if notification == .requestProductsDidFinish {
+//
+//            } else if notification == .requestProductsNoProduct {
+//
+//            } else if notification == .requestProductsInvalidProducts {
+//
+//            }
+//        }
+        
+//        purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
+//            if notification == .purchaseSuccess{
+//                updatePurchaseState(state: .complete)
+//            } else if notification == .purchaseCancelled {
+//                updatePurchaseState(state: .cancelled)
+//            } else if notification == .purchaseFailure {
+//                updatePurchaseState(state: .failed)
+//            } else if notification == .purchaseAbort {
+//                updatePurchaseState(state: .failed)
+//            } else if notification == .purchasePending {
+//                updatePurchaseState(state: .pending)
+//            }
+//        }
+        
 //        purchaseXManager.rece
         purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
             if notification == .purchaseSuccess{
@@ -35,7 +65,7 @@ struct PriceViewModel {
                         updatePurchaseState(state: .failed)
                     }
                 }
-                /// validate remotelly
+//                /// validate remotelly
 //                purchaseXManager.validateReceiptRemotely(shareSecret: "put your share secret key", isSandBox: true) { validateResult in
 //                    switch validateResult {
 //                    case .success(let receipt):
