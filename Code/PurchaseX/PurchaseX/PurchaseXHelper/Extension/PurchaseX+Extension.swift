@@ -2,7 +2,7 @@
 //  File.swift
 //  PurchaseX
 //
-//  Created by snailgame on 2021/9/5.
+//  Created by shejie on 2021/9/5.
 //
 
 import Foundation
