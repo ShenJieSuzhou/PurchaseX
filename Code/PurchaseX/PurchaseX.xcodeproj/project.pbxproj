@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E552CF3126FB2FB20059085F /* PurchaseXManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E552CF3026FB2FB20059085F /* PurchaseXManagerImpl.swift */; };
 		E576097326C273C100877C3B /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E576097126C273C100877C3B /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5760A6E26C2740B00877C3B /* PurchaseXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576097B26C2740A00877C3B /* PurchaseXConstants.swift */; };
 		E5760A7026C2740B00877C3B /* PurchaseXException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576097D26C2740A00877C3B /* PurchaseXException.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E552CF3026FB2FB20059085F /* PurchaseXManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXManagerImpl.swift; sourceTree = "<group>"; };
 		E576096E26C273C100877C3B /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E576097126C273C100877C3B /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
 		E576097226C273C100877C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				E576098926C2740A00877C3B /* PurchaseXNotification.swift */,
 				E576098A26C2740A00877C3B /* PurchaseXManager.swift */,
 				E576098C26C2740A00877C3B /* PurchaseXState.swift */,
+				E552CF3026FB2FB20059085F /* PurchaseXManagerImpl.swift */,
 			);
 			path = PurchaseXHelper;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				E5760DF226C281B600877C3B /* IAPReceipt.swift in Sources */,
 				E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */,
 				E5760E8226D7686500877C3B /* IAPReceipt+ValidateLocally.swift in Sources */,
+				E552CF3126FB2FB20059085F /* PurchaseXManagerImpl.swift in Sources */,
 				E5760B5726C2740B00877C3B /* PXLog.swift in Sources */,
 				E5760A7C26C2740B00877C3B /* PurchaseXManager.swift in Sources */,
 			);
