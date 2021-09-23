@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import StoreKit
 
 /// From StoreNotification, if you are interesting about it , search StoreNotification on github。
 
@@ -15,9 +16,11 @@ public enum PurchaseXNotification: Error, Equatable {
     case configurationEmpty
     case configurationSuccess
     case configurationFailure
+    
+    case productIdArrayEmpty
 
     case requestProductsStarted
-    case requestProductsSuccess
+    case requestProductsSuccess(products: [SKProduct]!)
     case requestProductsFailure
     case requestProductsDidFinish
     case requestProductsNoProduct
@@ -50,6 +53,8 @@ public enum PurchaseXNotification: Error, Equatable {
             case .configurationEmpty:              return "Configuration file does not contain any product definitions"
             case .configurationSuccess:            return "Configuration success"
             case .configurationFailure:            return "Configuration failure"
+                
+            case .productIdArrayEmpty:             return "can not find any productID"
                 
             case .requestProductsStarted:          return "Request products from the App Store started"
             case .requestProductsSuccess:          return "Request products from the App Store success"
