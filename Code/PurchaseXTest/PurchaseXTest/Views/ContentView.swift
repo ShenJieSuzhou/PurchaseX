@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PurchaseX
+import StoreKit
 
 /// The main app View
 struct ContentView: View {
@@ -83,7 +84,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            if purchaseXManager.hasProducts {
+            if purchaseXManager.hasProducts() {
                     List {
                         HStack {
                             Spacer()
@@ -146,6 +147,18 @@ struct ContentView: View {
                     .foregroundColor(.white)
             }
         }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            purchaseXManager.requestProductsFromAppstore(productIds: ["com.purchasex.60", "com.purchasex.120", "com.purchasex.stylefilter", "com.purchase.monthcard", "com.purchasex.vip1", "com.purchasex.vip2"]) { notification in
+                switch notification {
+                case .requestProductsSuccess(let productIds):
+                    print(productIds as Any)
+                case .requestProductsFailure:
+                    print("123")
+                default:
+                    print("3333")
+                }
+            }
+        }
     }
 }
                                                                

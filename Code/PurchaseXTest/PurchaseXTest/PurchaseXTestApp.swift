@@ -14,7 +14,7 @@ struct PurchaseXTestApp: App {
     @StateObject var purchaseXManager = PurchaseXManager()
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(purchaseXManager)
+            ContentView().environmentObject(PurchaseXManager())
         }
     }
 }

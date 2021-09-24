@@ -14,18 +14,21 @@ public protocol PurchaseXDelegate {
     func updateAvaliableProducts(avaliableProducts: [SKProduct]?)
 }
 
-public class PurchaseXManager: ObservableObject {
+public class PurchaseXManager:NSObject, ObservableObject {
     
     // MARK: Public Property
     /// Array of products retrieved from AppleStore
     @Published public var products: [SKProduct]?
     
     /// Object implement PurchaseXManager
-    private let purchaseXManagerImpl: PurchaseXManagerImpl!
+    private var purchaseXManagerImpl: PurchaseXManagerImpl!
     
-    required init() {
+    // MARK: - Initialization
+    public override init() {
+        super.init()
         purchaseXManagerImpl = PurchaseXManagerImpl()
         purchaseXManagerImpl.delegate = self
+                
     }
 
     deinit {

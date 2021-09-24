@@ -57,16 +57,7 @@ struct PriceViewModel {
         purchaseXManager.purchase(product: purchaseXManager.product(from: product.productID)!) { notification in
             if notification == .purchaseSuccess{
                 /// validate locally
-                purchaseXManager.validateReceiptLocally { validateResult in
-                    switch validateResult {
-                    case .success(let receipt):
-                        updatePurchaseState(state: .complete)
-                    case .error(let error):
-                        updatePurchaseState(state: .failed)
-                    }
-                }
-//                /// validate remotelly
-//                purchaseXManager.validateReceiptRemotely(shareSecret: "put your share secret key", isSandBox: true) { validateResult in
+//                purchaseXManager.validateReceiptLocally { validateResult in
 //                    switch validateResult {
 //                    case .success(let receipt):
 //                        updatePurchaseState(state: .complete)
@@ -74,6 +65,15 @@ struct PriceViewModel {
 //                        updatePurchaseState(state: .failed)
 //                    }
 //                }
+                /// validate remotelly
+                purchaseXManager.validateReceiptRemotely(shareSecret: "", isSandBox: true) { validateResult in
+                    switch validateResult {
+                    case .success(let receipt):
+                        updatePurchaseState(state: .complete)
+                    case .error(let error):
+                        updatePurchaseState(state: .failed)
+                    }
+                }
             } else if notification == .purchaseCancelled {
                 updatePurchaseState(state: .cancelled)
             } else if notification == .purchaseFailure {
