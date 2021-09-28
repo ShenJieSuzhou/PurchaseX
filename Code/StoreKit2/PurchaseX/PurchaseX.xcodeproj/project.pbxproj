@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E552CF3126FB2FB20059085F /* PurchaseXManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E552CF3026FB2FB20059085F /* PurchaseXManagerImpl.swift */; };
+		E576097326C273C100877C3B /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E576097126C273C100877C3B /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5760A6E26C2740B00877C3B /* PurchaseXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576097B26C2740A00877C3B /* PurchaseXConstants.swift */; };
+		E5760A7026C2740B00877C3B /* PurchaseXException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576097D26C2740A00877C3B /* PurchaseXException.swift */; };
+		E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576098926C2740A00877C3B /* PurchaseXNotification.swift */; };
+		E5760A7C26C2740B00877C3B /* PurchaseXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576098A26C2740A00877C3B /* PurchaseXManager.swift */; };
+		E5760A7E26C2740B00877C3B /* PurchaseXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576098C26C2740A00877C3B /* PurchaseXState.swift */; };
+		E5760B5726C2740B00877C3B /* PXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760A6B26C2740B00877C3B /* PXLog.swift */; };
+		E5760B5826C2740B00877C3B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760A6C26C2740B00877C3B /* Configuration.swift */; };
+		E5760DF226C281B600877C3B /* IAPReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DE826C281B600877C3B /* IAPReceipt.swift */; };
+		E5760DF326C281B600877C3B /* IAPOpenSSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DE926C281B600877C3B /* IAPOpenSSL.swift */; };
+		E5760DF426C281B600877C3B /* IAPPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEA26C281B600877C3B /* IAPPersistence.swift */; };
+		E5760DF526C281B600877C3B /* IAPOpenSSLAttributeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEB26C281B600877C3B /* IAPOpenSSLAttributeType.swift */; };
+		E5760DF626C281B600877C3B /* IAPPersistenceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760DEC26C281B600877C3B /* IAPPersistenceProtocol.swift */; };
+		E5760E7E26D5E68D00877C3B /* ReceiptValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */; };
+		E5760E8226D7686500877C3B /* IAPReceipt+ValidateLocally.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */; };
+		E5760E8526D8899000877C3B /* IAPReceiptValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */; };
+		E579A41826EB029400DE5C7F /* ReceiptErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E579A41726EB029400DE5C7F /* ReceiptErrorHandling.swift */; };
+		E579A41A26EB087600DE5C7F /* IAPReceiptProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E579A41926EB087600DE5C7F /* IAPReceiptProductInfo.swift */; };
+		F40C631526E4DA50004FA5AD /* PurchaseX+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */; };
+		F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E552CF3026FB2FB20059085F /* PurchaseXManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseXManagerImpl.swift; sourceTree = "<group>"; };
+		E576096E26C273C100877C3B /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E576097126C273C100877C3B /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
+		E576097226C273C100877C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E576097B26C2740A00877C3B /* PurchaseXConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXConstants.swift; sourceTree = "<group>"; };
+		E576097D26C2740A00877C3B /* PurchaseXException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXException.swift; sourceTree = "<group>"; };
+		E576098926C2740A00877C3B /* PurchaseXNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXNotification.swift; sourceTree = "<group>"; };
+		E576098A26C2740A00877C3B /* PurchaseXManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXManager.swift; sourceTree = "<group>"; };
+		E576098C26C2740A00877C3B /* PurchaseXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXState.swift; sourceTree = "<group>"; };
+		E5760A6B26C2740B00877C3B /* PXLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXLog.swift; sourceTree = "<group>"; };
+		E5760A6C26C2740B00877C3B /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		E5760DE826C281B600877C3B /* IAPReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceipt.swift; sourceTree = "<group>"; };
+		E5760DE926C281B600877C3B /* IAPOpenSSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPOpenSSL.swift; sourceTree = "<group>"; };
+		E5760DEA26C281B600877C3B /* IAPPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPPersistence.swift; sourceTree = "<group>"; };
+		E5760DEB26C281B600877C3B /* IAPOpenSSLAttributeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPOpenSSLAttributeType.swift; sourceTree = "<group>"; };
+		E5760DEC26C281B600877C3B /* IAPPersistenceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPPersistenceProtocol.swift; sourceTree = "<group>"; };
+		E5760E7326D3346900877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5760E7526D334C300877C3B /* Pods_PurchaseXTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PurchaseXTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5760E7726D3370C00877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptValidationResponse.swift; sourceTree = "<group>"; };
+		E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateLocally.swift"; sourceTree = "<group>"; };
+		E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPReceiptValidationResult.swift; sourceTree = "<group>"; };
+		E579A41726EB029400DE5C7F /* ReceiptErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptErrorHandling.swift; sourceTree = "<group>"; };
+		E579A41926EB087600DE5C7F /* IAPReceiptProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPReceiptProductInfo.swift; sourceTree = "<group>"; };
+		F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchaseX+Extension.swift"; sourceTree = "<group>"; };
+		F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IAPReceipt+ValidateAppstore.swift"; sourceTree = "<group>"; };
+		F4B1785726D291FE00DC2701 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E576096B26C273C100877C3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E576096426C273C100877C3B = {
+			isa = PBXGroup;
+			children = (
+				E576097026C273C100877C3B /* PurchaseX */,
+				E576096F26C273C100877C3B /* Products */,
+				F4B1784F26D28FE700DC2701 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E576096F26C273C100877C3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E576096E26C273C100877C3B /* PurchaseX.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E576097026C273C100877C3B /* PurchaseX */ = {
+			isa = PBXGroup;
+			children = (
+				E576097926C2740A00877C3B /* PurchaseXHelper */,
+				E5760A6A26C2740B00877C3B /* Util */,
+				E576097126C273C100877C3B /* PurchaseX.h */,
+				E576097226C273C100877C3B /* Info.plist */,
+			);
+			path = PurchaseX;
+			sourceTree = "<group>";
+		};
+		E576097926C2740A00877C3B /* PurchaseXHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F40C631326E4DA12004FA5AD /* Extension */,
+				E5760DE726C281B600877C3B /* ReceiptValidate */,
+				E576097B26C2740A00877C3B /* PurchaseXConstants.swift */,
+				E576097D26C2740A00877C3B /* PurchaseXException.swift */,
+				E576098926C2740A00877C3B /* PurchaseXNotification.swift */,
+				E576098A26C2740A00877C3B /* PurchaseXManager.swift */,
+				E576098C26C2740A00877C3B /* PurchaseXState.swift */,
+				E552CF3026FB2FB20059085F /* PurchaseXManagerImpl.swift */,
+			);
+			path = PurchaseXHelper;
+			sourceTree = "<group>";
+		};
+		E5760A6A26C2740B00877C3B /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E5760A6B26C2740B00877C3B /* PXLog.swift */,
+				E5760A6C26C2740B00877C3B /* Configuration.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E5760DE726C281B600877C3B /* ReceiptValidate */ = {
+			isa = PBXGroup;
+			children = (
+				E5760E7C26D5E64500877C3B /* Model */,
+				E5760DE826C281B600877C3B /* IAPReceipt.swift */,
+				E5760DE926C281B600877C3B /* IAPOpenSSL.swift */,
+				E5760DEA26C281B600877C3B /* IAPPersistence.swift */,
+				E579A41926EB087600DE5C7F /* IAPReceiptProductInfo.swift */,
+				E5760DEB26C281B600877C3B /* IAPOpenSSLAttributeType.swift */,
+				E5760DEC26C281B600877C3B /* IAPPersistenceProtocol.swift */,
+				F4B1784C26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift */,
+				E5760E8126D7686500877C3B /* IAPReceipt+ValidateLocally.swift */,
+				E5760E8426D8899000877C3B /* IAPReceiptValidationResult.swift */,
+				E579A41726EB029400DE5C7F /* ReceiptErrorHandling.swift */,
+			);
+			path = ReceiptValidate;
+			sourceTree = "<group>";
+		};
+		E5760E7C26D5E64500877C3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E5760E7D26D5E68D00877C3B /* ReceiptValidationResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F40C631326E4DA12004FA5AD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F40C631426E4DA50004FA5AD /* PurchaseX+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F4B1784F26D28FE700DC2701 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5760E7726D3370C00877C3B /* Alamofire.framework */,
+				E5760E7526D334C300877C3B /* Pods_PurchaseXTest.framework */,
+				E5760E7326D3346900877C3B /* Alamofire.framework */,
+				F4B1785726D291FE00DC2701 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E576096926C273C100877C3B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E576097326C273C100877C3B /* PurchaseX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		E576096D26C273C100877C3B /* PurchaseX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E576097626C273C100877C3B /* Build configuration list for PBXNativeTarget "PurchaseX" */;
+			buildPhases = (
+				E576096926C273C100877C3B /* Headers */,
+				E576096A26C273C100877C3B /* Sources */,
+				E576096B26C273C100877C3B /* Frameworks */,
+				E576096C26C273C100877C3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PurchaseX;
+			productName = PurchaseX;
+			productReference = E576096E26C273C100877C3B /* PurchaseX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E576096526C273C100877C3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					E576096D26C273C100877C3B = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = E576096826C273C100877C3B /* Build configuration list for PBXProject "PurchaseX" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E576096426C273C100877C3B;
+			productRefGroup = E576096F26C273C100877C3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E576096D26C273C100877C3B /* PurchaseX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E576096C26C273C100877C3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E576096A26C273C100877C3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5760DF426C281B600877C3B /* IAPPersistence.swift in Sources */,
+				E5760A7E26C2740B00877C3B /* PurchaseXState.swift in Sources */,
+				E5760E8526D8899000877C3B /* IAPReceiptValidationResult.swift in Sources */,
+				E5760A7026C2740B00877C3B /* PurchaseXException.swift in Sources */,
+				E5760B5826C2740B00877C3B /* Configuration.swift in Sources */,
+				E5760E7E26D5E68D00877C3B /* ReceiptValidationResponse.swift in Sources */,
+				F40C631526E4DA50004FA5AD /* PurchaseX+Extension.swift in Sources */,
+				E5760A6E26C2740B00877C3B /* PurchaseXConstants.swift in Sources */,
+				E5760DF626C281B600877C3B /* IAPPersistenceProtocol.swift in Sources */,
+				E5760DF526C281B600877C3B /* IAPOpenSSLAttributeType.swift in Sources */,
+				E5760DF326C281B600877C3B /* IAPOpenSSL.swift in Sources */,
+				F4B1784D26D28F1700DC2701 /* IAPReceipt+ValidateAppstore.swift in Sources */,
+				E579A41826EB029400DE5C7F /* ReceiptErrorHandling.swift in Sources */,
+				E579A41A26EB087600DE5C7F /* IAPReceiptProductInfo.swift in Sources */,
+				E5760DF226C281B600877C3B /* IAPReceipt.swift in Sources */,
+				E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */,
+				E5760E8226D7686500877C3B /* IAPReceipt+ValidateLocally.swift in Sources */,
+				E552CF3126FB2FB20059085F /* PurchaseXManagerImpl.swift in Sources */,
+				E5760B5726C2740B00877C3B /* PXLog.swift in Sources */,
+				E5760A7C26C2740B00877C3B /* PurchaseXManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E576097426C273C100877C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E576097526C273C100877C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E576097726C273C100877C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PurchaseX/framework",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/PurchaseXTest-fbyifhbwrurepccfcebcovtoodyy/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PurchaseX/openssl-include\"",
+				);
+				INFOPLIST_FILE = PurchaseX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PurchaseX/openssl-lib",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames.PurchaseX;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E576097826C273C100877C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PurchaseX/framework",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/PurchaseXTest-fbyifhbwrurepccfcebcovtoodyy/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PurchaseX/openssl-include\"",
+				);
+				INFOPLIST_FILE = PurchaseX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PurchaseX/openssl-lib",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E576096826C273C100877C3B /* Build configuration list for PBXProject "PurchaseX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E576097426C273C100877C3B /* Debug */,
+				E576097526C273C100877C3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E576097626C273C100877C3B /* Build configuration list for PBXNativeTarget "PurchaseX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E576097726C273C100877C3B /* Debug */,
+				E576097826C273C100877C3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E576096526C273C100877C3B /* Project object */;
+}
