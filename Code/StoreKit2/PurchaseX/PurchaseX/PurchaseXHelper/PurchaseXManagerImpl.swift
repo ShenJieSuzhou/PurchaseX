@@ -114,32 +114,33 @@ final class PurchaseXManagerImpl: NSObject {
     // MARK: - requestProductsFromAppstore
     /// - Request products form appstore
     /// - Parameter completion: a closure that will be called when the results returned from the appstore
-    public func requestProductsFromAppstore(productIds: [String]?, completion: @escaping (_ notification: PurchaseXNotification?) -> Void) {
-        // save request products info
-        requestProductsCompletion = completion
-        
-        guard productIds != nil || productIds!.count > 0 else {
-            PXLog.event(.productIdArrayEmpty)
-            DispatchQueue.main.async {
-                completion(.productIdArrayEmpty)
-            }
-            return
-        }
-        
-        if products != nil {
-            products?.removeAll()
-        }
-                
-        configuredProductIdentifiers = Set(productIds!)
-        
-        // 1. Cancel pending requests
-        productsRequest?.cancel()
-        // 2. Init SKProductsRequest
-        productsRequest = SKProductsRequest(productIdentifiers: configuredProductIdentifiers!)
-        // 3. Set Delegate to receive the notification
-        productsRequest!.delegate = self
-        // 4. Start request
-        productsRequest!.start()
+    public func requestProductsFromAppstore(productIds: [String]) async -> [Product]? {
+        return try? await Product.products(for: Set.init(productIds))
+//        // save request products info
+//        requestProductsCompletion = completion
+//
+//        guard productIds != nil || productIds!.count > 0 else {
+//            PXLog.event(.productIdArrayEmpty)
+//            DispatchQueue.main.async {
+//                completion(.productIdArrayEmpty)
+//            }
+//            return
+//        }
+//
+//        if products != nil {
+//            products?.removeAll()
+//        }
+//
+//        configuredProductIdentifiers = Set(productIds!)
+//
+//        // 1. Cancel pending requests
+//        productsRequest?.cancel()
+//        // 2. Init SKProductsRequest
+//        productsRequest = SKProductsRequest(productIdentifiers: configuredProductIdentifiers!)
+//        // 3. Set Delegate to receive the notification
+//        productsRequest!.delegate = self
+//        // 4. Start request
+//        productsRequest!.start()
     }
     
     // MARK: - purchase
