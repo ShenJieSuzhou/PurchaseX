@@ -85,8 +85,15 @@ public class PurchaseXManager:NSObject, ObservableObject {
     /// - Request products form appstore
     /// - Parameter productIds: a array saved productId
     /// - Parameter completion: a closure that will be called when the results returned from the appstore
-    public func requestProductsFromAppstore(productIds: [String], completion: @escaping (_ notification: PurchaseXNotification?) -> Void) {
-        purchaseXManagerImpl.requestProductsFromAppstore(productIds: productIds, completion: completion)
+    public func requestProductsFromAppstore(productIds: [String]){
+        Task.init {
+            products = await purchaseXManagerImpl.requestProductsFromAppstore(productIds: productIds)
+            if products == nil, products?.count == 0 {
+                PXLog.event(.requestProductsFailure)
+            } else {
+                PXLog.event(.requestProductsSuccess)
+            }
+        }
     }
     
     // MARK: - purchase

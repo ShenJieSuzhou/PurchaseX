@@ -20,7 +20,7 @@ public enum PurchaseXNotification: Error, Equatable {
     case productIdArrayEmpty
 
     case requestProductsStarted
-    case requestProductsSuccess(products: [SKProduct]!)
+    case requestProductsSuccess
     case requestProductsFailure
     case requestProductsDidFinish
     case requestProductsNoProduct
