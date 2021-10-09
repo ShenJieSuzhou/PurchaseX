@@ -61,6 +61,8 @@ final class PurchaseXManagerImpl: NSObject {
     // MARK: - Initialization
     required override init() {
         super.init()
+        // Listen for App Store transactions
+        transactionListener = handTransaction()
         
         // Load purchased products from UserDefault
         loadPurchasedProductIds()
@@ -70,19 +72,6 @@ final class PurchaseXManagerImpl: NSObject {
         transactionListener?.cancel()
     }
     
-    // MARK: - refreshReceipt
-    /// Used when receipt validate failed
-    /// - Parameter completion: a closure that will be called when the receipt has been refreshed.
-    public func refreshReceipt(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-//        requestReceiptCompletion = completion
-//
-//        receiptRequest?.cancel()
-//        receiptRequest = SKReceiptRefreshRequest()
-//        receiptRequest?.delegate = self
-//        receiptRequest?.start()
-//        
-//        PXLog.event(.receiptRefreshStarted)
-    }
     
     // MARK: - requestProductsFromAppstore
     /// - Request products form appstore
@@ -116,6 +105,11 @@ final class PurchaseXManagerImpl: NSObject {
             let validatedTransaction = checkResult.transaction
             
             await validatedTransaction.finish()
+            
+            // Because consumable's transaction are not stored in the receipt, So treat differerntly
+            if validatedTransaction.productType == .consumable {
+                
+            }
             return (transaction: validatedTransaction, purchaseState: .complete)
         case .userCancelled:
             return (transaction: nil, purchaseState: .cancelled)
@@ -130,27 +124,27 @@ final class PurchaseXManagerImpl: NSObject {
     /// - Parameter productId: productid
     /// - Returns:true if purchased
     public func isPurchased(productId: String) async throws -> Bool {
-        
-        guard let product  = product(from: productId) else {
-            return false
-        }
-        
-        if product.type == .consumable {
-            return true
-        }
-        
-        return purchasedProductIdentifiers.contains(productId)
+        return false
+//        guard let product  = product(from: productId) else {
+//            return false
+//        }
+//
+//        if product.type == .consumable {
+//            return true
+//        }
+//
+//        return purchasedProductIdentifiers.contains(productId)
     }
     
     /// Load purchased products from UserDefault
     private func loadPurchasedProductIds() {
-        guard haveConfiguredProductIdentifiers else {
-            PXLog.event("Purchased products load failed")
-            return
-        }
-        
-        purchasedProductIdentifiers = IAPPersistence.loadPurchasedProductIds(for: configuredProductIdentifiers!)
-        PXLog.event("Purchased products load successed")
+//        guard haveConfiguredProductIdentifiers else {
+//            PXLog.event("Purchased products load failed")
+//            return
+//        }
+//
+//        purchasedProductIdentifiers = IAPPersistence.loadPurchasedProductIds(for: configuredProductIdentifiers!)
+//        PXLog.event("Purchased products load successed")
     }
     
     /// Get a localized price for product

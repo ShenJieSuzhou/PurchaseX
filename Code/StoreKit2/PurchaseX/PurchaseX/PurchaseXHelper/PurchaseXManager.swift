@@ -66,7 +66,7 @@ public class PurchaseXManager:NSObject, ObservableObject {
     public override init() {
         super.init()
         purchaseXManagerImpl = PurchaseXManagerImpl()
-        purchaseXManagerImpl.delegate = self
+//        purchaseXManagerImpl.delegate = self
                 
     }
 
@@ -78,7 +78,7 @@ public class PurchaseXManager:NSObject, ObservableObject {
     /// Used when receipt validate failed
     /// - Parameter completion: a closure that will be called when the receipt has been refreshed.
     public func refreshReceipt(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-        purchaseXManagerImpl.refreshReceipt(completion: completion)
+//        purchaseXManagerImpl.refreshReceipt(completion: completion)
     }
     
     // MARK: - requestProductsFromAppstore
@@ -100,15 +100,16 @@ public class PurchaseXManager:NSObject, ObservableObject {
     /// Start the process to purchase a product.
     /// - Parameter product: SKProduct object
     /// - Parameter completion: a closure that will be called when  purchase result returned from the appstore
-    public func purchase(product: SKProduct, completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-        purchaseXManagerImpl.purchase(product: product, completion: completion)
+    public func purchase(product: Product) async throws -> (transaction: Transaction?, purchaseState: PurchaseXState) {
+        let purchaseResult = try await purchaseXManagerImpl.purchase(product: product)
+        return purchaseResult
     }
     
     // MARK: - restorePurchase
     /// Ask Appstore to restore purchase
     /// - Parameter completion: a closure that will be called when  restore result returned from the appstore
     public func restorePurchase(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-        purchaseXManagerImpl.restorePurchase(completion: completion)
+        //purchaseXManagerImpl.restorePurchase(completion: completion)
     }
     
     // MARK: - validateReceiptLocally
@@ -116,7 +117,7 @@ public class PurchaseXManager:NSObject, ObservableObject {
     /// - Returns: true if validate successfully
     /// - Parameter completion: a closure that will be called when  receipt validation completely
     public func validateReceiptLocally(completion: @escaping(ReceiptValidationResult) -> Void) {
-        purchaseXManagerImpl.validateReceiptLocally(completion: completion)
+//        purchaseXManagerImpl.validateReceiptLocally(completion: completion)
     }
     
     // MARK: - validateReceiptRemotely
@@ -126,7 +127,7 @@ public class PurchaseXManager:NSObject, ObservableObject {
     ///   - isSandBox: true if sandbox
     ///   - completion: a closure that will be called when  receipt validation completely
     public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
-        purchaseXManagerImpl.validateReceiptRemotely(shareSecret: shareSecret, isSandBox: isSandBox, completion: completion)
+//        purchaseXManagerImpl.validateReceiptRemotely(shareSecret: shareSecret, isSandBox: isSandBox, completion: completion)
     }
     
     // MARK: - extend function interface
@@ -135,11 +136,12 @@ public class PurchaseXManager:NSObject, ObservableObject {
     /// - Parameter productId: productid
     /// - Returns:true if purchased
     public func isPurchased(productId: String) -> Bool {
-        return purchaseXManagerImpl.isPurchased(productId: productId)
+        return false
+//        return purchaseXManagerImpl.isPurchased(productId: productId)
     }
     
     /// Product associated with productId
-    public func product(from productId: String) -> SKProduct? {
+    public func product(from productId: String) -> Product? {
         return purchaseXManagerImpl.product(from: productId)
     }
     
@@ -149,11 +151,11 @@ public class PurchaseXManager:NSObject, ObservableObject {
     }
 }
 
-extension PurchaseXManager: PurchaseXDelegate {
-    
-    public func updateAvaliableProducts(avaliableProducts: [SKProduct]?) {
-        if avaliableProducts != nil {
-            self.products = avaliableProducts
-        }
-    }
-}
+//extension PurchaseXManager: PurchaseXDelegate {
+//
+//    public func updateAvaliableProducts(avaliableProducts: [SKProduct]?) {
+//        if avaliableProducts != nil {
+//            self.products = avaliableProducts
+//        }
+//    }
+//}
