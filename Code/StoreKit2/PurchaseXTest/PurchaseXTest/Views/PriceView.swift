@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PurchaseX
+import StoreKit
 
 struct PriceView: View {
     @EnvironmentObject var purchaseXManager: PurchaseXManager
@@ -15,9 +16,10 @@ struct PriceView: View {
     @Binding var pending: Bool
     @Binding var failed: Bool
     @Binding var purchased: Bool
-    @Binding var bageViewSwitch: Bool
-    @Binding var restore: Bool
+
     
+    var productID: String
+    var price: String
     var product: Product
     
     var body: some View {
@@ -30,31 +32,34 @@ struct PriceView: View {
                                             purchased: $purchased)
         
         HStack {
-            if restore && purchaseXManager.isPurchased(productId: product.productID) && product.type == .Non_Consumable{
-                Text("Free")
+//            if restore && purchaseXManager.isPurchased(productId: product.productID) && product.type == .Non_Consumable{
+//                Text("Free")
+//                    .font(.title2)
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .frame(height: 40)
+//                    .background(Color.gray)
+//                    .cornerRadius(25)
+//            } else {
+}
+//            }
+        
+            Button {
+                purchasing = true
+                purchased = false
+                // start a purchase
+                Task.init{
+                    await priceViewModel.purchase(product: product)
+                }
+            } label: {
+                Text(price)
                     .font(.title2)
                     .foregroundColor(.white)
                     .padding()
                     .frame(height: 40)
-                    .background(Color.gray)
+                    .background(Color.blue)
                     .cornerRadius(25)
-            } else {
-                Button {
-                    purchasing = true
-                    purchased = false
-                    bageViewSwitch = false
-                    // start a purchase
-                    priceViewModel.purchase(product: product)
-                } label: {
-                    Text(product.price)
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(height: 40)
-                        .background(Color.blue)
-                        .cornerRadius(25)
-                }
-            }
+        
         }
     }
 }

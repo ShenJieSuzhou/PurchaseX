@@ -12,16 +12,18 @@ struct ProductView: View {
     @EnvironmentObject var purchaseXManager: PurchaseXManager
     @Binding var restore: Bool
     
-    var product: Product
+    var productID: String
+    var displayName: String
+    var price: String
     
     var body: some View {
         HStack {
-            Image(product.productID)
+            Image(productID)
                 .resizable()
                 .frame(width: 75, height: 75)
                 .aspectRatio(contentMode: .fit)
             
-            Text(product.productName)
+            Text(displayName)
                 .font(.title2)
                 .padding()
                 .lineLimit(2)
@@ -29,7 +31,7 @@ struct ProductView: View {
             
             Spacer()
             
-            PurchaseButton(restore: $restore, product: product)
+            PurchaseButton(restore: $restore, productID: productID, price: price)
         }
         .padding()
     }

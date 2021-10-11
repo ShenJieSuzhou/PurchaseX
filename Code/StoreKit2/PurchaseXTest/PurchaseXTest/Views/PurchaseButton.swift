@@ -19,9 +19,13 @@ struct PurchaseButton: View {
     @State var purchased: Bool = false
     @State var bageViewSwitch = false
     
-    var product: Product
+    var productID: String
+    var price: String
     
     var body: some View {
+        
+        let product = purchaseXManager.product(from: productID)
+        
         HStack {
             if purchasing {
                 ProgressView()
@@ -54,8 +58,9 @@ struct PurchaseButton: View {
                       pending: $pending,
                       failed: $failed,
                       purchased: $purchased,
-                      bageViewSwitch: $bageViewSwitch,
-                      restore: $restore, product: product)
+                      productID: productID,
+                      price: price,
+                      product: product!)
         }
         .onAppear {
             
@@ -65,7 +70,7 @@ struct PurchaseButton: View {
         }
         .alert(isPresented: $failed) {
             Alert(title: Text("Purchase Error"),
-                  message: Text("Sorry, your purchase of \(product.productName) failed."),
+                  message: Text("Sorry, your purchase of \(product!.displayName) failed."),
                   dismissButton: .default(Text("OK")))
         }
     }
