@@ -14,10 +14,58 @@
             filePath = "../PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "requestProductsFromAppstore(productIds:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D0DB72AC-57EA-45FB-B2F6-0AB4240687E6 - 12c9eaff09bdfd06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () async -&gt; () in PurchaseX.PurchaseXManager.requestProductsFromAppstore(productIds: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "PurchaseXTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/Code/StoreKit2/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "D0DB72AC-57EA-45FB-B2F6-0AB4240687E6 - ee6c53f454b36151"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in PurchaseX.PurchaseXManager.requestProductsFromAppstore(productIds: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "PurchaseXTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenjie/Documents/Myproject/GitProj/PurchaseX/Code/StoreKit2/PurchaseX/PurchaseX/PurchaseXHelper/PurchaseXManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22E6C50B-8046-43F9-B715-D48AF6A3D3DE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PurchaseXTest/Views/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

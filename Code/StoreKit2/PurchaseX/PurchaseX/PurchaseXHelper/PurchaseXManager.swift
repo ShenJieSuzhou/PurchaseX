@@ -8,13 +8,7 @@
 import Foundation
 import StoreKit
 
-
-/// Get avaliable products
-public protocol PurchaseXDelegate {
-    func updateAvaliableProducts(avaliableProducts: [SKProduct]?)
-}
-
-public class PurchaseXManager:NSObject, ObservableObject {
+public class PurchaseXManager: NSObject, ObservableObject {
     
     // MARK: Public Property
     /// Array of products retrieved from AppleStore
@@ -44,6 +38,7 @@ public class PurchaseXManager:NSObject, ObservableObject {
         guard products != nil else {
             return nil
         }
+        
         return products?.filter({ product in
             product.type == .autoRenewable
         })
@@ -53,11 +48,11 @@ public class PurchaseXManager:NSObject, ObservableObject {
         guard products != nil else {
             return nil
         }
+        
         return products?.filter({ product in
             product.type == .nonRenewable
         })
     }
-    
     
     /// Object implement PurchaseXManager
     private var purchaseXManagerImpl: PurchaseXManagerImpl!
@@ -66,8 +61,6 @@ public class PurchaseXManager:NSObject, ObservableObject {
     public override init() {
         super.init()
         purchaseXManagerImpl = PurchaseXManagerImpl()
-//        purchaseXManagerImpl.delegate = self
-                
     }
 
     deinit {
@@ -77,9 +70,9 @@ public class PurchaseXManager:NSObject, ObservableObject {
     // MARK: - refreshReceipt
     /// Used when receipt validate failed
     /// - Parameter completion: a closure that will be called when the receipt has been refreshed.
-    public func refreshReceipt(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+//    public func refreshReceipt(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
 //        purchaseXManagerImpl.refreshReceipt(completion: completion)
-    }
+//    }
     
     // MARK: - requestProductsFromAppstore
     /// - Request products form appstore
@@ -108,17 +101,17 @@ public class PurchaseXManager:NSObject, ObservableObject {
     // MARK: - restorePurchase
     /// Ask Appstore to restore purchase
     /// - Parameter completion: a closure that will be called when  restore result returned from the appstore
-    public func restorePurchase(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
+//    public func restorePurchase(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
         //purchaseXManagerImpl.restorePurchase(completion: completion)
-    }
+//    }
     
     // MARK: - validateReceiptLocally
     /// Validate the receipt locally
     /// - Returns: true if validate successfully
     /// - Parameter completion: a closure that will be called when  receipt validation completely
-    public func validateReceiptLocally(completion: @escaping(ReceiptValidationResult) -> Void) {
+//    public func validateReceiptLocally(completion: @escaping(ReceiptValidationResult) -> Void) {
 //        purchaseXManagerImpl.validateReceiptLocally(completion: completion)
-    }
+//    }
     
     // MARK: - validateReceiptRemotely
     /// Validate the receipt remotely
@@ -126,9 +119,9 @@ public class PurchaseXManager:NSObject, ObservableObject {
     ///   - shareSecret: share secret generate from appstore
     ///   - isSandBox: true if sandbox
     ///   - completion: a closure that will be called when  receipt validation completely
-    public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
+//    public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
 //        purchaseXManagerImpl.validateReceiptRemotely(shareSecret: shareSecret, isSandBox: isSandBox, completion: completion)
-    }
+//    }
     
     // MARK: - extend function interface
     
@@ -142,12 +135,28 @@ public class PurchaseXManager:NSObject, ObservableObject {
     
     /// Product associated with productId
     public func product(from productId: String) -> Product? {
-        return purchaseXManagerImpl.product(from: productId)
+        guard hasProducts() else {
+            return nil
+        }
+        
+        let matchProduct = products!.filter { product in
+            product.id == productId
+        }
+        
+        guard matchProduct.count == 1 else {
+            return nil
+        }
+        
+        return matchProduct.first
     }
     
     /// True if appstore products have been retrived via function
     public func hasProducts() -> Bool {
-        return purchaseXManagerImpl.hasProducts
+        guard products != nil else {
+            return false
+        }
+
+        return products!.count > 0 ? true : false
     }
 }
 

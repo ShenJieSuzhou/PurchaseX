@@ -77,7 +77,8 @@ final class PurchaseXManagerImpl: NSObject {
     /// - Request products form appstore
     /// - Parameter completion: a closure that will be called when the results returned from the appstore
     @MainActor public func requestProductsFromAppstore(productIds: [String]) async -> [Product]? {
-        return try? await Product.products(for: Set.init(productIds))
+        products = try? await Product.products(for: Set.init(productIds))
+        return products
     }
     
     // MARK: - purchase
