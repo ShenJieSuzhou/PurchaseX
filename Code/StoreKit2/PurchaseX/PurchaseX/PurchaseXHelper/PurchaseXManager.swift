@@ -7,6 +7,7 @@
 
 import Foundation
 import StoreKit
+import SwiftUI
 
 public class PurchaseXManager: NSObject, ObservableObject {
     
@@ -60,6 +61,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
     // MARK: - Initialization
     public override init() {
         super.init()
+        
         purchaseXManagerImpl = PurchaseXManagerImpl()
     }
 
@@ -67,12 +69,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
         purchaseXManagerImpl.removeBroadcasters()
     }
     
-    // MARK: - refreshReceipt
-    /// Used when receipt validate failed
-    /// - Parameter completion: a closure that will be called when the receipt has been refreshed.
-//    public func refreshReceipt(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-//        purchaseXManagerImpl.refreshReceipt(completion: completion)
-//    }
     
     // MARK: - requestProductsFromAppstore
     /// - Request products form appstore
@@ -97,31 +93,6 @@ public class PurchaseXManager: NSObject, ObservableObject {
         let purchaseResult = try await purchaseXManagerImpl.purchase(product: product)
         return purchaseResult
     }
-    
-    // MARK: - restorePurchase
-    /// Ask Appstore to restore purchase
-    /// - Parameter completion: a closure that will be called when  restore result returned from the appstore
-//    public func restorePurchase(completion: @escaping(_ notification: PurchaseXNotification?) -> Void) {
-        //purchaseXManagerImpl.restorePurchase(completion: completion)
-//    }
-    
-    // MARK: - validateReceiptLocally
-    /// Validate the receipt locally
-    /// - Returns: true if validate successfully
-    /// - Parameter completion: a closure that will be called when  receipt validation completely
-//    public func validateReceiptLocally(completion: @escaping(ReceiptValidationResult) -> Void) {
-//        purchaseXManagerImpl.validateReceiptLocally(completion: completion)
-//    }
-    
-    // MARK: - validateReceiptRemotely
-    /// Validate the receipt remotely
-    /// - Parameters:
-    ///   - shareSecret: share secret generate from appstore
-    ///   - isSandBox: true if sandbox
-    ///   - completion: a closure that will be called when  receipt validation completely
-//    public func validateReceiptRemotely(shareSecret: String?, isSandBox: Bool, completion: @escaping(ReceiptValidationResult) -> Void) {
-//        purchaseXManagerImpl.validateReceiptRemotely(shareSecret: shareSecret, isSandBox: isSandBox, completion: completion)
-//    }
     
     // MARK: - extend function interface
     
@@ -158,13 +129,38 @@ public class PurchaseXManager: NSObject, ObservableObject {
 
         return products!.count > 0 ? true : false
     }
+    
+    
+    public func showManageSubscriptions(in scene: UIWindowScene) async throws {
+        try await AppStore.showManageSubscriptions(in: scene)
+    }
+    
+    public func beginRefundProcess(from productId: String, in scene: UIWindowScene) async throws -> Bool{
+        
+        let result = await Transaction.latest(for: productId)
+        
+        switch result{
+        case .verified(let transaction):
+            do {
+                let status = try await transaction.beginRefundRequest(in: scene)
+                switch status{
+                case .success:
+                    return true
+                case .userCancelled:
+                    return false
+                @unknown default:
+                    return false
+                }
+            } catch {
+                throw error
+                return false
+            }
+        case .unverified(let transaction, let error):
+                throw(error)
+                return false
+        case .none:
+            return false
+        }
+    }
+        
 }
-
-//extension PurchaseXManager: PurchaseXDelegate {
-//
-//    public func updateAvaliableProducts(avaliableProducts: [SKProduct]?) {
-//        if avaliableProducts != nil {
-//            self.products = avaliableProducts
-//        }
-//    }
-//}

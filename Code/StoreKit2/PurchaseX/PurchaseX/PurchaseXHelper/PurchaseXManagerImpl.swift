@@ -63,9 +63,6 @@ final class PurchaseXManagerImpl: NSObject {
         super.init()
         // Listen for App Store transactions
         transactionListener = handTransaction()
-        
-        // Load purchased products from UserDefault
-        loadPurchasedProductIds()
     }
     
     func removeBroadcasters() {
@@ -121,54 +118,92 @@ final class PurchaseXManagerImpl: NSObject {
         }
     }
         
+    
+    public func currentEntitlements() async -> Set<String> {
+        var entitledProductIds = Set<String>()
+        
+        for await result in Transaction.currentEntitlements {
+            
+            if case .verified(let transaction) = result {
+                entitledProductIds.insert(transaction.productID)
+            }
+        }
+        
+        return entitledProductIds
+    }
+    
     /// True if purchased
     /// - Parameter productId: productid
     /// - Returns:true if purchased
     public func isPurchased(productId: String) async throws -> Bool {
         return false
-//        guard let product  = product(from: productId) else {
+        guard let product  = product(from: productId) else {
+            return false
+        }
+
+//        if product.type == .consumable {
+//
 //            return false
 //        }
-//
-//        if product.type == .consumable {
-//            return true
-//        }
-//
-//        return purchasedProductIdentifiers.contains(productId)
+        
+//        await Transaction.latest(for: productId)
+        
+//        await subscription.ise
+        
+        guard let currentEntitlement = await Transaction.currentEntitlement(for: productId) else {
+            return false
+        }
+        
+        let result = checkTransactionVerficationResult(result: currentEntitlement)
+        if !result.verified {
+            throw PurchaseXException.transactionVerificationFailed
+        }
+        
+        return result.transaction.revocationDate == nil && !result.transaction.isUpgraded
+    }
+          
+    
+    public func activeSubscriptions(onlyRenewable: Bool = true) async -> [String] {
+        
+        var productId = Set<String>()
+        
+        for await result in Transaction.currentEntitlements {
+            if case .verified(let transaction) = result {
+                if transaction.productType == .autoRenewable || (!onlyRenewable && transaction.productType ==  .nonRenewable){
+                    productId.insert(transaction.productID)
+                }
+            }
+        }
+        return Array(productId)
     }
     
-    /// Load purchased products from UserDefault
-    private func loadPurchasedProductIds() {
-//        guard haveConfiguredProductIdentifiers else {
-//            PXLog.event("Purchased products load failed")
-//            return
-//        }
-//
-//        purchasedProductIdentifiers = IAPPersistence.loadPurchasedProductIds(for: configuredProductIdentifiers!)
-//        PXLog.event("Purchased products load successed")
+    
+    public func purchasedNonConsumable() async -> [String] {
+        var productId = Set<String>()
+        
+        for await result in Transaction.currentEntitlements {
+            if case .verified(let transaction) = result {
+                if transaction.productType == .nonConsumable {
+                    productId.insert(transaction.productID)
+                }
+            }
+        }
+        return Array(productId)
     }
     
-    /// Get a localized price for product
-    /// - Parameter product: SKProduct object
-    /// - Returns: Localized price
-    internal func getLocalizedPriceFor(product: SKProduct) -> String? {
-        let priceFormatter = NumberFormatter()
-        priceFormatter.formatterBehavior = .behavior10_4
-        priceFormatter.numberStyle = .currency
-        priceFormatter.locale = product.priceLocale
-        return priceFormatter.string(from: product.price)
+    public func restorePurchase() async throws {
+        try await AppStore.sync()
     }
-    
     
     private func handTransaction() -> Task<Void, Error> {
 
         return Task.detached{
             for await verificationResult in Transaction.updates {
+                
                 let checkResult = self.checkTransactionVerficationResult(result: verificationResult)
                 
                 if checkResult.verified {
                     let validatedTransaction = checkResult.transaction
-                    await self.updatePurchasedIdentifiers(validatedTransaction)
                     await validatedTransaction.finish()
                 } else {
                     
@@ -186,36 +221,35 @@ final class PurchaseXManagerImpl: NSObject {
         }
     }
     
-    
-    private func updatePurchasedIdentifiers(_ transaction: Transaction) async {
-        if transaction.revocationDate == nil {
-            await updatePurchasedIdentifiers(transaction.productID, insert: true)
-        } else {
-            await updatePurchasedIdentifiers(transaction.productID, insert: false)
-        }
-    }
-    
-    private func updatePurchasedIdentifiers(_ productId: String, insert: Bool) async {
-        guard let product = product(from: productId) else {
-            return
-        }
-        
-        if insert {
-            if product.type == .consumable {
-                
-//                if cou
-            } else {
-                if purchasedProducts.contains(productId) {
-                    return
-                }
-            }
-            purchasedProducts.append(productId)
-        } else {
-            if let index = purchasedProducts.firstIndex(where: {$0 == productId}) {
-                purchasedProducts.remove(at: index)
-            }
-        }
-    }
+//    private func updatePurchasedIdentifiers(_ transaction: Transaction) async {
+//        if transaction.revocationDate == nil {
+//            await updatePurchasedIdentifiers(transaction.productID, insert: true)
+//        } else {
+//            await updatePurchasedIdentifiers(transaction.productID, insert: false)
+//        }
+//    }
+//
+//    private func updatePurchasedIdentifiers(_ productId: String, insert: Bool) async {
+//        guard let product = product(from: productId) else {
+//            return
+//        }
+//
+//        if insert {
+//            if product.type == .consumable {
+//
+////                if cou
+//            } else {
+//                if purchasedProducts.contains(productId) {
+//                    return
+//                }
+//            }
+//            purchasedProducts.append(productId)
+//        } else {
+//            if let index = purchasedProducts.firstIndex(where: {$0 == productId}) {
+//                purchasedProducts.remove(at: index)
+//            }
+//        }
+//    }
     
 }
 
