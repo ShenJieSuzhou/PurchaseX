@@ -78,9 +78,9 @@ struct ContentView: View {
                             }
                         }
                     }
-                    .overlay(LoadingView(isLoading: $isLoading), alignment: .center)
                     .navigationTitle("PurchaseX")
             } else {
+//                .overlay(LoadingView(isLoading: $isLoading), alignment: .center)
                 Text("No products available")
                     .font(.title)
                     .foregroundColor(.white)
