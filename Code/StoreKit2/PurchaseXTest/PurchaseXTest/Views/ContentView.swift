@@ -15,6 +15,7 @@ struct ContentView: View {
     @EnvironmentObject var purchaseXManager: PurchaseXManager
     @State var restore: Bool = false
     @State var isLoading: Bool = false
+    @State var showManageSubscriptions: Bool = false
         
     let configProducts:[PXProduct] = [
         PXProduct(pid: "com.purchasex.60", displayName: "60 金币", thumb: "com.purchasex.60", price: "0.99"),
@@ -29,22 +30,33 @@ struct ContentView: View {
         NavigationView {
             if purchaseXManager.hasProducts() {
                     List {
-//                        HStack {
-//                            Spacer()
-//                            Button {
-//                                let restoreViewModel = RestoreViewModel(purchaseXManager: purchaseXManager, restored: $restore, isLoading: $isLoading)
-//                                restoreViewModel.restorePurchase()
-//                                isLoading.toggle()
-//                            } label: {
-//                                Text("Restore")
-//                                    .font(.title2)
-//                                    .foregroundColor(.white)
-//                                    .padding()
-//                                    .frame(height: 40)
-//                                    .background(Color.blue)
-//                                    .cornerRadius(25)
-//                            }
-//                        }.frame(height: 60)
+                        HStack {
+                            Spacer()
+                            Button {
+//                                guard let keyWindow = UIApplication.shared.connectedScenes
+//                                                .filter({$0.activationState == .foregroundActive})
+//                                                .map({$0 as? UIWindowScene})
+//                                                .compactMap({$0})
+//                                                .first?.windows
+//                                                .filter({$0.isKeyWindow}).first,
+//                                              let scene = keyWindow.windowScene else { return }
+//                                Task{
+//                                    let ids = try await purchaseXManager.beginRefundProcess(from: "com.purchasex.vip1", in: scene)
+//                                    print(ids)
+//                                    purchaseXManager.showManageSubscriptions(in: <#T##UIWindowScene#>)
+//                                }
+                                showManageSubscriptions = true
+                            } label: {
+                                Text("manageredSubscripts")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(height: 40)
+                                    .background(Color.blue)
+                                    .cornerRadius(25)
+                            }.manageSubscriptionsSheet(isPresented: $showManageSubscriptions)
+//                            .manageSubscriptionsSheet(isPresented: $showManageSubscriptions)
+                        }.frame(height: 60)
 
                         if let consumables = purchaseXManager.consumableProducts {
                             Section(header: Text("ConsumableProducts")) {
@@ -87,7 +99,9 @@ struct ContentView: View {
             }
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            purchaseXManager.requestProductsFromAppstore(productIds: ["com.purchasex.60", "com.purchasex.120", "com.purchasex.stylefilter", "com.purchase.monthcard", "com.purchasex.vip1", "com.purchasex.vip2"])
+            Task.init {
+                await purchaseXManager.requestProductsFromAppstore(productIds: ["com.purchasex.60", "com.purchasex.120", "com.purchasex.stylefilter", "com.purchase.monthcard", "com.purchasex.vip1", "com.purchasex.vip2"])
+            }
         }
     }
 }
