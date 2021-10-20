@@ -83,50 +83,50 @@ public class PurchaseXManager: NSObject, ObservableObject {
     }
     
     // MARK: - purchase
-        /// Start the process to purchase a product.
-        /// - Parameter product: Product object
-        public func purchase(product: Product) async throws -> (transaction: Transaction?, purchaseState: PurchaseXState){
-            guard purchaseState != .inProgress else {
-                throw PurchaseXException.purchaseInProgressException
+    /// Start the process to purchase a product.
+    /// - Parameter product: Product object
+    public func purchase(product: Product) async throws -> (transaction: Transaction?, purchaseState: PurchaseXState){
+        guard purchaseState != .inProgress else {
+            throw PurchaseXException.purchaseInProgressException
+        }
+        
+        purchaseState = .inProgress
+        
+        // Start a purchase transaction
+        guard let result = try? await product.purchase() else {
+            purchaseState = .failed
+            throw PurchaseXException.purchaseException
+        }
+        
+        switch result {
+        case .success(let verificationResult):
+            let checkResult = checkTransactionVerficationResult(result: verificationResult)
+            if !checkResult.verified {
+                purchaseState = .failedVerification
+                throw PurchaseXException.transactionVerificationFailed
             }
             
-            purchaseState = .inProgress
+            let validatedTransaction = checkResult.transaction
             
-            // Start a purchase transaction
-            guard let result = try? await product.purchase() else {
-                purchaseState = .failed
-                throw PurchaseXException.purchaseException
-            }
+            await validatedTransaction.finish()
             
-            switch result {
-            case .success(let verificationResult):
-                let checkResult = checkTransactionVerficationResult(result: verificationResult)
-                if !checkResult.verified {
-                    purchaseState = .failedVerification
-                    throw PurchaseXException.transactionVerificationFailed
-                }
-                
-                let validatedTransaction = checkResult.transaction
-                
-                await validatedTransaction.finish()
-                
 //                // Because consumable's transaction are not stored in the receipt, So treat differerntly
 //                if validatedTransaction.productType == .consumable {
 //
 //                }
-                purchaseState = .complete
-                return (transaction: validatedTransaction, purchaseState: .complete)
-            case .userCancelled:
-                purchaseState = .cancelled
-                return (transaction: nil, purchaseState: .cancelled)
-            case .pending:
-                purchaseState = .pending
-                return (transaction: nil, purchaseState: .pending)
-            default:
-                purchaseState = .unknown
-                return (transaction: nil, purchaseState: .unknown)
-            }
+            purchaseState = .complete
+            return (transaction: validatedTransaction, purchaseState: .complete)
+        case .userCancelled:
+            purchaseState = .cancelled
+            return (transaction: nil, purchaseState: .cancelled)
+        case .pending:
+            purchaseState = .pending
+            return (transaction: nil, purchaseState: .pending)
+        default:
+            purchaseState = .unknown
+            return (transaction: nil, purchaseState: .unknown)
         }
+    }
     
     public func currentEntitlements() async -> Set<String> {
         var entitledProductIds = Set<String>()
