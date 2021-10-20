@@ -42,7 +42,7 @@ public enum PurchaseXNotification: Error, Equatable {
     case receiptValidationSuccess
     case receiptValidationFailure
 
-    case consumableSavedInKeychain
+    case resetConsumableInKeychainError
     case consumableKeychainError
     
     
@@ -79,7 +79,7 @@ public enum PurchaseXNotification: Error, Equatable {
             case .receiptValidationSuccess:        return "Receipt validation success"
             case .receiptValidationFailure:        return "Receipt validation failure"
                 
-            case .consumableSavedInKeychain:       return "Consumable purchase successfully saved to the keychain"
+            case .resetConsumableInKeychainError:  return "Consumable Products reset failed in the keychain"
             case .consumableKeychainError:         return "Keychain error"
         }
     }

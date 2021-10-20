@@ -20,7 +20,7 @@ public struct PXDataPersistence {
     /// Add a consumable productId to keychain, and set the count  value to 1.
     /// - Parameter productId: productid
     /// - Returns: True if insert successfully
-    public func purchase(productId: String) -> Bool {
+    public static func purchase(productId: String) -> Bool {
         if hasPurchased(productId: productId) {
             return true
         }
@@ -38,7 +38,7 @@ public struct PXDataPersistence {
     /// True if purchased
     /// - Parameter productId: productID
     /// - Returns: True if purchased
-    public func hasPurchased(productId: String) -> Bool {
+    public static func hasPurchased(productId: String) -> Bool {
         // Create a query
         let query = [kSecClass as String : kSecClassGenericPassword,
                      kSecAttrAccount as String : productId,
@@ -54,7 +54,7 @@ public struct PXDataPersistence {
     /// Update the count num associated with consumable 'productId' in the keychain
     /// - Parameter productId: The consumable productId
     /// - Returns: True if the update successfully
-    public func update(productId: String) -> Bool {
+    public static func update(productId: String) -> Bool {
         var count = getProductCount(productId: productId)
         if count < 0 {
             count = 0
@@ -76,7 +76,7 @@ public struct PXDataPersistence {
     /// Get the count value associated with a consumable productId
     /// - Parameter productId: productId
     /// - Returns: The amount of the cnsumable product. Return 0 if NOT found.
-    public func getProductCount(productId: String) -> Int {
+    public static func getProductCount(productId: String) -> Int {
         // Create a query
         let query  = [kSecClass as String : kSecClassGenericPassword,
                       kSecAttrAccount as String : productId,
@@ -103,7 +103,7 @@ public struct PXDataPersistence {
     /// Remove all consumable records in the keychain
     /// - Parameter productIds: a array of consumable product
     /// - Returns: True if reset successfully
-    public func resetAllConsumable(productIds: Set<String>) -> Bool{
+    public static func resetAllConsumable(productIds: Set<String>) -> Bool{
         var flag: Bool = true
         let query = [kSecClass as String : kSecClassGenericPassword,
                      kSecMatchLimit as String: kSecMatchLimitAll,

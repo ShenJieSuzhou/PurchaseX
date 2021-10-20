@@ -110,10 +110,12 @@ public class PurchaseXManager: NSObject, ObservableObject {
             
             await validatedTransaction.finish()
             
-//                // Because consumable's transaction are not stored in the receipt, So treat differerntly
-//                if validatedTransaction.productType == .consumable {
-//
-//                }
+            // Because consumable's transaction are not stored in the receipt, So treat differerntly
+            if validatedTransaction.productType == .consumable {
+                if !PXDataPersistence.purchase(productId: product.id){
+                    PXLog.event(.consumableKeychainError)
+                }
+            }
             purchaseState = .complete
             return (transaction: validatedTransaction, purchaseState: .complete)
         case .userCancelled:
@@ -152,15 +154,10 @@ public class PurchaseXManager: NSObject, ObservableObject {
             return false
         }
 
-//        if product.type == .consumable {
-//
-//            return false
-//        }
-        
-//        await Transaction.latest(for: productId)
-        
-//        await subscription.ise
-        
+        if product.type == .consumable {
+            return PXDataPersistence.getProductCount(productId: productId) > 0
+        }
+    
         guard let currentEntitlement = await Transaction.currentEntitlement(for: productId) else {
             return false
         }
@@ -287,5 +284,17 @@ public class PurchaseXManager: NSObject, ObservableObject {
                 return (transaction: transaction, verified: true)
             }
         }
+}
+
+extension PurchaseXManager {
+    public func resetKeychainConsumables(){
+        guard products != nil else {
+            return
+        }
         
+        let consumableProductIds = products!.filter({ $0.type == .consumable}).map({ $0.id })
+        if !PXDataPersistence.resetAllConsumable(productIds: Set(consumableProductIds)) {
+            PXLog.event("reset failed")
+        }
+    }
 }
