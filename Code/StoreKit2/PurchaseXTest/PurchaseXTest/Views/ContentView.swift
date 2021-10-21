@@ -33,6 +33,8 @@ struct ContentView: View {
                         HStack {
                             Spacer()
                             Button {
+// MARK: - IF NOT SwiftUI USE THE FOLLOWING CODE TO SHOW
+//
 //                                guard let keyWindow = UIApplication.shared.connectedScenes
 //                                                .filter({$0.activationState == .foregroundActive})
 //                                                .map({$0 as? UIWindowScene})
@@ -43,7 +45,7 @@ struct ContentView: View {
 //                                Task{
 //                                    let ids = try await purchaseXManager.beginRefundProcess(from: "com.purchasex.vip1", in: scene)
 //                                    print(ids)
-//                                    purchaseXManager.showManageSubscriptions(in: <#T##UIWindowScene#>)
+//                                    purchaseXManager.showManageSubscriptions(in: scene)
 //                                }
                                 showManageSubscriptions = true
                             } label: {
@@ -55,7 +57,27 @@ struct ContentView: View {
                                     .background(Color.blue)
                                     .cornerRadius(25)
                             }.manageSubscriptionsSheet(isPresented: $showManageSubscriptions)
-//                            .manageSubscriptionsSheet(isPresented: $showManageSubscriptions)
+                            Spacer()
+                            Button{
+                                guard let keyWindow = UIApplication.shared.connectedScenes
+                                                .filter({$0.activationState == .foregroundActive})
+                                                .map({$0 as? UIWindowScene})
+                                                .compactMap({$0})
+                                                .first?.windows
+                                                .filter({$0.isKeyWindow}).first,
+                                              let scene = keyWindow.windowScene else { return }
+                                Task.init {
+                                    try await purchaseXManager.beginRefundProcess(from: "com.purchasex.60", in: scene)
+                                }
+                            } label: {
+                                Text("refund")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(height: 40)
+                                    .background(Color.blue)
+                                    .cornerRadius(25)
+                            }
                         }.frame(height: 60)
 
                         if let consumables = purchaseXManager.consumableProducts {
