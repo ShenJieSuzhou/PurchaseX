@@ -8,13 +8,7 @@
 import Foundation
 import Security
 
-/// We should   store consumables in keychain becase their transaction are NOT  stored in the receipt。
-
-public struct ConsumableProductId: Hashable {
-    let productId: String
-    let count: Int
-}
-
+/// We should  store consumables in keychain becase their transaction are NOT  stored in the receipt。
 public struct PXDataPersistence {
     
     /// Add a consumable productId to keychain, and set the count  value to 1.
