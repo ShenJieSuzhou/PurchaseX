@@ -17,11 +17,10 @@ public class PurchaseXManager: NSObject, ObservableObject {
     /// Handle for App Store transactions
     private var transactionListener: Task<Void, Error>? = nil
     
-    /// Array of productID
-    private var purchasedProducts = [String]()
-    
+    /// Purchase state
     private var purchaseState: PurchaseXState = .notStarted
     
+    /// Array of consumable products
     public var consumableProducts: [Product]? {
         guard products != nil else {
             return nil
@@ -32,6 +31,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         })
     }
     
+    /// Array of nonConsumbale products
     public var nonConsumbaleProducts: [Product]? {
         guard products != nil else {
             return nil
@@ -42,6 +42,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         })
     }
     
+    /// Array of subscriptio products
     public var subscriptionProducts: [Product]? {
         guard products != nil else {
             return nil
@@ -52,6 +53,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         })
     }
     
+    /// Array of nonSubscription products
     public var nonSubscriptionProducts: [Product]? {
         guard products != nil else {
             return nil
@@ -100,7 +102,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         
         switch result {
         case .success(let verificationResult):
-            let checkResult = checkTransactionVerficationResult(result: verificationResult)
+            let checkResult = checkTransactionVerificationResult(result: verificationResult)
             if !checkResult.verified {
                 purchaseState = .failedVerification
                 throw PurchaseXException.transactionVerificationFailed
@@ -110,7 +112,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
             
             await validatedTransaction.finish()
             
-            // Because consumable's transaction are not stored in the receipt, So treat differerntly
+            // Because consumable's transaction are not stored in the receipt, So treat it differently.
             if validatedTransaction.productType == .consumable {
                 if !PXDataPersistence.purchase(productId: product.id){
                     PXLog.event(.consumableKeychainError)
@@ -130,11 +132,11 @@ public class PurchaseXManager: NSObject, ObservableObject {
         }
     }
     
+    /// Returns all productID  the user is currently entitled to, but without consumables products.
+    /// - Returns: A set of productID
     public func currentEntitlements() async -> Set<String> {
         var entitledProductIds = Set<String>()
-        
         for await result in Transaction.currentEntitlements {
-            
             if case .verified(let transaction) = result {
                 entitledProductIds.insert(transaction.productID)
             }
@@ -149,7 +151,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
     /// - Parameter productId: productid
     /// - Returns:true if purchased
     public func isPurchased(productId: String) async throws -> Bool {
-        return false
+
         guard let product  = product(from: productId) else {
             return false
         }
@@ -162,7 +164,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
             return false
         }
         
-        let result = checkTransactionVerficationResult(result: currentEntitlement)
+        let result = checkTransactionVerificationResult(result: currentEntitlement)
         if !result.verified {
             throw PurchaseXException.transactionVerificationFailed
         }
@@ -170,7 +172,9 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return result.transaction.revocationDate == nil && !result.transaction.isUpgraded
     }
     
-    /// Product associated with productId
+    /// Get a 'Product' object associated with productId
+    /// - Parameter productId:
+    /// - Returns:A Product object
     public func product(from productId: String) -> Product? {
         guard hasProducts() else {
             return nil
@@ -187,7 +191,8 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return matchProduct.first
     }
     
-    /// True if appstore products have been retrived via function
+    /// True if appstore products have been retrived from appstore
+    /// - Returns: True or false
     public func hasProducts() -> Bool {
         guard products != nil else {
             return false
@@ -196,6 +201,10 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return products!.count > 0 ? true : false
     }
     
+    
+    /// Returns all subscription productID and nonSubscription productID the user is currently entitled to
+    /// - Parameter onlyRenewable: If true return all subscription productID
+    /// - Returns: A array of productID
     public func activeSubscriptions(onlyRenewable: Bool = true) async -> [String] {
         
         var productId = Set<String>()
@@ -210,6 +219,8 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return Array(productId)
     }
     
+    /// Returns all NonConsumable productID the user is currently entitled to
+    /// - Returns: A array of NonConsumable productID
     public func purchasedNonConsumable() async -> [String] {
         var productId = Set<String>()
         
@@ -223,14 +234,22 @@ public class PurchaseXManager: NSObject, ObservableObject {
         return Array(productId)
     }
     
+    /// Sync signed transaction and renewal info with the App Store.
     public func restorePurchase() async throws {
         try await AppStore.sync()
     }
     
+    /// Present a UI and display all currently-subscribed products
+    /// - Parameter scene: UIWindowScene object
     public func showManageSubscriptions(in scene: UIWindowScene) async throws {
         try await AppStore.showManageSubscriptions(in: scene)
     }
     
+    /// Display the refund request sheet
+    /// - Parameters:
+    ///   - productId: productId
+    ///   - scene: UIWindowScene object
+    /// - Returns: True if refund successful
     public func beginRefundProcess(from productId: String, in scene: UIWindowScene) async throws -> Bool{
         
         let result = await Transaction.latest(for: productId)
@@ -241,30 +260,36 @@ public class PurchaseXManager: NSObject, ObservableObject {
                 let status = try await transaction.beginRefundRequest(in: scene)
                 switch status{
                 case .success:
+                    PXLog.event(.refundSuccess)
                     return true
                 case .userCancelled:
+                    PXLog.event(.refundUserCancel)
                     return false
                 @unknown default:
+                    PXLog.event(.refundFailure)
                     return false
                 }
             } catch {
+                PXLog.event(.refundFailure)
                 throw error
-                return false
             }
-        case .unverified(let transaction, let error):
-                throw(error)
-                return false
+        case .unverified(_, _):
+            PXLog.event(.refundFailure)
+            return false
         case .none:
+            PXLog.event(.refundFailure)
             return false
         }
     }
     
+    /// Observe transaction
+    /// - Returns: A Task object
     private func handTransaction() -> Task<Void, Error> {
 
             return Task.detached{
                 for await verificationResult in Transaction.updates {
                     
-                    let checkResult = self.checkTransactionVerficationResult(result: verificationResult)
+                    let checkResult = self.checkTransactionVerificationResult(result: verificationResult)
                     
                     if checkResult.verified {
                         let validatedTransaction = checkResult.transaction
@@ -276,9 +301,12 @@ public class PurchaseXManager: NSObject, ObservableObject {
             }
         }
     
-    private func checkTransactionVerficationResult(result: VerificationResult<Transaction>) -> (transaction: Transaction, verified: Bool) {
+    /// Verified Transaction
+    /// - Parameter result:  Transaction for products which we purchased
+    /// - Returns: The result of this verification
+    private func checkTransactionVerificationResult(result: VerificationResult<Transaction>) -> (transaction: Transaction, verified: Bool) {
             switch result {
-            case .unverified(let transaction, let error):
+            case .unverified(let transaction, _):
                 return (transaction: transaction, verified: false)
             case .verified(let transaction):
                 return (transaction: transaction, verified: true)
@@ -287,6 +315,8 @@ public class PurchaseXManager: NSObject, ObservableObject {
 }
 
 extension PurchaseXManager {
+    
+    /// Reset keychain
     public func resetKeychainConsumables(){
         guard products != nil else {
             return

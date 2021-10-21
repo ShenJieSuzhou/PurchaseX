@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E576097326C273C100877C3B /* PurchaseX.h in Headers */ = {isa = PBXBuildFile; fileRef = E576097126C273C100877C3B /* PurchaseX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5760A6E26C2740B00877C3B /* PurchaseXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576097B26C2740A00877C3B /* PurchaseXConstants.swift */; };
 		E5760A7026C2740B00877C3B /* PurchaseXException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576097D26C2740A00877C3B /* PurchaseXException.swift */; };
 		E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576098926C2740A00877C3B /* PurchaseXNotification.swift */; };
 		E5760A7C26C2740B00877C3B /* PurchaseXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576098A26C2740A00877C3B /* PurchaseXManager.swift */; };
 		E5760A7E26C2740B00877C3B /* PurchaseXState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576098C26C2740A00877C3B /* PurchaseXState.swift */; };
 		E5760B5726C2740B00877C3B /* PXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760A6B26C2740B00877C3B /* PXLog.swift */; };
-		E5760B5826C2740B00877C3B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5760A6C26C2740B00877C3B /* Configuration.swift */; };
 		E5BCAD1E271FD67D001905E5 /* PXDataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BCAD1D271FD67D001905E5 /* PXDataPersistence.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,13 +20,11 @@
 		E576096E26C273C100877C3B /* PurchaseX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PurchaseX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E576097126C273C100877C3B /* PurchaseX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PurchaseX.h; sourceTree = "<group>"; };
 		E576097226C273C100877C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E576097B26C2740A00877C3B /* PurchaseXConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXConstants.swift; sourceTree = "<group>"; };
 		E576097D26C2740A00877C3B /* PurchaseXException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXException.swift; sourceTree = "<group>"; };
 		E576098926C2740A00877C3B /* PurchaseXNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXNotification.swift; sourceTree = "<group>"; };
 		E576098A26C2740A00877C3B /* PurchaseXManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXManager.swift; sourceTree = "<group>"; };
 		E576098C26C2740A00877C3B /* PurchaseXState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseXState.swift; sourceTree = "<group>"; };
 		E5760A6B26C2740B00877C3B /* PXLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXLog.swift; sourceTree = "<group>"; };
-		E5760A6C26C2740B00877C3B /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		E5760E7326D3346900877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5760E7526D334C300877C3B /* Pods_PurchaseXTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_PurchaseXTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5760E7726D3370C00877C3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +74,6 @@
 		E576097926C2740A00877C3B /* PurchaseXHelper */ = {
 			isa = PBXGroup;
 			children = (
-				E576097B26C2740A00877C3B /* PurchaseXConstants.swift */,
 				E576097D26C2740A00877C3B /* PurchaseXException.swift */,
 				E576098926C2740A00877C3B /* PurchaseXNotification.swift */,
 				E576098A26C2740A00877C3B /* PurchaseXManager.swift */,
@@ -92,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				E5760A6B26C2740B00877C3B /* PXLog.swift */,
-				E5760A6C26C2740B00877C3B /* Configuration.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -189,8 +183,6 @@
 				E5760A7E26C2740B00877C3B /* PurchaseXState.swift in Sources */,
 				E5BCAD1E271FD67D001905E5 /* PXDataPersistence.swift in Sources */,
 				E5760A7026C2740B00877C3B /* PurchaseXException.swift in Sources */,
-				E5760B5826C2740B00877C3B /* Configuration.swift in Sources */,
-				E5760A6E26C2740B00877C3B /* PurchaseXConstants.swift in Sources */,
 				E5760A7B26C2740B00877C3B /* PurchaseXNotification.swift in Sources */,
 				E5760B5726C2740B00877C3B /* PXLog.swift in Sources */,
 				E5760A7C26C2740B00877C3B /* PurchaseXManager.swift in Sources */,
