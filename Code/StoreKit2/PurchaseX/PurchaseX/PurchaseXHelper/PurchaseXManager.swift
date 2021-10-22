@@ -38,7 +38,7 @@ public class PurchaseXManager: NSObject, ObservableObject {
         }
         
         return products?.filter({ product in
-            product.type == .nonRenewable
+            product.type == .nonConsumable
         })
     }
     

@@ -10,7 +10,6 @@ import PurchaseX
 
 struct ProductView: View {
     @EnvironmentObject var purchaseXManager: PurchaseXManager
-    @Binding var restore: Bool
     
     var productID: String
     var displayName: String
@@ -31,7 +30,7 @@ struct ProductView: View {
             
             Spacer()
             
-            PurchaseButton(restore: $restore, productID: productID, price: price)
+            PurchaseButton(productID: productID, price: price)
         }
         .padding()
     }

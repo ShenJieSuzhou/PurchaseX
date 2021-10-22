@@ -23,43 +23,44 @@ struct PriceView: View {
     var product: Product
     
     var body: some View {
-        
         let priceViewModel = PriceViewModel(purchaseXManager: purchaseXManager,
                                             purchasing: $purchasing,
                                             cancelled: $cancelled,
                                             pending: $pending,
                                             failed: $failed,
                                             purchased: $purchased)
-        
         HStack {
-//            if restore && purchaseXManager.isPurchased(productId: product.productID) && product.type == .Non_Consumable{
-//                Text("Free")
-//                    .font(.title2)
-//                    .foregroundColor(.white)
-//                    .padding()
-//                    .frame(height: 40)
-//                    .background(Color.gray)
-//                    .cornerRadius(25)
-//            } else {
-}
-//            }
-        
-            Button {
-                purchasing = true
-                purchased = false
-                // start a purchase
-                Task.init{
-                    await priceViewModel.purchase(product: product)
-                }
-            } label: {
-                Text(price)
+            if purchasing {
+                ProgressView()
+            }
+            
+            Spacer()
+            
+            if product.type != .consumable && purchased {
+                Text("Free")
                     .font(.title2)
                     .foregroundColor(.white)
                     .padding()
                     .frame(height: 40)
-                    .background(Color.blue)
+                    .background(Color.gray)
                     .cornerRadius(25)
-        
+            } else {
+                Button {
+                    purchasing = true
+                    // start a purchase
+                    Task.init{
+                        await priceViewModel.purchase(product: product)
+                    }
+                } label: {
+                    Text(price)
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(height: 40)
+                        .background(Color.blue)
+                        .cornerRadius(25)
+                }
+            }
         }
     }
 }

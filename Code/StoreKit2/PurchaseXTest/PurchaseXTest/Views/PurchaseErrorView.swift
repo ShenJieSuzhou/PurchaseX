@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PurchaseErrorView: View {
     var body: some View {
-        Text("Store Error")
+        Text("Error")
             .font(.title2)
             .foregroundColor(.white)
             .padding()

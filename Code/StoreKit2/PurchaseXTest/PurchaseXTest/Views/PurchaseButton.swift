@@ -7,10 +7,10 @@
 
 import SwiftUI
 import PurchaseX
+import StoreKit
 
 struct PurchaseButton: View {
     @EnvironmentObject var purchaseXManager:PurchaseXManager
-    @Binding var restore: Bool
     
     @State var purchasing: Bool = false
     @State var cancelled: Bool = false
@@ -23,56 +23,70 @@ struct PurchaseButton: View {
     var price: String
     
     var body: some View {
-        
         let product = purchaseXManager.product(from: productID)
+        if product == nil {
+            PurchaseErrorView()
+        } else {
+            HStack {
+                if pending && !bageViewSwitch {
+                    // failed
+                    BadgeView(purchaseState: .pending)
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                self.bageViewSwitch.toggle()
+                            }
+                    }
+                }
+                
+                if cancelled && !bageViewSwitch {
+                    // failed
+                    BadgeView(purchaseState: .cancelled)
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                self.bageViewSwitch.toggle()
+                            }
+                    }
+                }
+                
+                if purchased && !bageViewSwitch {
+                    // complete state
+                    BadgeView(purchaseState: .complete)
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                self.bageViewSwitch.toggle()
+                            }
+                    }
+                }
+                
+                Spacer()
         
-        HStack {
-            if purchasing {
-                ProgressView()
+                PriceView(purchasing: $purchasing,
+                          cancelled: $cancelled,
+                          pending: $pending,
+                          failed: $failed,
+                          purchased: $purchased,
+                          productID: productID,
+                          price: price,
+                          product: product!)
             }
-            
-            if failed && !bageViewSwitch {
-                // failed
-                BadgeView(purchaseState: .failed)
-                    .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            self.bageViewSwitch.toggle()
-                        }
+            .onAppear {
+                Task.init {
+                    await purchaseState(product: product!)
                 }
             }
-            
-            if purchased && !bageViewSwitch {
-                // complete state
-                BadgeView(purchaseState: .complete)
-                    .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            self.bageViewSwitch.toggle()
-                        }
-                }
+            .onChange(of: purchaseXManager.products) { newValue in
+                
             }
-            
-            Spacer()
+            .alert(isPresented: $failed) {
+                Alert(title: Text("Purchase Error"),
+                      message: Text("Sorry, your purchase of \(product!.displayName) failed."),
+                      dismissButton: .default(Text("OK")))
+            }
+        }
+    }
     
-            PriceView(purchasing: $purchasing,
-                      cancelled: $cancelled,
-                      pending: $pending,
-                      failed: $failed,
-                      purchased: $purchased,
-                      productID: productID,
-                      price: price,
-                      product: product!)
-        }
-        .onAppear {
-            
-        }
-        .onChange(of: purchaseXManager.products) { newValue in
-            
-        }
-        .alert(isPresented: $failed) {
-            Alert(title: Text("Purchase Error"),
-                  message: Text("Sorry, your purchase of \(product!.displayName) failed."),
-                  dismissButton: .default(Text("OK")))
-        }
+    func purchaseState(product: Product) async {
+        purchased = (try? await purchaseXManager.isPurchased(productId: productID)) ?? false
     }
 }
 
