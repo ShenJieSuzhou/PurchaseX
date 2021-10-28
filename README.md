@@ -1,9 +1,5 @@
 # PurchaseX
 
-## Update log:
-
-目前已支持 StoreKit2 🎉🎉🎉🎉;
-
 **PurchaseX** 是基于 Swift 语言开发，专门用于给您的应用或者游戏提供应用内购买（In-App_purchase）解决方案的轻量级 Framework；
 
 **PurchaseX** 能让开发者轻松的为应用程序集成苹果的应用内购买，目前最低支持 iOS 8.0 版本；
@@ -114,7 +110,10 @@ purchaseXManager.validateReceiptRemotely(shareSecret: "put your share secret key
                     }
                 }
 ```
-6. 未完待续
+
+## Update log:
+
+目前已支持 StoreKit2 🎉🎉🎉🎉;
 
 
 ## 联系方式：
